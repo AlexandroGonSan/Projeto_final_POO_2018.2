@@ -11,7 +11,7 @@ public class Produto {
     Integer ID; // ok
     Date validade;
     Integer lote; //ok
-    String re;
+    String re; 
     int quantidade; //ok
     String descricao; 
     double preco; //ok
@@ -36,12 +36,13 @@ public class Produto {
         
         
         System.out.println("Digite o nome do produto:");
-        this.descricao = scanf.next();
+        this.descricao = scanf.nextLine();
         
         System.out.println("Digite o preço do produto");
         this.preco = scanf.nextInt();
         
-        
+        System.out.println("Digite a data de validade do produto");
+        this.validade.setDate(scanf.nextInt());
         
         
         
