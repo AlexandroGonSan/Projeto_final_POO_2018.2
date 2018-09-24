@@ -5,10 +5,7 @@
  */
 package sistema.de.estoque;
 
-/**
- *
- * @author Luigi Muller
- */
+
 public class Entrada extends Relatorio {
     String fornecedor;
     @Override

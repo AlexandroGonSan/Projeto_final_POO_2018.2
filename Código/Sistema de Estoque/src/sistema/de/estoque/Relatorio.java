@@ -5,10 +5,7 @@
  */
 package sistema.de.estoque;
 import java.util.Date;
-/**
- *
- * @author Luigi Muller
- */
+
 public abstract class Relatorio {
     int quantidade;
     Date dataES;

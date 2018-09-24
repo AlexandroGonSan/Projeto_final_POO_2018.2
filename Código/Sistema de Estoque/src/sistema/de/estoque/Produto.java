@@ -6,10 +6,7 @@
 package sistema.de.estoque;
 
 import java.util.Date;
-/**
- *
- * @author Luigi Muller
- */
+
 public class Produto {
     Integer ID;
     Date validade;
@@ -23,6 +20,7 @@ public class Produto {
     static Integer quantidadeProdutos;
     
     public void cadastrarProduto(){
+        System.out.println("Digite o nome do Produto:");
         
     }
     public void excluirProduto(){
