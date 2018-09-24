@@ -16,6 +16,8 @@ public class SistemaDeEstoque {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Produto itens = new Produto();
+        itens.cadastrarProduto();
     }
     
 }
