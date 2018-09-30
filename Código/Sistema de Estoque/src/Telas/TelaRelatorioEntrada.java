@@ -28,7 +28,7 @@ public class TelaRelatorioEntrada extends javax.swing.JFrame {
     private void initComponents() {
 
         jOptionPane1 = new javax.swing.JOptionPane();
-        cdProdIn = new javax.swing.JComboBox<>();
+        cbProdIn = new javax.swing.JComboBox<>();
         cbFornecedorIn = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -45,7 +45,7 @@ public class TelaRelatorioEntrada extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        cdProdIn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Produto1", "Produto2", "Produto3", "Produto4" }));
+        cbProdIn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Produto1", "Produto2", "Produto3", "Produto4" }));
 
         cbFornecedorIn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fornecedor1", "Fornecedor2", "Fornecedor3", "Fornecedor4" }));
 
@@ -67,6 +67,11 @@ public class TelaRelatorioEntrada extends javax.swing.JFrame {
 
         btCleanRelatIn.setFont(new java.awt.Font("Bahnschrift", 1, 11)); // NOI18N
         btCleanRelatIn.setText("Limpar");
+        btCleanRelatIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCleanRelatInActionPerformed(evt);
+            }
+        });
 
         btCaneclRelatIn.setFont(new java.awt.Font("Bahnschrift", 1, 11)); // NOI18N
         btCaneclRelatIn.setText("Cancelar");
@@ -109,7 +114,7 @@ public class TelaRelatorioEntrada extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(cdProdIn, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbProdIn, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(cdProduto)
@@ -138,7 +143,7 @@ public class TelaRelatorioEntrada extends javax.swing.JFrame {
                         .addComponent(cdProduto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cdProdIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbProdIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tfQntEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(22, 22, 22)
                 .addComponent(jLabel3)
@@ -164,6 +169,15 @@ public class TelaRelatorioEntrada extends javax.swing.JFrame {
         TelaRelatorioEntrada.this.setVisible(false);
         new TelaInicial().setVisible(true);
     }//GEN-LAST:event_btCaneclRelatInActionPerformed
+
+    private void btCleanRelatInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCleanRelatInActionPerformed
+        this.taDescriRelatIn.setText("");
+        this.tfQntEntrada.setText("");
+        this.tfQuemRegRelatin.setText("");
+        
+        this.cbFornecedorIn.setSelectedIndex(0);
+        this.cbProdIn.setSelectedIndex(0);
+    }//GEN-LAST:event_btCleanRelatInActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,7 +219,7 @@ public class TelaRelatorioEntrada extends javax.swing.JFrame {
     private javax.swing.JButton btCleanRelatIn;
     private javax.swing.JButton btRegRelatIn;
     private javax.swing.JComboBox<String> cbFornecedorIn;
-    private javax.swing.JComboBox<String> cdProdIn;
+    private javax.swing.JComboBox<String> cbProdIn;
     private javax.swing.JLabel cdProduto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

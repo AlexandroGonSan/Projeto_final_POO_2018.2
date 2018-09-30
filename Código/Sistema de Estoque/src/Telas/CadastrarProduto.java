@@ -103,6 +103,11 @@ public class CadastrarProduto extends javax.swing.JFrame {
 
         botaoLimparCampos.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         botaoLimparCampos.setText("Limpar");
+        botaoLimparCampos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoLimparCamposActionPerformed(evt);
+            }
+        });
 
         botaoCancelar.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         botaoCancelar.setText("Cancelar");
@@ -235,6 +240,20 @@ public class CadastrarProduto extends javax.swing.JFrame {
         CadastrarProduto.this.setVisible(false);
         new TelaInicial().setVisible(true);
     }//GEN-LAST:event_botaoCancelarActionPerformed
+
+    private void botaoLimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparCamposActionPerformed
+        this.tfLote.setText("");
+        this.tfQntMin.setText("");
+        this.tfQnt.setText("");
+        this.tfPreco.setText("");
+        this.tfNome.setText("");
+        this.taDescricao.setText("");
+        
+        this.cbAnoVal.setSelectedIndex(0);
+        this.cbMesVal.setSelectedIndex(0);
+        this.cbDiaVal.setSelectedIndex(0);
+        this.cbCategoria.setSelectedIndex(0);
+    }//GEN-LAST:event_botaoLimparCamposActionPerformed
 
     /**
      * @param args the command line arguments

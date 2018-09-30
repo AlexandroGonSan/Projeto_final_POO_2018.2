@@ -61,6 +61,11 @@ public class TelaInicial extends javax.swing.JFrame {
 
         botaoRelatSaida.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         botaoRelatSaida.setText("Registrar Relatório de Saída");
+        botaoRelatSaida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoRelatSaidaActionPerformed(evt);
+            }
+        });
 
         Menu1.setText("Informações");
 
@@ -127,6 +132,11 @@ public class TelaInicial extends javax.swing.JFrame {
         TelaInicial.this.setVisible(false);
         new TelaRelatorioEntrada().setVisible(true);
     }//GEN-LAST:event_botaoRelatEntradaActionPerformed
+
+    private void botaoRelatSaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRelatSaidaActionPerformed
+        TelaInicial.this.setVisible(false);
+        new TelaRelatorioSaida().setVisible(true);
+    }//GEN-LAST:event_botaoRelatSaidaActionPerformed
 
     /**
      * @param args the command line arguments
