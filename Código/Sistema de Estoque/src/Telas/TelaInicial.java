@@ -27,11 +27,12 @@ public class TelaInicial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        botaoCadNovoProd = new javax.swing.JButton();
-        botaoListarProds = new javax.swing.JButton();
-        botaoRelatEntrada = new javax.swing.JButton();
-        botaoRelatSaida = new javax.swing.JButton();
+        btCadNovoProd = new javax.swing.JButton();
+        btListarProds = new javax.swing.JButton();
+        btRelatEntrada = new javax.swing.JButton();
+        btRelatSaida = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btAlterarProduto = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         Menu1 = new javax.swing.JMenu();
         menuSobre = new javax.swing.JMenuItem();
@@ -40,35 +41,43 @@ public class TelaInicial extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        botaoCadNovoProd.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        botaoCadNovoProd.setText("Cadastrar Novo Produto");
-        botaoCadNovoProd.addActionListener(new java.awt.event.ActionListener() {
+        btCadNovoProd.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        btCadNovoProd.setText("Cadastrar Novo Produto");
+        btCadNovoProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoCadNovoProdActionPerformed(evt);
+                btCadNovoProdActionPerformed(evt);
             }
         });
 
-        botaoListarProds.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        botaoListarProds.setText("Listar Produtos");
-        botaoListarProds.addActionListener(new java.awt.event.ActionListener() {
+        btListarProds.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        btListarProds.setText("Listar Produtos");
+        btListarProds.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoListarProdsActionPerformed(evt);
+                btListarProdsActionPerformed(evt);
             }
         });
 
-        botaoRelatEntrada.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        botaoRelatEntrada.setText("Registrar Relatório de Entrada");
-        botaoRelatEntrada.addActionListener(new java.awt.event.ActionListener() {
+        btRelatEntrada.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        btRelatEntrada.setText("Registrar Relatório de Entrada");
+        btRelatEntrada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoRelatEntradaActionPerformed(evt);
+                btRelatEntradaActionPerformed(evt);
             }
         });
 
-        botaoRelatSaida.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        botaoRelatSaida.setText("Registrar Relatório de Saída");
-        botaoRelatSaida.addActionListener(new java.awt.event.ActionListener() {
+        btRelatSaida.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        btRelatSaida.setText("Registrar Relatório de Saída");
+        btRelatSaida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoRelatSaidaActionPerformed(evt);
+                btRelatSaidaActionPerformed(evt);
+            }
+        });
+
+        btAlterarProduto.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        btAlterarProduto.setText("Alterar Produto");
+        btAlterarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAlterarProdutoActionPerformed(evt);
             }
         });
 
@@ -95,10 +104,11 @@ public class TelaInicial extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(75, 75, 75)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(botaoRelatSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(botaoRelatEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(botaoListarProds, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(botaoCadNovoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btRelatSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btRelatEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btListarProds, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btCadNovoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btAlterarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(200, 200, 200)
                         .addComponent(jLabel1)))
@@ -110,43 +120,50 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(jLabel1)
                 .addGap(30, 30, 30)
-                .addComponent(botaoCadNovoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btCadNovoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botaoListarProds, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btListarProds, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botaoRelatEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btAlterarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btRelatEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botaoRelatSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addComponent(btRelatSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botaoCadNovoProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadNovoProdActionPerformed
+    private void btCadNovoProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadNovoProdActionPerformed
         TelaInicial.this.setVisible(false);
         new CadastrarProduto().setVisible(true);
-    }//GEN-LAST:event_botaoCadNovoProdActionPerformed
+    }//GEN-LAST:event_btCadNovoProdActionPerformed
 
     private void menuSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSobreActionPerformed
         new Sobre().setVisible(true);
     }//GEN-LAST:event_menuSobreActionPerformed
 
-    private void botaoRelatEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRelatEntradaActionPerformed
+    private void btRelatEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRelatEntradaActionPerformed
         TelaInicial.this.setVisible(false);
         new TelaRelatorioEntrada().setVisible(true);
-    }//GEN-LAST:event_botaoRelatEntradaActionPerformed
+    }//GEN-LAST:event_btRelatEntradaActionPerformed
 
-    private void botaoRelatSaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRelatSaidaActionPerformed
+    private void btRelatSaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRelatSaidaActionPerformed
         TelaInicial.this.setVisible(false);
         new TelaRelatorioSaida().setVisible(true);
-    }//GEN-LAST:event_botaoRelatSaidaActionPerformed
+    }//GEN-LAST:event_btRelatSaidaActionPerformed
 
-    private void botaoListarProdsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoListarProdsActionPerformed
+    private void btListarProdsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btListarProdsActionPerformed
         TelaInicial.this.setVisible(false);
         new TelaListarProdutos().setVisible(true);
-    }//GEN-LAST:event_botaoListarProdsActionPerformed
+    }//GEN-LAST:event_btListarProdsActionPerformed
+
+    private void btAlterarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarProdutoActionPerformed
+        TelaInicial.this.setVisible(false);
+        new TelaAlterarProduto().setVisible(true);
+    }//GEN-LAST:event_btAlterarProdutoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,10 +202,11 @@ public class TelaInicial extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Menu1;
-    private javax.swing.JButton botaoCadNovoProd;
-    private javax.swing.JButton botaoListarProds;
-    private javax.swing.JButton botaoRelatEntrada;
-    private javax.swing.JButton botaoRelatSaida;
+    private javax.swing.JButton btAlterarProduto;
+    private javax.swing.JButton btCadNovoProd;
+    private javax.swing.JButton btListarProds;
+    private javax.swing.JButton btRelatEntrada;
+    private javax.swing.JButton btRelatSaida;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem menuSobre;

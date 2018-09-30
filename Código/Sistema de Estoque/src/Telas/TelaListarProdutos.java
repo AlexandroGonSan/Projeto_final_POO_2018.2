@@ -54,6 +54,11 @@ public class TelaListarProdutos extends javax.swing.JFrame {
 
         btAlterarProd.setFont(new java.awt.Font("Bahnschrift", 1, 11)); // NOI18N
         btAlterarProd.setText("Alterar Produto");
+        btAlterarProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAlterarProdActionPerformed(evt);
+            }
+        });
 
         btVoltarLista.setFont(new java.awt.Font("Bahnschrift", 1, 11)); // NOI18N
         btVoltarLista.setText("Voltar");
@@ -138,6 +143,11 @@ public class TelaListarProdutos extends javax.swing.JFrame {
         TelaListarProdutos.this.setVisible(false);
         new TelaInicial().setVisible(true);
     }//GEN-LAST:event_btVoltarListaActionPerformed
+
+    private void btAlterarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarProdActionPerformed
+        TelaListarProdutos.this.setVisible(false);
+        new TelaAlterarProduto().setVisible(true);
+    }//GEN-LAST:event_btAlterarProdActionPerformed
 
     /**
      * @param args the command line arguments

@@ -56,10 +56,11 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="botaoRelatSaida" min="-2" pref="300" max="-2" attributes="0"/>
-                          <Component id="botaoRelatEntrada" min="-2" pref="300" max="-2" attributes="0"/>
-                          <Component id="botaoListarProds" min="-2" pref="300" max="-2" attributes="0"/>
-                          <Component id="botaoCadNovoProd" min="-2" pref="300" max="-2" attributes="0"/>
+                          <Component id="btRelatSaida" min="-2" pref="300" max="-2" attributes="0"/>
+                          <Component id="btRelatEntrada" min="-2" pref="300" max="-2" attributes="0"/>
+                          <Component id="btListarProds" min="-2" pref="300" max="-2" attributes="0"/>
+                          <Component id="btCadNovoProd" min="-2" pref="300" max="-2" attributes="0"/>
+                          <Component id="btAlterarProduto" alignment="1" min="-2" pref="300" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -77,20 +78,22 @@
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              <Component id="botaoCadNovoProd" min="-2" pref="35" max="-2" attributes="0"/>
+              <Component id="btCadNovoProd" min="-2" pref="35" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="botaoListarProds" min="-2" pref="35" max="-2" attributes="0"/>
+              <Component id="btListarProds" min="-2" pref="35" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="botaoRelatEntrada" min="-2" pref="35" max="-2" attributes="0"/>
+              <Component id="btAlterarProduto" min="-2" pref="35" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+              <Component id="btRelatEntrada" min="-2" pref="35" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="botaoRelatSaida" min="-2" pref="35" max="-2" attributes="0"/>
-              <EmptySpace pref="136" max="32767" attributes="0"/>
+              <Component id="btRelatSaida" min="-2" pref="35" max="-2" attributes="0"/>
+              <EmptySpace pref="91" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="botaoCadNovoProd">
+    <Component class="javax.swing.JButton" name="btCadNovoProd">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Bahnschrift" size="14" style="1"/>
@@ -98,10 +101,10 @@
         <Property name="text" type="java.lang.String" value="Cadastrar Novo Produto"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoCadNovoProdActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btCadNovoProdActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="botaoListarProds">
+    <Component class="javax.swing.JButton" name="btListarProds">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Bahnschrift" size="14" style="1"/>
@@ -109,10 +112,10 @@
         <Property name="text" type="java.lang.String" value="Listar Produtos"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoListarProdsActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btListarProdsActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="botaoRelatEntrada">
+    <Component class="javax.swing.JButton" name="btRelatEntrada">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Bahnschrift" size="14" style="1"/>
@@ -120,10 +123,10 @@
         <Property name="text" type="java.lang.String" value="Registrar Relat&#xf3;rio de Entrada"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoRelatEntradaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btRelatEntradaActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="botaoRelatSaida">
+    <Component class="javax.swing.JButton" name="btRelatSaida">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Bahnschrift" size="14" style="1"/>
@@ -131,10 +134,21 @@
         <Property name="text" type="java.lang.String" value="Registrar Relat&#xf3;rio de Sa&#xed;da"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoRelatSaidaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btRelatSaidaActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
+    </Component>
+    <Component class="javax.swing.JButton" name="btAlterarProduto">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Bahnschrift" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Alterar Produto"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAlterarProdutoActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
