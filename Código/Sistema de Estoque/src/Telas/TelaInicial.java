@@ -50,6 +50,11 @@ public class TelaInicial extends javax.swing.JFrame {
 
         botaoListarProds.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         botaoListarProds.setText("Listar Produtos");
+        botaoListarProds.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoListarProdsActionPerformed(evt);
+            }
+        });
 
         botaoRelatEntrada.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         botaoRelatEntrada.setText("Registrar Relatório de Entrada");
@@ -137,6 +142,11 @@ public class TelaInicial extends javax.swing.JFrame {
         TelaInicial.this.setVisible(false);
         new TelaRelatorioSaida().setVisible(true);
     }//GEN-LAST:event_botaoRelatSaidaActionPerformed
+
+    private void botaoListarProdsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoListarProdsActionPerformed
+        TelaInicial.this.setVisible(false);
+        new TelaListarProdutos().setVisible(true);
+    }//GEN-LAST:event_botaoListarProdsActionPerformed
 
     /**
      * @param args the command line arguments
