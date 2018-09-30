@@ -36,6 +36,7 @@ public class Sobre extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
 
         jLabel5.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
@@ -47,7 +48,7 @@ public class Sobre extends javax.swing.JFrame {
         jLabel3.setText("Sistema para gerenciamento de Estoque voltado para");
 
         jLabel4.setFont(new java.awt.Font("Bahnschrift", 1, 16)); // NOI18N
-        jLabel4.setText("gerenciamento de estoque de farmácias.");
+        jLabel4.setText("estabelecimentos farmacêuticos");
 
         jLabel6.setFont(new java.awt.Font("Bahnschrift", 1, 10)); // NOI18N
         jLabel6.setText("Todos os direitos Reservados");
@@ -60,81 +61,88 @@ public class Sobre extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        jLabel7.setText("Autores: Tarlison");
+        jLabel7.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        jLabel7.setText("Autores: Tarlison Sanders Lima Brito");
 
-        jLabel8.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        jLabel8.setText("Luigi");
+        jLabel8.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        jLabel8.setText("Luigi Muller S. Linhares");
 
-        jLabel9.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        jLabel9.setText("Joshua");
+        jLabel9.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        jLabel9.setText("Joshua Kook Ho Pereira");
 
-        jLabel10.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        jLabel10.setText("Francis");
+        jLabel10.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        jLabel10.setText("Francis Nutefe Tsigbey");
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Telas/LuluTeam15psi(v2).png"))); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
+        jLabel2.setText("Team");
+
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 255, 0));
+        jLabel11.setText("Lulu");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel6)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel4)
-                        .addComponent(jLabel3)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel7)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(57, 57, 57)
-                                    .addComponent(jLabel8)))
-                            .addGap(34, 34, 34)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel10)
-                                .addComponent(jLabel9)))))
-                .addGap(0, 94, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(110, 110, 110)
+                .addGap(140, 140, 140)
                 .addComponent(jLabel11)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(66, 66, 66)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel10)))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addGap(0, 22, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel11)
-                .addGap(43, 43, 43)
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel2))
+                .addGap(40, 40, 40)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel9))
+                .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel10)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel10))
-                .addGap(16, 16, 16)
-                .addComponent(jButton1)
-                .addContainerGap())
+                    .addComponent(jLabel6)
+                    .addComponent(jButton1))
+                .addGap(16, 16, 16))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Sobre.this.setVisible(false);
-        new TelaInicial().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -176,6 +184,7 @@ public class Sobre extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
