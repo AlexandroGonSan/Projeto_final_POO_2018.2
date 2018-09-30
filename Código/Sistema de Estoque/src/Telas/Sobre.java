@@ -28,8 +28,6 @@ public class Sobre extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel5 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -38,26 +36,20 @@ public class Sobre extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         jLabel5.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jLabel5.setText("gerenciamento de estoque de farmácias.");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        jLabel1.setText("Team's System");
-
-        jLabel2.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 255, 0));
-        jLabel2.setText("Lulu");
-
-        jLabel3.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Bahnschrift", 1, 16)); // NOI18N
         jLabel3.setText("Sistema para gerenciamento de Estoque voltado para");
 
-        jLabel4.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Bahnschrift", 1, 16)); // NOI18N
         jLabel4.setText("gerenciamento de estoque de farmácias.");
 
-        jLabel6.setFont(new java.awt.Font("Bahnschrift", 1, 8)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Bahnschrift", 1, 10)); // NOI18N
         jLabel6.setText("Todos os direitos Reservados");
 
         jButton1.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
@@ -68,17 +60,19 @@ public class Sobre extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jLabel7.setText("Autores: Tarlison");
 
-        jLabel8.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jLabel8.setText("Luigi");
 
-        jLabel9.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jLabel9.setText("Joshua");
 
-        jLabel10.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jLabel10.setText("Francis");
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Telas/LuluTeam15psi(v2).png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,15 +80,8 @@ public class Sobre extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1)
-                        .addGap(75, 75, 75))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -112,22 +99,24 @@ public class Sobre extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel10)
                                 .addComponent(jLabel9)))))
-                .addGap(0, 33, Short.MAX_VALUE))
+                .addGap(0, 94, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(jLabel11)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
                 .addGap(29, 29, 29)
+                .addComponent(jLabel11)
+                .addGap(43, 43, 43)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jLabel9))
@@ -185,9 +174,8 @@ public class Sobre extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
