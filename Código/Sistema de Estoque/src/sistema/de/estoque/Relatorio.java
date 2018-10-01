@@ -9,7 +9,7 @@ public abstract class Relatorio {
     Date dataES; //acho melhor a gente parar de usar a classe DATE e deixar só String mesmo
     Produto produto;
     Integer protocolo;
-    int quantidadeProtocolo;
+    static int quantidadeProtocolo;
     
     /*Método para gerar relatório com todas as informações do produto*/
     public void gerarRelatorio(){
