@@ -5,6 +5,8 @@
  */
 package Telas;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Kook Ho
@@ -33,6 +35,11 @@ public class TelaInicial extends javax.swing.JFrame {
         btRelatSaida = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btAlterarProduto = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         Menu1 = new javax.swing.JMenu();
         menuSobre = new javax.swing.JMenuItem();
@@ -74,12 +81,37 @@ public class TelaInicial extends javax.swing.JFrame {
         });
 
         btAlterarProduto.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        btAlterarProduto.setText("Alterar Produto");
+        btAlterarProduto.setText("Alterar Produto *");
         btAlterarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btAlterarProdutoActionPerformed(evt);
             }
         });
+
+        jLabel3.setFont(new java.awt.Font("Bahnschrift", 1, 10)); // NOI18N
+        jLabel3.setText("* Mantenha em mente os ID e campos do produto a serem alterados");
+
+        jButton1.setBackground(new java.awt.Color(0, 102, 204));
+        jButton1.setFont(new java.awt.Font("Bell MT", 1, 14)); // NOI18N
+        jButton1.setText("i");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel2.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 102, 0));
+        jLabel2.setText("torage");
+
+        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel4.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel4.setText("EX");
+
+        jLabel5.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
+        jLabel5.setText("(Prototype)");
 
         Menu1.setText("Informações");
 
@@ -110,26 +142,50 @@ public class TelaInicial extends javax.swing.JFrame {
                             .addComponent(btCadNovoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btAlterarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(200, 200, 200)
-                        .addComponent(jLabel1)))
+                        .addGap(277, 277, 277)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3)))
                 .addContainerGap(75, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel2)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel5)
+                .addGap(84, 84, 84)
+                .addComponent(jButton1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(0, 8, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(btCadNovoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btListarProds, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btAlterarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addGap(18, 18, 18)
                 .addComponent(btRelatEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btRelatSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addComponent(jLabel3)
+                .addContainerGap())
         );
 
         pack();
@@ -164,6 +220,14 @@ public class TelaInicial extends javax.swing.JFrame {
         TelaInicial.this.setVisible(false);
         new TelaAlterarProduto().setVisible(true);
     }//GEN-LAST:event_btAlterarProdutoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JOptionPane.showMessageDialog(null, "Cadastrar Produto - Cadastra um novo produto ainda não presente no estoque atual.\n\n" + 
+                "Listar Produtos - Mostra uma lista com os produtos atualmente cadastrados e suas respectivas informações.\n\n" + 
+                "Alterar Produto - Possibilita alterar as informações de um produto cadastrado (Tenha em mente o ID e os campos do produto!).\n\n" +
+                "Registrar Relatório de Entrada - Gera um relatório que registra qual produto entrou no estoque e quantos dele entraram.\n\n" +
+                "Registrar Relatório de Saída - Gera um relatório que registra qual produto saiu do estoque,S para onde e quantos deste produto sairam.");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,7 +271,12 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JButton btListarProds;
     private javax.swing.JButton btRelatEntrada;
     private javax.swing.JButton btRelatSaida;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem menuSobre;
     // End of variables declaration//GEN-END:variables
