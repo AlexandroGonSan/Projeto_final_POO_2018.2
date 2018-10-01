@@ -1,15 +1,12 @@
-/*
-
+/**Sistema onde conterá a função main do programa
+ * @author LuluTeam
  */
-package sistema.de.estoque;
 
+package sistema.de.estoque;
 
 import java.util.ArrayList;
 import java.util.List;
-/**
- *
- * @author LuluTeam
- */
+
 public class SistemaDeEstoque {
 
     /**
