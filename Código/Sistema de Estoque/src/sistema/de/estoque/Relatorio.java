@@ -13,9 +13,9 @@ public abstract class Relatorio {
     
     /*Método para gerar relatório com todas as informações do produto*/
     public void gerarRelatorio(){
-        System.out.println("Produto: "+this.produto);
-        System.out.println("Quantidade do produto: "+this.quantidade);
-        System.out.println("Número do protocolo: "+this.protocolo);
+        //System.out.println("Produto: "+this.produto);
+        //System.out.println("Quantidade do produto: "+this.quantidade);
+        //System.out.println("Número do protocolo: "+this.protocolo);
         //System.out.println("");
     }
 }

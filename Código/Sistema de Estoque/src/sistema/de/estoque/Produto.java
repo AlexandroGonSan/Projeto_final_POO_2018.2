@@ -17,23 +17,22 @@ public class Produto {
     
     Scanner scanf = new Scanner(System.in);
     
-    public Produto(){
-        this.cadastrarProduto();
-    }
-    
+    //public Produto(){
+      //  this.cadastrarProduto();
+    //}
     /**Método para cadastrar as informações quando o produto for inserido.
      * Como é um cadastro, todas as informações são inseridas agora.
      */
     
     public void cadastrarProduto(){
         
-        System.out.println("Digite o ID do produto");
+        System.out.println("Digite o ID do produ1to");
         this.ID = scanf.nextInt();
         
         System.out.println("Digite o dia de validade");
         this.validade.setDate(scanf.nextInt());
         
-        System.out.println("Digite o mês de validade");
+        System.out.println("Digite o mês de val idade");
         this.validade.setMonth(scanf.nextInt());
         
         System.out.println("Digite o ano de validade");
@@ -42,13 +41,14 @@ public class Produto {
         System.out.println("Digite o lote do produto");
         this.lote = scanf.nextInt();
         
+        System.out.println("Digite o nome do produto:");
+        this.nome = scanf.next();
+        
         do{
         System.out.println("Digite a quantidade que será cadastrada");
         this.quantidade = scanf.nextInt();
         }while(this.quantidade < 0);
-        
-        System.out.println("Digite o nome do produto:");
-        this.nome = scanf.nextLine();
+    
         
         do{
         System.out.println("Digite o preço do produto");
@@ -63,7 +63,7 @@ public class Produto {
         do{
             System.out.println("Digite o tipo a ser selecionado (higiene, alimento ou medicamento): ");
             this.categoria = scanf.next();
-        }while(this.setCategoria(this.categoria)); //analisa se a resposta se encontra nos padrões
+        }while(this.setCategoria(this.categoria) == false); //analisa se a resposta se encontra nos padrões
         
         if (this.quantidadeMinima > this.quantidade){
             System.out.println("Quantidade abaixo do mínimo!");

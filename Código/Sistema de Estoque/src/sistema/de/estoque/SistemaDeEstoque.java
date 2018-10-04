@@ -14,12 +14,15 @@ public class SistemaDeEstoque {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
-        List<Produto> produtos = new ArrayList<>();
+        /*List<Produto> produtos = new ArrayList<>();
         List<Fornecedor> fornecedores = new ArrayList<>();
-        List<Relatorio> relatorios = new ArrayList<>();
+        List<Relatorio> relatorios = new ArrayList<>();*/
+        Produto produto = new Produto();
+        produto.cadastrarProduto();
+        //produto.setCategoria("Higiene");
         
         
     }
+
     
 }
