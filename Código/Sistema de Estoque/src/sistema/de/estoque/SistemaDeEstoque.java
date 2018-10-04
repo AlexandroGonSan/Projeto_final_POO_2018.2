@@ -6,6 +6,7 @@ package sistema.de.estoque;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class SistemaDeEstoque {
 
@@ -17,9 +18,32 @@ public class SistemaDeEstoque {
         /*List<Produto> produtos = new ArrayList<>();
         List<Fornecedor> fornecedores = new ArrayList<>();
         List<Relatorio> relatorios = new ArrayList<>();*/
-        Produto produto = new Produto();
-        produto.cadastrarProduto();
+        //produto.cadastrarProduto();
         //produto.setCategoria("Higiene");
+        int opcao;
+        Scanner scanf = new Scanner(System.in);
+        System.out.println("O que deseja fazer ? Digite o número da opção desejada:");
+        System.out.println("1 - Adicionar Produtos ao estoque");
+        System.out.println("2 - Remover Produtos do estoque");
+        System.out.println("3 - Gerar Relatório das ultimas alterações no estoque");
+        System.out.println("4 - Gerar Relatório APENAS das ultimas entradas");
+        System.out.println("5 - Gerar Relatório APENAS das ultimas saídas");
+        opcao = scanf.nextInt();
+        switch case (opcao){
+            case 1:
+                
+            case 2:
+            
+            case 3:
+            
+            case 4:
+            
+            case 5:
+        }
+                
+                
+                
+         Produto produto = new Produto();
         
         
     }
