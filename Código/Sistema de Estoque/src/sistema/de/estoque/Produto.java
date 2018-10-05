@@ -28,14 +28,15 @@ public class Produto {
         
         System.out.println("Digite o nome do produto:");
         this.nome = scanf.next();
+        this.nome = this.nome.toUpperCase();
         
-        System.out.println("Digite o ID do produ1to");
+        System.out.println("Digite o ID do produto");
         this.ID = scanf.nextInt();
         
         System.out.println("Digite o dia de validade");
         this.validade.setDate(scanf.nextInt());
         
-        System.out.println("Digite o mês de val idade");
+        System.out.println("Digite o mês de validade");
         this.validade.setMonth(scanf.nextInt());
         
         System.out.println("Digite o ano de validade");
@@ -78,15 +79,15 @@ public class Produto {
     public boolean setCategoria(String valor){
         String aux = valor.toUpperCase();
         if(aux.equals("HIGIENE")){
-            this.categoria = "Higiene";
+            this.categoria = "HIGIENE";
             return true;
         }
         if(aux.equals("ALIMENTO")){
-            this.categoria = "Alimento";
+            this.categoria = "ALIMENTO";
             return true;
         }
         if(aux.equals("MEDICAMENTO")){
-            this.categoria = "Medicamento";
+            this.categoria = "MEDICAMENTO";
             return true;
         }
         return false;
@@ -101,6 +102,10 @@ public class Produto {
      */
     public int getQuantidade(){
         return this.quantidade;
+    }
+    
+    public boolean setQuantidade(int valor){
+        
     }
     
     @Override
