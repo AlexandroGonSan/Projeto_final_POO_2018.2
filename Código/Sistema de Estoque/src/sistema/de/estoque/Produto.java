@@ -8,14 +8,14 @@ import java.util.Scanner;
 public class Produto {
     Integer ID; // ok
     Date validade = new Date(); //ok
-    Integer lote; //ok
-    int quantidade; //ok
+    String lote; //ok
+    int quantidade = 0; //ok
     int quantidadeMinima; //ok
     String nome; //ok
     double preco; //ok
     String categoria; //ok
     
-    Scanner scanf = new Scanner(System.in);
+     private Scanner scanf = new Scanner(System.in);
     
     public Produto(){
         this.cadastrarProduto();
@@ -30,37 +30,36 @@ public class Produto {
         this.nome = scanf.next();
         this.nome = this.nome.toUpperCase();
         
-        System.out.println("Digite o ID do produto");
+        System.out.println("Digite o ID do produto:");
         this.ID = scanf.nextInt();
         
-        System.out.println("Digite o dia de validade");
+        System.out.println("Digite o dia de validade:");
         this.validade.setDate(scanf.nextInt());
         
-        System.out.println("Digite o mês de validade");
+        System.out.println("Digite o mês de validade:");
         this.validade.setMonth(scanf.nextInt());
         
-        System.out.println("Digite o ano de validade");
+        System.out.println("Digite o ano de validade:");
         this.validade.setYear(scanf.nextInt());
+        scanf.nextLine();//isso corrige o erro de pular a próxima inserção
         
-        System.out.println("Digite o lote do produto");
-        this.lote = scanf.nextInt();
-      
-        
-        do{
-        System.out.println("Digite a quantidade que será cadastrada");
-        this.quantidade = scanf.nextInt();
-        }while(this.quantidade < 0);
-    
+        System.out.println("Digite o lote do produto:");
+        this.lote = scanf.nextLine();
         
         do{
-        System.out.println("Digite o preço do produto");
-        this.preco = scanf.nextDouble();
-        }while(this.preco <= 0);
-        
-        do{
-        System.out.println("Digite a quantidade mínima");
+        System.out.println("Digite a quantidade mínima tolerável:");
         this.quantidadeMinima = scanf.nextInt();
         }while(this.quantidadeMinima < 0);
+        
+        do{
+        System.out.println("Digite a quantidade que será cadastrada:");
+        this.quantidade = scanf.nextInt();
+        }while(this.quantidade < 0);
+
+        do{
+        System.out.println("Digite o preço do produto (use vírgula para separar a parte inteira):");
+        this.preco = scanf.nextDouble();
+        }while(this.preco <= 0);
         
         do{
             System.out.println("Digite o tipo a ser selecionado (higiene, alimento ou medicamento): ");
@@ -70,6 +69,7 @@ public class Produto {
         if (this.quantidadeMinima > this.quantidade){
             System.out.println("Quantidade abaixo do mínimo!");
         }
+        System.out.println();
     }
     
     /**A função recebe o nome da categoria e valida caso esteja nas categorias.
@@ -104,12 +104,31 @@ public class Produto {
         return this.quantidade;
     }
     
-    public boolean setQuantidade(int valor){
-        
+    public boolean reporQuantia(int valor){
+        if(valor > 0){
+            this.quantidade += valor;
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean retirarQuantia(int valor){
+        if(valor > 0 && valor < this.quantidade){
+            this.quantidade -= valor;
+            if (this.quantidadeMinima > this.quantidade){//analisa se a quantidade atual é menor que a do mínimo
+                System.out.println("Quantidade abaixo do mínimo!");
+            }
+            return true;
+        }
+        return false;
     }
     
     @Override
     public String toString(){
         return this.nome;
+    }
+    
+    public String getValidade(){
+        return this.validade.getDate() + "/" + this.validade.getMonth() + "/" + this.validade.getYear();
     }
 }

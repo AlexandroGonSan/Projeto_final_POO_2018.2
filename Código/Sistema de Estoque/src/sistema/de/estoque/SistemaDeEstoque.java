@@ -20,6 +20,7 @@ public class SistemaDeEstoque {
         List<Relatorio> relatorios = new ArrayList<>();
         
         int opcao = 0;
+        int intAux;
         String strAux;
         
         Scanner scanf = new Scanner(System.in);
@@ -33,9 +34,11 @@ public class SistemaDeEstoque {
             System.out.println("4 - Gerar Relatório das alterações no estoque");
             //acho que precisamos no momento uma opção para mostrar só um relatório, depois adicionamos mais opções
             System.out.println("5 - Adicionar fornecedor ao sistema");
+            System.out.println("6 - Exibir produtos");
             System.out.println("10 - Sair do programa");
             
             opcao = scanf.nextInt();
+            scanf.nextLine();//isso corrige o erro de pular a próxima inserção
             
             switch (opcao){
                 case 1:
@@ -67,9 +70,21 @@ public class SistemaDeEstoque {
                             System.out.println(cont + ": " + listAux.get(cont).ID + "," + listAux.get(cont).nome);
                             //exibe uma lista dos itens contendo esse nome mostrando a ID e o nome
                         }
+                        do{
+                            System.out.println("Selecione qual produto deseja alterar: ");
+                            intAux = scanf.nextInt();
+                        }while(intAux < 0 || intAux > listAux.size());
+                        //espera receber o valor válido
+                        int quantidade;
+                        do{
+                            System.out.println("Insira a quantidade a inserir: ");
+                            quantidade = scanf.nextInt();
+                        }while(quantidade <= 0);
+                        //espera receber valor válido
+                        listAux.get(intAux).reporQuantia(quantidade);
                         //TODO falta fazer a seleção do item e inserir a quantidade
                     }
-                    
+                    System.out.println("Retornando ao menu principal");
                     break;
                 case 3:
                     break;
@@ -77,17 +92,19 @@ public class SistemaDeEstoque {
                     break;
                 case 5:
                     break;
+                case 6:
+                    for(Produto prod : produtos){
+                        System.out.print(prod.nome + ", Cat: " + prod.categoria + ", ID: " + prod.ID + ", lote: " + prod.lote);
+                        System.out.print("Preço: " + prod.preco + "Quant: " + prod.quantidade + "Quant min: " + prod.quantidadeMinima);
+                        System.out.println("" + prod.getValidade());
+                    }
+                    break;
                 case 10:
                     System.out.println("Programa encerrado");
                     break;
                 default:
                     System.out.println("Opção inválida, retornando ao memu principal");
             }  
-        }
-         Produto produto = new Produto();
-        
-        
+        }      
     }
-
-    
 }
