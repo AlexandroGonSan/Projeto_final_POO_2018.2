@@ -24,8 +24,20 @@ public class Produto {
      * Como é um cadastro, todas as informações são inseridas agora.
      */
     
-    public void cadastrarProduto(){
+    
+
+    public Produto(Integer ID, String lote,int quantidade, int quantidadeMinima, String nome, double preco, String categoria) {
         
+        this.ID = ID;
+        this.lote = lote;
+        this.quantidade = quantidade;
+        this.quantidadeMinima = quantidadeMinima;
+        this.nome = nome;
+        this.preco = preco;
+        this.categoria = categoria;
+    }
+
+    public void cadastrarProduto() {
         System.out.println("Digite o nome do produto:");
         this.nome = scanf.next();
         this.nome = this.nome.toUpperCase();
@@ -47,18 +59,18 @@ public class Produto {
         this.lote = scanf.nextLine();
         
         do{
-        System.out.println("Digite a quantidade mínima tolerável:");
-        this.quantidadeMinima = scanf.nextInt();
+            System.out.println("Digite a quantidade mínima tolerável:");
+            this.quantidadeMinima = scanf.nextInt();
         }while(this.quantidadeMinima < 0);
         
         do{
-        System.out.println("Digite a quantidade que será cadastrada:");
-        this.quantidade = scanf.nextInt();
+            System.out.println("Digite a quantidade que será cadastrada:");
+            this.quantidade = scanf.nextInt();
         }while(this.quantidade < 0);
 
         do{
-        System.out.println("Digite o preço do produto (use vírgula para separar a parte inteira):");
-        this.preco = scanf.nextDouble();
+            System.out.println("Digite o preço do produto (use vírgula para separar a parte inteira):");
+            this.preco = scanf.nextDouble();
         }while(this.preco <= 0);
         
         do{
@@ -122,13 +134,40 @@ public class Produto {
         }
         return false;
     }
-    
+
     @Override
-    public String toString(){
-        return this.nome;
+    public String toString() {
+        return "Produto{" + "ID = " + ID + ", validade = " + validade + ", lote = " + lote + ",\n quantidade = " + quantidade + 
+                ", quantidade Minima = " + quantidadeMinima + ", nome = " + nome + ", preco = " + preco + ", categoria = " + categoria + '}';
     }
-    
+        
     public String getValidade(){
         return this.validade.getDate() + "/" + this.validade.getMonth() + "/" + this.validade.getYear();
     }
+
+    public Integer getID() {
+        return ID;
+    }
+
+    public String getLote() {
+        return lote;
+    }
+
+    public int getQuantidadeMinima() {
+        return quantidadeMinima;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+    
+    
 }

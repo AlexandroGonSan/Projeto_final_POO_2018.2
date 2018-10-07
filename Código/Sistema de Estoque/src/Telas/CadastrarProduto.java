@@ -5,6 +5,9 @@
  */
 package Telas;
 
+import sistema.de.estoque.Dados;
+import sistema.de.estoque.Produto;
+
 /**
  *
  * @author Kook Ho
@@ -56,6 +59,11 @@ public class CadastrarProduto extends javax.swing.JFrame {
 
         botaoCadastrarProd.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         botaoCadastrarProd.setText("Cadastrar");
+        botaoCadastrarProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCadastrarProdActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 11)); // NOI18N
         jLabel1.setText("Nome:");
@@ -254,6 +262,20 @@ public class CadastrarProduto extends javax.swing.JFrame {
         this.cbDiaVal.setSelectedIndex(0);
         this.cbCategoria.setSelectedIndex(0);
     }//GEN-LAST:event_botaoLimparCamposActionPerformed
+
+    private void botaoCadastrarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarProdActionPerformed
+        Dados.dados.add(
+                new Produto(
+                        Dados.IDdado++,
+                        tfLote.getText(),
+                        Integer.parseInt(tfQnt.getText()),
+                        Integer.parseInt(tfQntMin.getText()),
+                        tfNome.getText(),
+                        Double.parseDouble(tfPreco.getText()),
+                        cbCategoria.getSelectedItem().toString()));
+        
+        System.out.println(Dados.dados);
+    }//GEN-LAST:event_botaoCadastrarProdActionPerformed
 
     /**
      * @param args the command line arguments
