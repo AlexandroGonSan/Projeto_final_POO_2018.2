@@ -39,7 +39,7 @@ public class Produto {
 
     public void cadastrarProduto() {
         System.out.println("Digite o nome do produto:");
-        this.nome = scanf.next();
+        this.nome = scanf.nextLine();
         this.nome = this.nome.toUpperCase();
         
         System.out.println("Digite o ID do produto:");

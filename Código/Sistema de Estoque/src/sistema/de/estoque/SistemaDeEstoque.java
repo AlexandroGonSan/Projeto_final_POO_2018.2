@@ -79,10 +79,9 @@ public class SistemaDeEstoque {
                         do{
                             System.out.println("Insira a quantidade a inserir: ");
                             quantidade = scanf.nextInt();
-                        }while(quantidade <= 0);
+                        }while( listAux.get(intAux).reporQuantia(quantidade) );
                         //espera receber valor válido
-                        listAux.get(intAux).reporQuantia(quantidade);
-                        //TODO falta fazer a seleção do item e inserir a quantidade
+
                     }
                     System.out.println("Retornando ao menu principal");
                     break;
