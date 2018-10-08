@@ -120,7 +120,7 @@ public class SistemaDeEstoque {
                         do{
                             System.out.println("Insira a quantidade a retirar: ");
                             quantidade = scanf.nextInt();
-                        }while(quantidade <= 0);
+                        }while(quantidade <= 0);//implementar uma funçao que checa <=0 ou > que o estoque atual
                         //espera receber valor válido
                         listAux.get(intAux).retirarQuantia(quantidade);
                         //TODO falta fazer a seleção do item e inserir a quantidade
@@ -143,7 +143,8 @@ public class SistemaDeEstoque {
                     break;
                 default:
                     System.out.println("Opção inválida, retornando ao memu principal");
-            }  
+            }
+            listAux.clear();
         }      
     }
 }
