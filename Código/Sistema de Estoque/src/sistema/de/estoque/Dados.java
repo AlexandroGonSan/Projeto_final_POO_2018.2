@@ -8,6 +8,6 @@ package sistema.de.estoque;
 import java.util.ArrayList;
 
 public class Dados {
-    public static int IDdado = 0;
+    public static int IDdado = 1;
     public static ArrayList<Produto> dados = new ArrayList<Produto>();
 }

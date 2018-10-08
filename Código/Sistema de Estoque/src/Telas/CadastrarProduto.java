@@ -5,6 +5,7 @@
  */
 package Telas;
 
+import javax.swing.JOptionPane;
 import sistema.de.estoque.Dados;
 import sistema.de.estoque.Produto;
 
@@ -13,7 +14,7 @@ import sistema.de.estoque.Produto;
  * @author Kook Ho
  */
 public class CadastrarProduto extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form CadastrarProduto
      */
@@ -244,12 +245,31 @@ public class CadastrarProduto extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
-        CadastrarProduto.this.setVisible(false);
-        new TelaInicial().setVisible(true);
-    }//GEN-LAST:event_botaoCancelarActionPerformed
-
-    private void botaoLimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparCamposActionPerformed
+    
+    private boolean checaNumero(){
+        try{
+            double preco = Double.parseDouble(this.tfPreco.getText());
+            int quant = Integer.parseInt(this.tfQnt.getText());
+            int quantmin = Integer.parseInt(this.tfQntMin.getText());
+            return true;
+        }catch(NumberFormatException e){
+            return false;
+        }
+    }
+    
+    private boolean checaCamposVazios(){
+        if(this.tfLote.getText().equals("") || this.tfQntMin.getText().equals("") ||
+           this.tfQnt.getText().equals("") || this.tfPreco.getText().equals("") ||
+           this.tfNome.getText().equals("") || this.taDescricao.getText().equals("")){
+           
+            return false; 
+        }
+        else{
+            return true;
+        }
+    }
+    
+    private void limpaCampos(){
         this.tfLote.setText("");
         this.tfQntMin.setText("");
         this.tfQnt.setText("");
@@ -261,10 +281,21 @@ public class CadastrarProduto extends javax.swing.JFrame {
         this.cbMesVal.setSelectedIndex(0);
         this.cbDiaVal.setSelectedIndex(0);
         this.cbCategoria.setSelectedIndex(0);
+    }
+    
+    private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
+        CadastrarProduto.this.setVisible(false);
+        new TelaInicial().setVisible(true);
+    }//GEN-LAST:event_botaoCancelarActionPerformed
+
+    private void botaoLimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparCamposActionPerformed
+        limpaCampos();
     }//GEN-LAST:event_botaoLimparCamposActionPerformed
 
     private void botaoCadastrarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarProdActionPerformed
-        Dados.dados.add(
+        if(checaCamposVazios()){
+            if(checaNumero()){
+                Dados.dados.add(
                 new Produto(
                         Dados.IDdado++,
                         tfLote.getText(),
@@ -274,7 +305,16 @@ public class CadastrarProduto extends javax.swing.JFrame {
                         Double.parseDouble(tfPreco.getText()),
                         cbCategoria.getSelectedItem().toString()));
         
-        System.out.println(Dados.dados);
+                JOptionPane.showMessageDialog(null, "Produto Cadastrado com Sucesso!");
+                System.out.println(Dados.dados);
+                limpaCampos();
+            }else{
+                JOptionPane.showMessageDialog(null, "Um dos campos: [Qnt], [Qnt Mínima] ou [Preço]\n não está preenchido com números!");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Algum dos campos está vazio!");
+        }
+        
     }//GEN-LAST:event_botaoCadastrarProdActionPerformed
 
     /**
