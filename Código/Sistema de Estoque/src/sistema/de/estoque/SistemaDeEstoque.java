@@ -22,6 +22,7 @@ public class SistemaDeEstoque {
         int opcao = 0;
         int intAux;
         String strAux;
+        List<Produto> listAux = new ArrayList<>(); //lista auxiliar para ajudar na busca
         
         Scanner scanf = new Scanner(System.in);
         
@@ -48,7 +49,6 @@ public class SistemaDeEstoque {
                     System.out.println("Insira o nome ou parte dele: ");
                     strAux = scanf.nextLine();
                     strAux = strAux.toUpperCase();
-                    List<Produto> listAux = new ArrayList<>(); //lista auxiliar para ajudar na busca
                     for(Produto prod : produtos){//busca pelo item na lista
                         if(prod.nome.contains(strAux)){//analisa se o nome contêm uma parte de strAux
                             listAux.add(prod);
@@ -87,6 +87,45 @@ public class SistemaDeEstoque {
                     System.out.println("Retornando ao menu principal");
                     break;
                 case 3:
+                    System.out.println("Insira o nome ou parte dele: ");
+                    strAux = scanf.nextLine();
+                    strAux = strAux.toUpperCase();
+                    for(Produto prod : produtos){//busca pelo item na lista
+                        if(prod.nome.contains(strAux)){//analisa se o nome contêm uma parte de strAux
+                            listAux.add(prod);
+                        }
+                    }
+                    if(listAux.isEmpty()){//retorna True se não há produtos com esse nome
+                        System.out.println("Produto não cadastrado");
+                        System.out.println("Digite 1 para cadastrá-lo ou outra tecla para sair da opção e pressione ENTER:");
+                        strAux = scanf.nextLine();
+                        if(strAux.equals("1")){//adiciona ele na lista de produtos
+                            produtos.add(new Produto());
+                        } else {//vai pro menu principal
+                            System.out.println("Retornando ao menu principal");
+                            break;
+                        }
+                    } else {//mostra os produtos selecionados
+                        System.out.println("Selecione o produto");
+                        for(int cont = 0; cont < listAux.size(); cont++){
+                            System.out.println(cont + ": " + listAux.get(cont).ID + "," + listAux.get(cont).nome);
+                            //exibe uma lista dos itens contendo esse nome mostrando a ID e o nome
+                        }
+                        do{
+                            System.out.println("Selecione qual produto deseja alterar: ");
+                            intAux = scanf.nextInt();
+                        }while(intAux < 0 || intAux > listAux.size());
+                        //espera receber o valor válido
+                        int quantidade;
+                        do{
+                            System.out.println("Insira a quantidade a retirar: ");
+                            quantidade = scanf.nextInt();
+                        }while(quantidade <= 0);
+                        //espera receber valor válido
+                        listAux.get(intAux).retirarQuantia(quantidade);
+                        //TODO falta fazer a seleção do item e inserir a quantidade
+                    }
+                    System.out.println("Retornando ao menu principal");
                     break;
                 case 4:
                     break;
