@@ -35,7 +35,6 @@ public class TelaInicial extends javax.swing.JFrame {
         btRelatSaida = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btAlterarProduto = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -87,9 +86,6 @@ public class TelaInicial extends javax.swing.JFrame {
                 btAlterarProdutoActionPerformed(evt);
             }
         });
-
-        jLabel3.setFont(new java.awt.Font("Bahnschrift", 1, 10)); // NOI18N
-        jLabel3.setText("* Mantenha em mente os ID e campos do produto a serem alterados");
 
         jButton1.setBackground(new java.awt.Color(0, 102, 204));
         jButton1.setFont(new java.awt.Font("Bell MT", 1, 14)); // NOI18N
@@ -143,10 +139,7 @@ public class TelaInicial extends javax.swing.JFrame {
                             .addComponent(btAlterarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(277, 277, 277)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3)))
+                        .addComponent(jLabel1)))
                 .addContainerGap(75, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -182,9 +175,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addComponent(btRelatEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btRelatSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jLabel3)
-                .addContainerGap())
+                .addGap(57, 57, 57))
         );
 
         pack();
@@ -273,7 +264,6 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuBar jMenuBar1;
