@@ -40,13 +40,14 @@ public class SistemaDeEstoque {
             
             opcao = scanf.nextInt();
             scanf.nextLine();//isso corrige o erro de pular a próxima inserção
-            
+            //Switch para a escolha da opção
             switch (opcao){
                 case 1:
                     System.out.println("ADICIONAR PRODUTO");
-                    produtos.add(new Produto());
+                    produtos.add(new Produto());    
                     break;
                 case 2:
+                 
                     System.out.println("Insira o nome ou parte dele: ");
                     strAux = scanf.nextLine();
                     strAux = strAux.toUpperCase();
@@ -81,8 +82,10 @@ public class SistemaDeEstoque {
                             System.out.println("Insira a quantidade a inserir: ");
                             quantidade = scanf.nextInt();
                         }while( listAux.get(intAux).reporQuantia(quantidade) );
-                        //espera receber valor válido
-
+                        //espera receber valor válido 
+                        Produto novo = produtos.get(produtos.());
+                        Entrada x = new Entrada(novo);
+                       
                     }
                     System.out.println("Retornando ao menu principal");
                     break;
@@ -126,9 +129,30 @@ public class SistemaDeEstoque {
                         listAux.get(intAux).retirarQuantia(quantidade);
                         //TODO falta fazer a seleção do item e inserir a quantidade
                     }
+                  
                     System.out.println("Retornando ao menu principal");
                     break;
                 case 4:
+                    //GERAR RELATORIO
+                    System.out.println("Digite 1 - Para gerar Relatório completo(Entrada e Saída)"
+                            + "\nDigite 2 - Para gerar Relatório de Entrada"
+                            + "\nDigite 3 - Para gerar Relatório de Saída");
+                    int aux2 = scanf.nextInt();
+                    switch (aux2){
+                        case 1:
+                              Relatorio x = relatorios.get(0);
+                              x.gerarRelatorio();
+                              break;
+                        case 2:
+                            relatorios.get(1);
+                              break;
+                        case 3:
+                            relatorios.get(2);
+                              break;
+                    }
+                    
+                    
+                    
                     break;
                 case 5:
                     System.out.println("ADICIONAR FORNECEDOR");

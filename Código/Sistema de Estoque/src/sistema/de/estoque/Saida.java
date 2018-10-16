@@ -9,7 +9,12 @@ package sistema.de.estoque;
  */
 public class Saida extends Relatorio {
     String destino;
-    @Override
+    //@Override
+    
+    public Saida(Produto novo){
+        super(novo);
+    }
+    //@Override
     public void gerarRelatorio(){
         super.gerarRelatorio();
         System.out.println("Quantidade do produto retirado: " + this.quantidade);

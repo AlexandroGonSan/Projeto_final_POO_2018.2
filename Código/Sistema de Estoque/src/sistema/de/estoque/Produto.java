@@ -5,7 +5,7 @@ package sistema.de.estoque;
 import java.util.Date;
 import java.util.Scanner;
         
-public class Produto {
+public class Produto{
     Integer ID; // ok
     Date validade = new Date(); //ok
     String lote; //ok
@@ -13,7 +13,7 @@ public class Produto {
     int quantidadeMinima; //ok
     String nome; //ok
     double preco; //ok
-    private String categoria; //ok
+    String categoria; //ok
     
     private Scanner scanf = new Scanner(System.in);
     
@@ -181,8 +181,8 @@ public class Produto {
 
     @Override
     public String toString() {
-        return "Produto{" + "ID = " + ID + ", validade = " + validade + ", lote = " + lote + ",\n quantidade = " + quantidade + 
-                ", quantidade Minima = " + quantidadeMinima + ", nome = " + nome + ", preco = " + preco + ", categoria = " + categoria + '}';
+        return "Produto{" + "ID =  " + ID + ", validade =  " + validade + ", lote =  " + lote + ",\n quantidade =  " + quantidade + 
+                ", quantidade Minima =  " + quantidadeMinima + ", nome =  " + nome + ", preco =  " + preco + ", categoria =  " + categoria + '}';
     }
         
     public String getValidade(){
