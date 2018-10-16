@@ -43,6 +43,7 @@ public class SistemaDeEstoque {
             
             switch (opcao){
                 case 1:
+                    System.out.println("ADICIONAR PRODUTO");
                     produtos.add(new Produto());
                     break;
                 case 2:
@@ -119,7 +120,8 @@ public class SistemaDeEstoque {
                         do{
                             System.out.println("Insira a quantidade a retirar: ");
                             quantidade = scanf.nextInt();
-                        }while(quantidade <= 0);//implementar uma funçao que checa <=0 ou > que o estoque atual
+                        }while( quantidade <= 0 || quantidade > listAux.get(intAux).quantidade);
+                        //implementar uma funçao que checa <=0 ou > que o estoque atual
                         //espera receber valor válido
                         listAux.get(intAux).retirarQuantia(quantidade);
                         //TODO falta fazer a seleção do item e inserir a quantidade
@@ -129,10 +131,12 @@ public class SistemaDeEstoque {
                 case 4:
                     break;
                 case 5:
+                    System.out.println("ADICIONAR FORNECEDOR");
+                    fornecedores.add(new Fornecedor());
                     break;
                 case 6:
                     for(Produto prod : produtos){
-                        System.out.print(prod.nome + ", Cat: " + prod.categoria + ", ID: " + prod.ID + ", lote: " + prod.lote);
+                        System.out.print(prod.nome + ", Cat: " + prod.getCategoria() + ", ID: " + prod.ID + ", lote: " + prod.lote);
                         System.out.print("Preço: " + prod.preco + "Quant: " + prod.quantidade + "Quant min: " + prod.quantidadeMinima);
                         System.out.println("" + prod.getValidade());
                     }

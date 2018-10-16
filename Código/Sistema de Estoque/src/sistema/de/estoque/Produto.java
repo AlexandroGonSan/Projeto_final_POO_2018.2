@@ -13,19 +13,17 @@ public class Produto {
     int quantidadeMinima; //ok
     String nome; //ok
     double preco; //ok
-    String categoria; //ok
+    private String categoria; //ok
     
-     private Scanner scanf = new Scanner(System.in);
+    private Scanner scanf = new Scanner(System.in);
     
-    public Produto(){
-        this.cadastrarProduto();
-    }
     /**Método para cadastrar as informações quando o produto for inserido.
      * Como é um cadastro, todas as informações são inseridas agora.
      */
+    public Produto(){
+        this.cadastrarProduto();
+    }
     
-    
-
     public Produto(Integer ID, String lote,int quantidade, int quantidadeMinima, String nome, double preco, String categoria) {
         
         this.ID = ID;
@@ -106,7 +104,53 @@ public class Produto {
     }
     
     public void alterarProduto(){
+        //seria bacana se pudéssemos colocar senha para alterar
+        int auxInt;
         
+        System.out.print("ALTERAR PRODUTO\n"
+                + "Digite qual item vc deseja alterar:\n"
+                + "1 para ID\n"
+                + "2 para validade\n"
+                + "3 para lote\n"
+                + "4 para quantidade mínima\n"
+                + "5 para nome\n"
+                + "6 para preço\n"
+                + "7 para categoria\n");
+        do{
+            System.out.println("Digite uma opção válida: ");
+            auxInt = scanf.nextInt();
+        }while(auxInt < 1 || 7 < auxInt);
+        switch(auxInt){
+            case 1:
+                System.out.print("Insira o novo ID: ");
+                this.ID = scanf.nextInt();
+            case 2:
+                System.out.print("Insira o novo dia da validade: ");
+                this.validade.setDate(scanf.nextInt());
+                System.out.print("Insira o novo mês da validade: ");
+                this.validade.setMonth(scanf.nextInt());
+                System.out.print("Insira o novo ano da validade: ");
+                this.validade.setYear(scanf.nextInt());
+            case 3:
+                System.out.print("Insira o novo lote: ");
+                this.lote = scanf.next();
+            case 4:
+                System.out.print("Insira a nova quantidade mínima: ");
+                this.quantidadeMinima = scanf.nextInt();
+            case 5:
+                System.out.print("Insira o nome: ");
+                this.nome = scanf.nextLine();
+            case 6:
+                System.out.print("Insira o preço: ");
+                this.preco = scanf.nextDouble();
+            case 7:
+                System.out.print("Insira a categoria: ");
+                if( this.setCategoria(scanf.next()) ){//retorna true se for uma das categorias
+                    System.out.println("A alteração foi feita");
+                } else {
+                    System.out.println("Categoria incompatível");
+                }
+        }
     }
     
     /**Retorna a quantidade do produto no estoque.
@@ -168,6 +212,5 @@ public class Produto {
     public String getCategoria() {
         return categoria;
     }
-    
     
 }
