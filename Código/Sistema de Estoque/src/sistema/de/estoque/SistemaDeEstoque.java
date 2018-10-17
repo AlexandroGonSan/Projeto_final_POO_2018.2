@@ -87,9 +87,13 @@ public class SistemaDeEstoque {
                             quantidade = scanf.nextInt();
                         }while(quantidade <= 0 );
                         listAux.get(intAux).reporQuantia(quantidade);
-                        Entrada relatorioNovo2 = new Entrada(produtos.get(produtos.size()-1));
+                        Entrada relatorioNovo2 = new Entrada(listAux.get(intAux));
+                        relatorioNovo2.quantidade = quantidade;
                         relatorios.add(relatorioNovo2);
-                       
+                        System.out.println("");
+                        System.out.println("Relatório da operação efetuada:");
+                        relatorios.get(relatorios.size()-1).gerarRelatorio(); // Gerar relatório sempre do ultimo adicionado
+                                                                              //ou seja da ultima operação realizada que foi a de add;              
                     }
                     System.out.println("Retornando ao menu principal");
                     break;
@@ -132,10 +136,15 @@ public class SistemaDeEstoque {
                         //espera receber valor válido
                         listAux.get(intAux).retirarQuantia(quantidade);
                         //TODO falta fazer a seleção do item e inserir a quantidade
+                        Saida relatorioNovo3 = new Saida(listAux.get(intAux));
+                        relatorioNovo3.quantidade = quantidade;
+                        relatorios.add(relatorioNovo3);
+                        System.out.println("");
+                        System.out.println("Relatório da operação efetuada:");
+                        relatorios.get(relatorios.size()-1).gerarRelatorio();
+                        System.out.println(""); //pulando linha para ficar bonitinho;
                     }
-                    Entrada relatorioNovo3 = new Entrada(produtos.get(produtos.size()-1));
-                    relatorios.add(relatorioNovo3);
-                  
+                    
                     System.out.println("Retornando ao menu principal");
                     break;
                 case 4:
@@ -143,16 +152,19 @@ public class SistemaDeEstoque {
                     System.out.println(""); //pulando uma linha para ficar bonitinho;
                     System.out.println("Gerando Relatórios...");
                     System.out.println("");// Pulando uma linha para ficar bonitinho;
-                    for(int i = 0 ; i < relatorios.size()-1; i++){
-                        System.out.println("Relatórios de Entrada no estoque:");
+                    System.out.println("Relatórios de Entrada no estoque:");
+                    for(int i = 0 ; i <= relatorios.size()-1; i++){
+                        
                         System.out.println("");
                         if(relatorios.get(i) instanceof Entrada){
                             relatorios.get(i).gerarRelatorio();
                         }
                     }
+                    
                     System.out.println("");
-                    for(int i = 0 ; i < relatorios.size()-1; i++){
-                        System.out.println("Relatórios de Saída no estoque:");
+                    System.out.println("Relatórios de Saída no estoque:");
+                    for(int i = 0 ; i <= relatorios.size()-1; i++){
+                        
                         System.out.println("");
                         if(relatorios.get(i) instanceof Saida){
                             relatorios.get(i).gerarRelatorio();
@@ -169,7 +181,8 @@ public class SistemaDeEstoque {
                     for(Produto prod : produtos){
                         System.out.print(prod.nome + ", Cat: " + prod.getCategoria() + ", ID: " + prod.ID + ", lote: " + prod.lote);
                         System.out.print(", Preço: " + prod.preco + ", Quant: " + prod.quantidade + ", Quant min: " + prod.quantidadeMinima);
-                        System.out.println(" " + prod.getValidade());
+                        System.out.println(", Data de Validade: " + prod.getValidade());
+                        System.out.println("");
                     }
                     break;
                 case 10:
