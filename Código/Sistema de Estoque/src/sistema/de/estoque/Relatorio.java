@@ -13,22 +13,21 @@ public abstract class Relatorio {
     Date dataES;
     Produto produto;
     Integer protocolo;
-    static int quantidadeProtocolo = 1;
+    static int quantidadeProtocolo = 0;
     
     Relatorio(Produto produto){
         this.produto = produto;
         this.quantidade = produto.quantidade;
         this.dataES = new Date();
-        quantidadeProtocolo =+ 1; // A cada protocolo gerado soma +1 na variável
+        quantidadeProtocolo = quantidadeProtocolo + 1; // A cada protocolo gerado soma +1 na variável
         this.protocolo = quantidadeProtocolo;
         
     }
     /*Método para gerar relatório com todas as informações do produto*/
     public void gerarRelatorio(){
-        quantidadeProtocolo =+ 1;
-        this.protocolo = quantidadeProtocolo;
+     
         System.out.println("");
-        System.out.println("Número do protocolo gerado: 0000" + ++this.protocolo);
+        System.out.println("Número do protocolo gerado: 0000" + this.protocolo);
         System.out.println("Categoria do produto:" + this.produto.categoria);
         System.out.println("Nome do produto: " + this.produto.nome);
         /*System.out.println("Quantidade do produto: " + this.produto.quantidade);11
