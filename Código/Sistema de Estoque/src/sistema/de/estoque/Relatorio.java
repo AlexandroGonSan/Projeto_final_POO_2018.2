@@ -13,15 +13,19 @@ public abstract class Relatorio {
     Date dataES;
     Produto produto;
     Integer protocolo;
-    static int quantidadeProtocolo;
+    static int quantidadeProtocolo = 0;
     
-    Relatorio(Produto novo){
-        this.produto = novo;
-        this.protocolo = quantidadeProtocolo;
+    Relatorio(Produto produto){
+        this.produto = produto;
+        this.quantidade = produto.quantidade;
+        this.dataES = new Date();
         quantidadeProtocolo =+ 1; // A cada protocolo gerado soma +1 na variável
+        this.protocolo = quantidadeProtocolo;
+        
     }
     /*Método para gerar relatório com todas as informações do produto*/
     public void gerarRelatorio(){
+        System.out.println("");
         System.out.println("Número do protocolo gerado: 0000"+this.protocolo);
         System.out.println("Categoria do produto:" + this.produto.categoria);
         System.out.println("Nome do produto: " + this.produto.nome);
@@ -34,7 +38,7 @@ public abstract class Relatorio {
         
     }
     
-    public String getDataES(){
+    /*public String getDataES(){
         return this.dataES.getDate() + "/" + this.dataES.getMonth() + "/" + this.dataES.getYear();
-    }
+    }*/
 }

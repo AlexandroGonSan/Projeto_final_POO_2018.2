@@ -44,7 +44,11 @@ public class SistemaDeEstoque {
             switch (opcao){
                 case 1:
                     System.out.println("ADICIONAR PRODUTO");
-                    produtos.add(new Produto());    
+                    produtos.add(new Produto());
+                    //Produto novo = produtos.get(produtos.size()-1);
+                    Entrada relatorioNovo = new Entrada(produtos.get(produtos.size()-1));
+                    //x.gerarRelatorio();
+                    relatorios.add(relatorioNovo);
                     break;
                 case 2:
                  
@@ -81,10 +85,10 @@ public class SistemaDeEstoque {
                         do{
                             System.out.println("Insira a quantidade a inserir: ");
                             quantidade = scanf.nextInt();
-                        }while( listAux.get(intAux).reporQuantia(quantidade) );
-                        //espera receber valor válido 
-                        Produto novo = produtos.get(produtos.());
-                        Entrada x = new Entrada(novo);
+                        }while(quantidade <= 0 );
+                        listAux.get(intAux).reporQuantia(quantidade);
+                        Entrada relatorioNovo2 = new Entrada(produtos.get(produtos.size()-1));
+                        relatorios.add(relatorioNovo2);
                        
                     }
                     System.out.println("Retornando ao menu principal");
@@ -129,28 +133,31 @@ public class SistemaDeEstoque {
                         listAux.get(intAux).retirarQuantia(quantidade);
                         //TODO falta fazer a seleção do item e inserir a quantidade
                     }
+                    Entrada relatorioNovo3 = new Entrada(produtos.get(produtos.size()-1));
+                    relatorios.add(relatorioNovo3);
                   
                     System.out.println("Retornando ao menu principal");
                     break;
                 case 4:
                     //GERAR RELATORIO
-                    System.out.println("Digite 1 - Para gerar Relatório completo(Entrada e Saída)"
-                            + "\nDigite 2 - Para gerar Relatório de Entrada"
-                            + "\nDigite 3 - Para gerar Relatório de Saída");
-                    int aux2 = scanf.nextInt();
-                    switch (aux2){
-                        case 1:
-                              Relatorio x = relatorios.get(0);
-                              x.gerarRelatorio();
-                              break;
-                        case 2:
-                            relatorios.get(1);
-                              break;
-                        case 3:
-                            relatorios.get(2);
-                              break;
+                    System.out.println(""); //pulando uma linha para ficar bonitinho;
+                    System.out.println("Gerando Relatórios...");
+                    System.out.println("");// Pulando uma linha para ficar bonitinho;
+                    for(int i = 0 ; i < relatorios.size()-1; i++){
+                        System.out.println("Relatórios de Entrada no estoque:");
+                        System.out.println("");
+                        if(relatorios.get(i) instanceof Entrada){
+                            relatorios.get(i).gerarRelatorio();
+                        }
                     }
-                    
+                    System.out.println("");
+                    for(int i = 0 ; i < relatorios.size()-1; i++){
+                        System.out.println("Relatórios de Saída no estoque:");
+                        System.out.println("");
+                        if(relatorios.get(i) instanceof Saida){
+                            relatorios.get(i).gerarRelatorio();
+                        }
+                    }
                     
                     
                     break;
@@ -161,8 +168,8 @@ public class SistemaDeEstoque {
                 case 6:
                     for(Produto prod : produtos){
                         System.out.print(prod.nome + ", Cat: " + prod.getCategoria() + ", ID: " + prod.ID + ", lote: " + prod.lote);
-                        System.out.print("Preço: " + prod.preco + "Quant: " + prod.quantidade + "Quant min: " + prod.quantidadeMinima);
-                        System.out.println("" + prod.getValidade());
+                        System.out.print(", Preço: " + prod.preco + ", Quant: " + prod.quantidade + ", Quant min: " + prod.quantidadeMinima);
+                        System.out.println(" " + prod.getValidade());
                     }
                     break;
                 case 10:

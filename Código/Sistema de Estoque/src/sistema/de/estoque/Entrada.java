@@ -10,15 +10,11 @@ public class Entrada extends Relatorio {
     public Entrada(Produto novo) {
         super(novo);
     }
-
-  
-    /*@Override*/
-    
     
     @Override
     public void gerarRelatorio(){
         super.gerarRelatorio();
         System.out.println("Quantidade do produto inserido: " + this.quantidade);
-        System.out.println("Data da inserção:" + this.getDataES());
+        //System.out.println("Data da inserção:" + this.getDataES());
     }
 }
