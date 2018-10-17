@@ -27,6 +27,7 @@ public class SistemaDeEstoque {
         Scanner scanf = new Scanner(System.in);
         
         while(opcao != 10){
+            System.out.println("1");
             System.out.println("O que deseja fazer ?\nDigite o número da opção desejada:");
             System.out.println("1 - Cadastrar novo Produtos ao estoque");
             System.out.println("2 - Repor estoque de produto"); //adicionar uma quantidade de um produto no estoque
