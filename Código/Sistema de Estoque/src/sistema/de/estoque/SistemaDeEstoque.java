@@ -31,7 +31,7 @@ public class SistemaDeEstoque {
             System.out.println("O que deseja fazer ?\nDigite o número da opção desejada:");
             System.out.println("1 - Cadastrar novo Produtos ao estoque");
             System.out.println("2 - Repor estoque de produto"); //adicionar uma quantidade de um produto no estoque
-            System.out.println("3 - Retirar do estoque produto"); //remover uma quantidade de um procuto no estoque
+            System.out.println("3 - Retirar quantia do produto do estoque"); //remover uma quantidade de um procuto no estoque
             //System.out.println("2 - Remover Produtos do estoque"); //acho que não precisamos dessa opção no momento
             System.out.println("4 - Gerar Relatório das alterações no estoque");
             //acho que precisamos no momento uma opção para mostrar só um relatório, depois adicionamos mais opções
@@ -74,11 +74,11 @@ public class SistemaDeEstoque {
                     } else {//mostra os produtos selecionados
                         System.out.println("Selecione o produto");
                         for(int cont = 0; cont < listAux.size(); cont++){
-                            System.out.println(cont + ": " + listAux.get(cont).ID + "," + listAux.get(cont).nome);
+                            System.out.println("Item: " + cont + "Nome: " + listAux.get(cont).nome + ", ID: " + listAux.get(cont).ID);
                             //exibe uma lista dos itens contendo esse nome mostrando a ID e o nome
                         }
                         do{
-                            System.out.println("Selecione qual produto deseja alterar: ");
+                            System.out.println("Selecione qual item deseja alterar: ");
                             intAux = scanf.nextInt();
                         }while(intAux < 0 || intAux > listAux.size());
                         //espera receber o valor válido
@@ -120,7 +120,7 @@ public class SistemaDeEstoque {
                     } else {//mostra os produtos selecionados
                         System.out.println("Selecione o produto");
                         for(int cont = 0; cont < listAux.size(); cont++){
-                            System.out.println(cont + ": " + listAux.get(cont).ID + "," + listAux.get(cont).nome);
+                            System.out.println("Item: " + cont + "Nome: " + listAux.get(cont).nome + ", ID: " + listAux.get(cont).ID);
                             //exibe uma lista dos itens contendo esse nome mostrando a ID e o nome
                         }
                         do{
@@ -190,7 +190,7 @@ public class SistemaDeEstoque {
                     System.out.println("Programa encerrado");
                     break;
                 default:
-                    System.out.println("Opção inválida, retornando ao memu principal");
+                    System.out.println("Opção inválida, retornando ao menu principal");
             }
             listAux.clear();
         }      
