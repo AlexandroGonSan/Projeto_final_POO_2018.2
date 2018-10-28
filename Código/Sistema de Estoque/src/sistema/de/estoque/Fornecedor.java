@@ -18,6 +18,12 @@ public class Fornecedor {
         this.cadastrarFornecedor();
     }
     
+    public Fornecedor(String razao, String prodForn, String CNPJ){
+        this.nome = razao;
+        this.CNPJ = CNPJ;
+        this.produtoFornecido = prodForn;
+    }
+    
     public void cadastrarFornecedor(){
         System.out.print("Insira o nome do fornecedor: ");
         this.nome = scanf.nextLine();

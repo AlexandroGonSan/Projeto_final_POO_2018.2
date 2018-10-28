@@ -39,6 +39,7 @@ public class TelaInicial extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        btCadastrarFornecedor = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         Menu1 = new javax.swing.JMenu();
         menuSobre = new javax.swing.JMenuItem();
@@ -109,6 +110,14 @@ public class TelaInicial extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         jLabel5.setText("(Prototype)");
 
+        btCadastrarFornecedor.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        btCadastrarFornecedor.setText("Cadastrar Novo Fornecedor");
+        btCadastrarFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCadastrarFornecedorActionPerformed(evt);
+            }
+        });
+
         Menu1.setText("Informações");
 
         menuSobre.setText("Sobre");
@@ -136,7 +145,8 @@ public class TelaInicial extends javax.swing.JFrame {
                             .addComponent(btRelatEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btListarProds, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btCadNovoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btAlterarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btAlterarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btCadastrarFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(277, 277, 277)
                         .addComponent(jLabel1)))
@@ -175,7 +185,9 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addComponent(btRelatEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btRelatSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57))
+                .addGap(18, 18, 18)
+                .addComponent(btCadastrarFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4))
         );
 
         pack();
@@ -219,6 +231,11 @@ public class TelaInicial extends javax.swing.JFrame {
                 "Registrar Relatório de Saída - Gera um relatório que registra qual produto saiu do estoque,S para onde e quantos deste produto sairam.");
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btCadastrarFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarFornecedorActionPerformed
+        TelaInicial.this.setVisible(false);
+        new CadastrarFornecedor().setVisible(true);
+    }//GEN-LAST:event_btCadastrarFornecedorActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -258,6 +275,7 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JMenu Menu1;
     private javax.swing.JButton btAlterarProduto;
     private javax.swing.JButton btCadNovoProd;
+    private javax.swing.JButton btCadastrarFornecedor;
     private javax.swing.JButton btListarProds;
     private javax.swing.JButton btRelatEntrada;
     private javax.swing.JButton btRelatSaida;
