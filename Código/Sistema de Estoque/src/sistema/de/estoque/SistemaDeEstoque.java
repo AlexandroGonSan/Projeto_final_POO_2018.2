@@ -22,7 +22,8 @@ public class SistemaDeEstoque {
         int opcao = 0;
         int intAux;
         String strAux;
-        List<Produto> listAux = new ArrayList<>(); //lista auxiliar para ajudar na busca
+        List<Produto> listAux = new ArrayList<>(); //lista auxiliar para ajudar na busca 
+        //new comment
         
         Scanner scanf = new Scanner(System.in);
         
