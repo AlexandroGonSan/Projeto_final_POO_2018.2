@@ -1,4 +1,4 @@
-/*
+﻿/*
 @author LuluTeam
  */
 package sistema.de.estoque;
@@ -30,12 +30,14 @@ public abstract class Relatorio {
         System.out.println("Número do protocolo gerado: 0000" + this.protocolo);
         System.out.println("Categoria do produto:" + this.produto.categoria);
         System.out.println("Nome do produto: " + this.produto.nome);
+
         /*System.out.println("Quantidade do produto: " + this.produto.quantidade);11
             esse println só irá aparecer nos relatorios de entrada e saida
             pois nele vão ser especificados se entrou ou sair produtos do estoque                        
         */
         System.out.println("Código ID do produto: " + this.produto.ID);
         System.out.println("Lote do produto: " + this.produto.lote);
+	System.out.println("Data: " + this.dateES);
         
     }
     
