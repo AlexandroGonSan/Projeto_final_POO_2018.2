@@ -1,6 +1,3 @@
-﻿/*
-@author LuluTeam
- */
 package sistema.de.estoque;
 import java.util.Date;
 
@@ -37,7 +34,7 @@ public abstract class Relatorio {
         */
         System.out.println("Código ID do produto: " + this.produto.ID);
         System.out.println("Lote do produto: " + this.produto.lote);
-	System.out.println("Data: " + this.dateES);
+	System.out.println("Data: " + this.dataES);
         
     }
     
