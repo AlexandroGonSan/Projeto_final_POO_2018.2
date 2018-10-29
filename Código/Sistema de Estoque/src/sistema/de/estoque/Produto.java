@@ -6,7 +6,8 @@ import java.util.Date;
 import java.util.Scanner;
         
 public class Produto{
-    Integer ID; // ok
+    static Integer qntID = 1;
+    Integer ID;  // ok
     Date validade = new Date(); //ok
     String lote; //ok
     int quantidade = 0; //ok
@@ -39,9 +40,9 @@ public class Produto{
         System.out.println("Digite o nome do produto:");
         this.nome = scanf.nextLine();
         this.nome = this.nome.toUpperCase();
-        
-        System.out.println("Digite o ID do produto:");
-        this.ID = scanf.nextInt();
+        this.ID = this.qntID++;
+       /* System.out.println("Digite o ID do produto:");
+        this.ID = scanf.nextInt();*/
         
         System.out.println("Digite o dia de validade:");
         this.validade.setDate(scanf.nextInt());

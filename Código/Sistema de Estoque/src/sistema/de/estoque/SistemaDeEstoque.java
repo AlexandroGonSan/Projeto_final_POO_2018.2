@@ -75,7 +75,7 @@ public class SistemaDeEstoque {
                     } else {//mostra os produtos selecionados
                         System.out.println("Selecione o produto");
                         for(int cont = 0; cont < listAux.size(); cont++){
-                            System.out.println("Item: " + cont + "Nome: " + listAux.get(cont).nome + ", ID: " + listAux.get(cont).ID);
+                            System.out.println("Item: " + cont + " Nome: " + listAux.get(cont).nome + ", ID: " + listAux.get(cont).ID);
                             //exibe uma lista dos itens contendo esse nome mostrando a ID e o nome
                         }
                         do{
@@ -121,7 +121,7 @@ public class SistemaDeEstoque {
                     } else {//mostra os produtos selecionados
                         System.out.println("Selecione o produto");
                         for(int cont = 0; cont < listAux.size(); cont++){
-                            System.out.println("Item: " + cont + "Nome: " + listAux.get(cont).nome + ", ID: " + listAux.get(cont).ID);
+                            System.out.println("Item: " + cont + " Nome: " + listAux.get(cont).nome + ", ID: " + listAux.get(cont).ID);
                             //exibe uma lista dos itens contendo esse nome mostrando a ID e o nome
                         }
                         do{
@@ -156,8 +156,7 @@ public class SistemaDeEstoque {
                     System.out.println("");// Pulando uma linha para ficar bonitinho;
                     System.out.println("Relatórios de Entrada no estoque:");
                     for(int i = 0 ; i <= relatorios.size()-1; i++){
-                        
-                        System.out.println("");
+            
                         if(relatorios.get(i) instanceof Entrada){
                             relatorios.get(i).gerarRelatorio();
                         }
@@ -167,7 +166,6 @@ public class SistemaDeEstoque {
                     System.out.println("Relatórios de Saída no estoque:");
                     for(int i = 0 ; i <= relatorios.size()-1; i++){
                         
-                        System.out.println("");
                         if(relatorios.get(i) instanceof Saida){
                             relatorios.get(i).gerarRelatorio();
                         }
