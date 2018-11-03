@@ -206,10 +206,18 @@ public class Produto{
         return nome;
     }
 
+    /**
+     * Método de retorno da categoria do produto.
+     * @return double - preço do produto.
+     */
     public double getPreco() {
         return preco;
     }
 
+    /**
+     * Método de retorno da categoria do produto.
+     * @return String - categoria do produto.
+     */
     public String getCategoria() {
         return categoria;
     }

@@ -7,7 +7,12 @@ package sistema.de.estoque;
 
 import java.util.ArrayList;
 
+/**
+ * Classe usada para a interface com o usuário.
+ * @author Linhares Filho
+ */
 public class Dados {
+
     public static int IDdado = 1;
     public static int IDForn = 1;
     public static ArrayList<Produto> dados = new ArrayList<Produto>();
