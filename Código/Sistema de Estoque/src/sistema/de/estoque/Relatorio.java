@@ -20,7 +20,11 @@ public abstract class Relatorio {
         this.protocolo = quantidadeProtocolo;
         
     }
-    /*Método para gerar relatório com todas as informações do produto*/
+    /**/
+
+    /**
+     * Método para gerar relatório com todas as informações do objeto.
+     */
     public void gerarRelatorio(){
      
         System.out.println("");

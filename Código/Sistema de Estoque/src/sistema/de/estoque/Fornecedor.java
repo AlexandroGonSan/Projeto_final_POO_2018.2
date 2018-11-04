@@ -55,12 +55,9 @@ public class Fornecedor {
         System.out.print("Insira o produto do fornecedor: ");
         this.produtoFornecido = scanf.nextLine();
     }
-    public void buscarFornecedor(){
-        
-    }
 
     /**
-     * Esse método é usadopara alterar o nome ou CNPJ do fornecedor.
+     * Esse método é usado para alterar o nome ou CNPJ do fornecedor.
      */
     public void alterarFornecedor(){
         System.out.println("O que deseja alterar do fornecedor? Nome ou CNPJ?");

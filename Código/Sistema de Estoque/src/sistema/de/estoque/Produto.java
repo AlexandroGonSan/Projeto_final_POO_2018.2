@@ -5,6 +5,9 @@ package sistema.de.estoque;
 import java.util.Date;
 import java.util.Scanner;
         
+/**
+ * Classe usada para representar o produto armazenado no estoque.
+ */
 public class Produto{
     static Integer qntID = 1;
     Integer ID;  // ok
@@ -25,7 +28,17 @@ public class Produto{
         this.cadastrarProduto();
     }
     
-    public Produto(Integer ID, String lote,int quantidade, int quantidadeMinima, String nome, double preco, String categoria) {
+    /**
+     * Construtor que recebe nos argumentos as informações a serem inseridas nos atributos do objeto.
+     * @param ID Integer - ID do produto;
+     * @param lote String - lote do produto;
+     * @param quantidade int - quantidade do produto;
+     * @param quantidadeMinima int - quatidade mínima aceitável do produto no estoque;
+     * @param nome String - nome do produto;
+     * @param preco double - preço do produto;
+     * @param categoria String - categoria do produto;
+     */
+    public Produto(Integer ID, String lote, int quantidade, int quantidadeMinima, String nome, double preco, String categoria) {
         
         this.ID = ID;
         this.lote = lote;
@@ -36,6 +49,9 @@ public class Produto{
         this.categoria = categoria;
     }
 
+    /**
+     * Método para o usuário cadastrar as informações do produto.
+     */
     public void cadastrarProduto() {
         System.out.println("Digite o nome do produto:");
         this.nome = scanf.nextLine();
@@ -104,6 +120,9 @@ public class Produto{
         return false;
     }
     
+    /**
+     * Método usado para o usuário alterar uma informação do produto.
+     */
     public void alterarProduto(){
         //seria bacana se pudéssemos colocar senha para alterar
         int auxInt;
@@ -161,6 +180,12 @@ public class Produto{
         return this.quantidade;
     }
     
+    /**
+     * Método que recebe uma quantia a ser inserida no estoque. 
+     * Ele retorna true se o valor é válido (acima de 0) e false caso contrário.
+     * @param valor int - quantia a ser inserida no estoque.
+     * @return booelan - valor lógico retornado.
+     */
     public boolean reporQuantia(int valor){
         if(valor > 0){
             this.quantidade += valor;
@@ -169,6 +194,14 @@ public class Produto{
         return false;
     }
     
+    /**
+     * Método que retira uma quantia passada no argumento 
+     * e retorna true se foi retirado seguindo a lógica de que não pode ser um 
+     * valor maior que a quantidade que existe e não pode ser abaixo ou igual a zero 
+     * e falso caso não houve a retirada.
+     * @param valor int - valor que será retirado do estoque.
+     * @return boolean - valor lógico que é retornado.
+     */
     public boolean retirarQuantia(int valor){
         if(valor > 0 && valor < this.quantidade){
             this.quantidade -= valor;
@@ -186,22 +219,42 @@ public class Produto{
                 ", quantidade Minima =  " + quantidadeMinima + ", nome =  " + nome + ", preco =  " + preco + ", categoria =  " + categoria + '}';
     }
         
+    /**
+     * Método de retorno da validade do produto no formato DD/MM/AAAA.
+     * @return Integer - ID do produto.
+     */
     public String getValidade(){
         return this.validade.getDate() + "/" + this.validade.getMonth() + "/" + this.validade.getYear();
     }
 
+    /**
+     * Método de retorno do ID do produto.
+     * @return Integer - ID do produto.
+     */
     public Integer getID() {
         return ID;
     }
 
+    /**
+     * Método de retorno do lote do produto.
+     * @return String - lote do produto.
+     */
     public String getLote() {
         return lote;
     }
 
+    /**
+     * Método de retorno da quantidade mínima do produto.
+     * @return int - quantidade mínima do produto.
+     */
     public int getQuantidadeMinima() {
         return quantidadeMinima;
     }
 
+    /**
+     * Método de retorno do nome do produto.
+     * @return String - nome do produto.
+     */
     public String getNome() {
         return nome;
     }
