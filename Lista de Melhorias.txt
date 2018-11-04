@@ -1,0 +1,8 @@
+LISTA DE MELHORIAS(adicionem caso cs percebam alguma)
+
+-Trocar Date por Calendar (Date possui métodos obsoletos)
+-Fazer validações gerais (coisas que podem dar erro no objetivo do sistema)
+   Ex: repor o estoque sem dizer de onde veio (fornecedor)
+-
+
+

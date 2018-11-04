@@ -103,7 +103,12 @@ public class CadastrarProduto extends javax.swing.JFrame {
 
         cbMesVal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
-        cbAnoVal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025" }));
+        cbAnoVal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "3000" }));
+        cbAnoVal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbAnoValActionPerformed(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Bahnschrift", 1, 11)); // NOI18N
         jLabel10.setText("/");
@@ -356,7 +361,10 @@ public class CadastrarProduto extends javax.swing.JFrame {
                         Integer.parseInt(tfQntMin.getText()),
                         tfNome.getText(),
                         Double.parseDouble(tfPreco.getText()),
-                        cbCategoria.getSelectedItem().toString()));
+                        cbCategoria.getSelectedItem().toString(),
+                        cbDiaVal.getSelectedItem().toString(),
+                        cbMesVal.getSelectedItem().toString(),
+                        cbAnoVal.getSelectedItem().toString()  ));
         
                 JOptionPane.showMessageDialog(null, "Produto Cadastrado com Sucesso!");
                 /*tem q dar Override no toString do fornecedor
@@ -371,6 +379,10 @@ public class CadastrarProduto extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_botaoCadastrarProdActionPerformed
+
+    private void cbAnoValActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAnoValActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbAnoValActionPerformed
 
     /**
      * @param args the command line arguments

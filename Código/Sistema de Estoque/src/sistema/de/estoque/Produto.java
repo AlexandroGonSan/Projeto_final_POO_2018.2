@@ -2,6 +2,7 @@
  * @author LuluTeam
  */
 package sistema.de.estoque;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
         
@@ -20,6 +21,8 @@ public class Produto{
     String categoria; //ok
     
     private Scanner scanf = new Scanner(System.in);
+    SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
+      
     
     /**Método para cadastrar as informações quando o produto for inserido.
      * Como é um cadastro, todas as informações são inseridas agora.
@@ -37,8 +40,11 @@ public class Produto{
      * @param nome String - nome do produto;
      * @param preco double - preço do produto;
      * @param categoria String - categoria do produto;
+     * @param day
+     * @param month
+     * @param year
      */
-    public Produto(Integer ID, String lote, int quantidade, int quantidadeMinima, String nome, double preco, String categoria) {
+    public Produto(Integer ID, String lote, int quantidade, int quantidadeMinima, String nome, double preco, String categoria, String day, String month, String year) {
         
         this.ID = ID;
         this.lote = lote;
@@ -47,6 +53,9 @@ public class Produto{
         this.nome = nome;
         this.preco = preco;
         this.categoria = categoria;
+        this.validade.setDate(Integer.parseInt(day));
+        this.validade.setMonth(Integer.parseInt(month)-1);
+        this.validade.setYear(Integer.parseInt(year)-1900);
     }
 
     /**
@@ -216,7 +225,7 @@ public class Produto{
     @Override
     public String toString() {
         return "Produto{" + "ID =  " + ID + ", validade =  " + validade + ", lote =  " + lote + ",\n quantidade =  " + quantidade + 
-                ", quantidade Minima =  " + quantidadeMinima + ", nome =  " + nome + ", preco =  " + preco + ", categoria =  " + categoria + '}';
+                ", quantidade Minima =  " + quantidadeMinima + ", nome =  " + nome + ", preco =  " + preco + ", Validade = " + dateFormatter.format(validade) +  ", categoria =  " + categoria + '}';
     }
         
     /**
