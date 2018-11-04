@@ -28,7 +28,6 @@ public class SistemaDeEstoque {
         Scanner scanf = new Scanner(System.in);
         
         while(opcao != 10){
-            System.out.println("1");
             System.out.println("O que deseja fazer ?\nDigite o número da opção desejada:");
             System.out.println("1 - Cadastrar novo Produtos ao estoque");
             System.out.println("2 - Repor estoque de produto"); //adicionar uma quantidade de um produto no estoque
@@ -39,6 +38,7 @@ public class SistemaDeEstoque {
             System.out.println("5 - Adicionar fornecedor ao sistema");
             System.out.println("6 - Exibir produtos");
             System.out.println("10 - Sair do programa");
+            System.out.print("Digite a opção: ");
             
             opcao = scanf.nextInt();
             scanf.nextLine();//isso corrige o erro de pular a próxima inserção
@@ -58,7 +58,7 @@ public class SistemaDeEstoque {
                     strAux = scanf.nextLine();
                     strAux = strAux.toUpperCase();
                     for(Produto prod : produtos){//busca pelo item na lista
-                        if(prod.nome.contains(strAux)){//analisa se o nome contêm uma parte de strAux
+                        if(prod.getNome().contains(strAux)){//analisa se o nome contêm uma parte de strAux
                             listAux.add(prod);
                         }
                     }
@@ -75,7 +75,7 @@ public class SistemaDeEstoque {
                     } else {//mostra os produtos selecionados
                         System.out.println("Selecione o produto");
                         for(int cont = 0; cont < listAux.size(); cont++){
-                            System.out.println("Item: " + cont + " Nome: " + listAux.get(cont).nome + ", ID: " + listAux.get(cont).ID);
+                            System.out.println("Item: " + cont + " Nome: " + listAux.get(cont).getNome() + ", ID: " + listAux.get(cont).ID);
                             //exibe uma lista dos itens contendo esse nome mostrando a ID e o nome
                         }
                         do{
@@ -104,7 +104,7 @@ public class SistemaDeEstoque {
                     strAux = scanf.nextLine();
                     strAux = strAux.toUpperCase();
                     for(Produto prod : produtos){//busca pelo item na lista
-                        if(prod.nome.contains(strAux)){//analisa se o nome contêm uma parte de strAux
+                        if(prod.getNome().contains(strAux)){//analisa se o nome contêm uma parte de strAux
                             listAux.add(prod);
                         }
                     }
@@ -121,7 +121,7 @@ public class SistemaDeEstoque {
                     } else {//mostra os produtos selecionados
                         System.out.println("Selecione o produto");
                         for(int cont = 0; cont < listAux.size(); cont++){
-                            System.out.println("Item: " + cont + " Nome: " + listAux.get(cont).nome + ", ID: " + listAux.get(cont).ID);
+                            System.out.println("Item: " + cont + " Nome: " + listAux.get(cont).getNome() + ", ID: " + listAux.get(cont).ID);
                             //exibe uma lista dos itens contendo esse nome mostrando a ID e o nome
                         }
                         do{
@@ -179,7 +179,7 @@ public class SistemaDeEstoque {
                     break;
                 case 6:
                     for(Produto prod : produtos){
-                        System.out.print(prod.nome + ", Cat: " + prod.getCategoria() + ", ID: " + prod.ID + ", lote: " + prod.lote);
+                        System.out.print(prod.getNome() + ", Cat: " + prod.getCategoria() + ", ID: " + prod.ID + ", lote: " + prod.lote);
                         System.out.print(", Preço: " + prod.preco + ", Quant: " + prod.quantidade + ", Quant min: " + prod.quantidadeMinima);
                         System.out.println(", Data de Validade: " + prod.getValidade());
                         System.out.println("");

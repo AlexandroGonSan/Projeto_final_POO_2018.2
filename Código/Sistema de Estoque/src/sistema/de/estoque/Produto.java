@@ -16,12 +16,12 @@ public class Produto{
     String lote; //ok
     int quantidade = 0; //ok
     int quantidadeMinima; //ok
-    String nome; //ok
+    private String nome; //ok
     double preco; //ok
-    String categoria; //ok
+    private String categoria; //ok
     
     private Scanner scanf = new Scanner(System.in);
-    SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
+    private SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
       
     
     /**Método para cadastrar as informações quando o produto for inserido.
@@ -40,9 +40,9 @@ public class Produto{
      * @param nome String - nome do produto;
      * @param preco double - preço do produto;
      * @param categoria String - categoria do produto;
-     * @param day
-     * @param month
-     * @param year
+     * @param day String - dia de validade do produto;
+     * @param month String - mês de validade do produto que será subtraído por 1;
+     * @param year String - ano de validade do produto que será subtraído por 1900;
      */
     public Produto(Integer ID, String lote, int quantidade, int quantidadeMinima, String nome, double preco, String categoria, String day, String month, String year) {
         
@@ -50,9 +50,9 @@ public class Produto{
         this.lote = lote;
         this.quantidade = quantidade;
         this.quantidadeMinima = quantidadeMinima;
-        this.nome = nome;
+        this.setNome(nome);
         this.preco = preco;
-        this.categoria = categoria;
+        this.setCategoria(categoria);
         this.validade.setDate(Integer.parseInt(day));
         this.validade.setMonth(Integer.parseInt(month)-1);
         this.validade.setYear(Integer.parseInt(year)-1900);
@@ -62,14 +62,15 @@ public class Produto{
      * Método para o usuário cadastrar as informações do produto.
      */
     public void cadastrarProduto() {
-        System.out.println("Digite o nome do produto:");
-        this.nome = scanf.nextLine();
-        this.nome = this.nome.toUpperCase();
+        System.out.print("Digite o nome do produto: ");
+        this.setNome(scanf.nextLine());
         this.ID = this.qntID++;
        /* System.out.println("Digite o ID do produto:");
         this.ID = scanf.nextInt();*/
         
-        System.out.println("Digite o dia de validade:");
+        System.out.print("Insira a data no formato MM/DD/AAAA: ");
+        this.validade = new Date(scanf.nextLine());
+        /*System.out.println("Digite o dia de validade:");
         this.validade.setDate(scanf.nextInt());
         
         System.out.println("Digite o mês de validade:");
@@ -77,30 +78,31 @@ public class Produto{
         
         System.out.println("Digite o ano de validade:");
         this.validade.setYear(scanf.nextInt());
-        scanf.nextLine();//isso corrige o erro de pular a próxima inserção
+        scanf.nextLine();//isso corrige o erro de pular a próxima inserção*/
         
-        System.out.println("Digite o lote do produto:");
+        System.out.print("Digite o lote do produto: ");
         this.lote = scanf.nextLine();
         
         do{
-            System.out.println("Digite a quantidade mínima tolerável:");
+            System.out.print("Digite a quantidade mínima tolerável: ");
             this.quantidadeMinima = scanf.nextInt();
         }while(this.quantidadeMinima < 0);
         
         do{
-            System.out.println("Digite a quantidade que será cadastrada:");
+            System.out.print("Digite a quantidade que será cadastrada: ");
             this.quantidade = scanf.nextInt();
         }while(this.quantidade < 0);
 
         do{
-            System.out.println("Digite o preço do produto (use vírgula para separar a parte inteira):");
+            System.out.print("Digite o preço do produto (use vírgula para separar a parte inteira): ");
             this.preco = scanf.nextDouble();
         }while(this.preco <= 0);
         
+        String strAux;
         do{
-            System.out.println("Digite o tipo a ser selecionado (higiene, alimento ou medicamento): ");
-            this.categoria = scanf.next();
-        }while(this.setCategoria(this.categoria) == false); //analisa se a resposta se encontra nos padrões
+            System.out.print("Digite o tipo a ser selecionado (higiene, alimento ou medicamento): ");
+            strAux = scanf.nextLine();
+        }while(this.setCategoria(strAux) == false); //analisa se a resposta se encontra nos padrões
         
         if (this.quantidadeMinima > this.quantidade){
             System.out.println("Quantidade abaixo do mínimo!");
@@ -130,6 +132,14 @@ public class Produto{
     }
     
     /**
+     * Método de retorno da categoria do produto.
+     * @return String - categoria do produto.
+     */
+    public String getCategoria() {
+        return categoria;
+    }
+    
+    /**
      * Método usado para o usuário alterar uma informação do produto.
      */
     public void alterarProduto(){
@@ -146,7 +156,7 @@ public class Produto{
                 + "6 para preço\n"
                 + "7 para categoria\n");
         do{
-            System.out.println("Digite uma opção válida: ");
+            System.out.print("Digite uma opção válida: ");
             auxInt = scanf.nextInt();
         }while(auxInt < 1 || 7 < auxInt);
         switch(auxInt){
@@ -154,12 +164,14 @@ public class Produto{
                 System.out.print("Insira o novo ID: ");
                 this.ID = scanf.nextInt();
             case 2:
-                System.out.print("Insira o novo dia da validade: ");
+                System.out.print("Insira a nova data no formato MM/DD/AAAA: ");
+                this.validade = new Date(scanf.nextLine());
+                /*System.out.print("Insira o novo dia da validade: ");
                 this.validade.setDate(scanf.nextInt());
                 System.out.print("Insira o novo mês da validade: ");
                 this.validade.setMonth(scanf.nextInt());
                 System.out.print("Insira o novo ano da validade: ");
-                this.validade.setYear(scanf.nextInt());
+                this.validade.setYear(scanf.nextInt());*/
             case 3:
                 System.out.print("Insira o novo lote: ");
                 this.lote = scanf.next();
@@ -168,7 +180,7 @@ public class Produto{
                 this.quantidadeMinima = scanf.nextInt();
             case 5:
                 System.out.print("Insira o nome: ");
-                this.nome = scanf.nextLine();
+                this.setNome(scanf.nextLine());
             case 6:
                 System.out.print("Insira o preço: ");
                 this.preco = scanf.nextDouble();
@@ -225,7 +237,7 @@ public class Produto{
     @Override
     public String toString() {
         return "Produto{" + "ID =  " + ID + ", validade =  " + validade + ", lote =  " + lote + ",\n quantidade =  " + quantidade + 
-                ", quantidade Minima =  " + quantidadeMinima + ", nome =  " + nome + ", preco =  " + preco + ", Validade = " + dateFormatter.format(validade) +  ", categoria =  " + categoria + '}';
+                ", quantidade Minima =  " + quantidadeMinima + ", nome =  " + nome + ", preco =  " + preco + ", Validade = " + dateFormatter.format(validade) +  ", categoria =  " + this.getCategoria() + '}';
     }
         
     /**
@@ -259,7 +271,11 @@ public class Produto{
     public int getQuantidadeMinima() {
         return quantidadeMinima;
     }
-
+    
+    public void setNome(String texto){
+        this.nome = texto.toUpperCase();
+    }
+    
     /**
      * Método de retorno do nome do produto.
      * @return String - nome do produto.
@@ -275,13 +291,7 @@ public class Produto{
     public double getPreco() {
         return preco;
     }
-
-    /**
-     * Método de retorno da categoria do produto.
-     * @return String - categoria do produto.
-     */
-    public String getCategoria() {
-        return categoria;
-    }
+    
+    
     
 }
