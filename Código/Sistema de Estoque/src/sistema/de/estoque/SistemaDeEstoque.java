@@ -57,7 +57,49 @@ public class SistemaDeEstoque implements Serializable{
                     Entrada relatorioNovo = new Entrada(produtos.get(produtos.size()-1));
                     //x.gerarRelatorio();
                     relatorios.add(relatorioNovo);
+                    try {
+ 
+                     //Gera o arquivo para armazenar o objeto
+                     FileOutputStream arquivoGrav = new FileOutputStream("TesteProduto.txt");
+ 
+                     //Classe responsavel por inserir os objetos
+                     ObjectOutputStream objGravar = new ObjectOutputStream(arquivoGrav);
+ 
+                     //Grava o objeto produtos no arquivo
+                    objGravar.writeObject(produtos);
+                    objGravar.flush();
+                    objGravar.close();
+                    arquivoGrav.flush();
+                    arquivoGrav.close();
+ 
+                    System.out.println("Objeto gravado com sucesso!");
+                             }
+ 
+                    catch(Exception e) {
+                                           e.printStackTrace();
+                                        }
+ 
+                    System.out.println("Recuperando objeto: ");
+ 
+                    
+                    try {
+                     //Carrega o arquivo
+                     FileInputStream arquivoLeitura = new FileInputStream ("TesteProduto.txt");
+                     //Classe responsavel por recuperar os objetos do arquivo
+ 
+                     ObjectInputStream objLeitura =  new ObjectInputStream(arquivoLeitura);
+                     System.out.println(objLeitura.readObject());
+                     objLeitura.close();
+                     arquivoLeitura.close();
+                        }
+ 
+                    catch(Exception e) {
+                                              e.printStackTrace();
+                                          }
+ 
                     break;
+                    
+                    
                 case 2:
                  
                     System.out.println("Insira o nome ou parte dele: ");
@@ -210,7 +252,7 @@ public class SistemaDeEstoque implements Serializable{
                     
                     try {
                      //Carrega o arquivo
-                     FileInputStream arquivoLeitura = new FileInputStream ("TestFornecedor.txt");
+                     FileInputStream arquivoLeitura = new FileInputStream ("TesteFornecedor.txt");
                      //Classe responsavel por recuperar os objetos do arquivo
  
                      ObjectInputStream objLeitura =  new ObjectInputStream(arquivoLeitura);

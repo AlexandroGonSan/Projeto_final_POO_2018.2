@@ -21,7 +21,7 @@ public class Produto implements Serializable   {
     double preco; //ok
     private String categoria; //ok
     
-    private Scanner scanf = new Scanner(System.in);
+    transient Scanner scanf = new Scanner(System.in);
     private SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
       
     
