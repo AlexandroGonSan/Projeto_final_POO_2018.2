@@ -1,8 +1,9 @@
 package sistema.de.estoque;
+import java.io.Serializable;
 import java.util.Date;
 
 
-public abstract class Relatorio {
+public abstract class Relatorio implements Serializable {
     int quantidade;
     Date dataES;
     Produto produto;
