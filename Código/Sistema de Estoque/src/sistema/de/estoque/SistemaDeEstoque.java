@@ -174,10 +174,13 @@ public class SistemaDeEstoque {
                     
                     break;
                 case 5:
+                    //ADICIONAR FORNECEDOR
                     System.out.println("ADICIONAR FORNECEDOR");
                     fornecedores.add(new Fornecedor());
                     break;
+                    
                 case 6:
+                    //MOSTRAR PRODUTOS
                     for(Produto prod : produtos){
                         System.out.print(prod.getNome() + ", Cat: " + prod.getCategoria() + ", ID: " + prod.ID + ", lote: " + prod.lote);
                         System.out.print(", Preço: " + prod.preco + ", Quant: " + prod.quantidade + ", Quant min: " + prod.quantidadeMinima);

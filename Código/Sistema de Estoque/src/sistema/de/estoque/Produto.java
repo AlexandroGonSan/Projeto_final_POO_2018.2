@@ -2,6 +2,7 @@
  * @author LuluTeam
  */
 package sistema.de.estoque;
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
@@ -9,7 +10,7 @@ import java.util.Scanner;
 /**
  * Classe usada para representar o produto armazenado no estoque.
  */
-public class Produto{
+public class Produto implements Serializable   {
     static Integer qntID = 1;
     Integer ID;  // ok
     Date validade = new Date(); //ok

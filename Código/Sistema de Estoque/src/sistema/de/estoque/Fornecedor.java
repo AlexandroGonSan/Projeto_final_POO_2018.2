@@ -3,6 +3,7 @@
  */
 package sistema.de.estoque;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 /**
@@ -12,7 +13,7 @@ import java.util.Scanner;
  *  - produtoFornecido (String): nome do produto fornecido;
  * @author Linhares Filho
  */
-public class Fornecedor {
+public class Fornecedor implements Serializable{
     String nome;
     String CNPJ;
     String produtoFornecido;
@@ -79,5 +80,7 @@ public class Fornecedor {
                      
         }
     }
+    
+    
 }
   

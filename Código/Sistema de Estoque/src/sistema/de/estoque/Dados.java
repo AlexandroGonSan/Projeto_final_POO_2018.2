@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  * Classe usada para a interface com o usuário.
- * @author Linhares Filho
+ *  * @author LuluTeam
  */
 public class Dados {
 
