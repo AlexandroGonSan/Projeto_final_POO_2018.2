@@ -7,8 +7,14 @@ package sistema.de.estoque;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+ 
 
-public class SistemaDeEstoque {
+public class SistemaDeEstoque implements Serializable{
 
     /**
      * @param args the command line arguments
@@ -177,6 +183,76 @@ public class SistemaDeEstoque {
                     //ADICIONAR FORNECEDOR
                     System.out.println("ADICIONAR FORNECEDOR");
                     fornecedores.add(new Fornecedor());
+                     try
+ 
+    {
+ 
+      //Gera o arquivo para armazenar o objeto
+ 
+      FileOutputStream arquivoGrav =
+ 
+      new FileOutputStream("TesteFornecedor.txt");
+ 
+      //Classe responsavel por inserir os objetos
+ 
+      ObjectOutputStream objGravar = new ObjectOutputStream(arquivoGrav);
+ 
+      //Grava o objeto fornecedores no arquivo
+ 
+      objGravar.writeObject(fornecedores);
+ 
+      objGravar.flush();
+ 
+      objGravar.close();
+ 
+      arquivoGrav.flush();
+ 
+      arquivoGrav.close();
+ 
+      System.out.println("Objeto gravado com sucesso!");
+ 
+    }
+ 
+    catch(Exception e) {
+ 
+      e.printStackTrace();
+ 
+    }
+ 
+    System.out.println("Recuperando objeto: ");
+ 
+    try
+ 
+    {
+ 
+      //Carrega o arquivo
+ 
+      FileInputStream arquivoLeitura = new FileInputStream ("TesteFornecedor.txt");
+ 
+       //Classe responsavel por recuperar os objetos do arquivo
+ 
+      ObjectInputStream objLeitura =
+ 
+      new ObjectInputStream(arquivoLeitura);
+ 
+      System.out.println(objLeitura.readObject());
+ 
+      objLeitura.close();
+ 
+      arquivoLeitura.close();
+ 
+    }
+ 
+    catch(Exception e) {
+ 
+      e.printStackTrace();
+ 
+    }
+ 
+ 
+                    
+                    
+                    
                     break;
                     
                 case 6:
