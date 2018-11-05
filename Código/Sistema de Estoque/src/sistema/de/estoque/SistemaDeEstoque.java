@@ -82,7 +82,7 @@ public class SistemaDeEstoque implements Serializable{
                     System.out.println("Recuperando objeto: ");
  
                     
-                    try {
+                  /*  try {
                      //Carrega o arquivo
                      FileInputStream arquivoLeitura = new FileInputStream ("TesteProduto.txt");
                      //Classe responsavel por recuperar os objetos do arquivo
@@ -97,7 +97,7 @@ public class SistemaDeEstoque implements Serializable{
                                               e.printStackTrace();
                                           }
  
-                    break;
+                    break;  */
                     
                     
                 case 2:
@@ -269,6 +269,21 @@ public class SistemaDeEstoque implements Serializable{
                     
                 case 6:
                     //MOSTRAR PRODUTOS
+                     try {
+                     //Carrega o arquivo
+                     FileInputStream arquivoLeitura = new FileInputStream ("TesteProduto.txt");
+                     //Classe responsavel por recuperar os objetos do arquivo
+ 
+                     ObjectInputStream objLeitura =  new ObjectInputStream(arquivoLeitura);
+                     System.out.println(objLeitura.readObject());
+                     objLeitura.close();
+                     arquivoLeitura.close();
+                        }
+ 
+                    catch(Exception e) {
+                                              e.printStackTrace();
+                                          }
+                     
                     for(Produto prod : produtos){
                         System.out.print(prod.getNome() + ", Cat: " + prod.getCategoria() + ", ID: " + prod.ID + ", lote: " + prod.lote);
                         System.out.print(", Preço: " + prod.preco + ", Quant: " + prod.quantidade + ", Quant min: " + prod.quantidadeMinima);
