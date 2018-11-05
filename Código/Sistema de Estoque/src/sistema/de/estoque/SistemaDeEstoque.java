@@ -183,74 +183,46 @@ public class SistemaDeEstoque implements Serializable{
                     //ADICIONAR FORNECEDOR
                     System.out.println("ADICIONAR FORNECEDOR");
                     fornecedores.add(new Fornecedor());
-                     try
+                     try {
  
-    {
+                     //Gera o arquivo para armazenar o objeto
+                     FileOutputStream arquivoGrav = new FileOutputStream("TesteFornecedor.txt");
  
-      //Gera o arquivo para armazenar o objeto
+                     //Classe responsavel por inserir os objetos
+                     ObjectOutputStream objGravar = new ObjectOutputStream(arquivoGrav);
  
-      FileOutputStream arquivoGrav =
+                     //Grava o objeto fornecedores no arquivo
+                    objGravar.writeObject(fornecedores);
+                    objGravar.flush();
+                    objGravar.close();
+                    arquivoGrav.flush();
+                    arquivoGrav.close();
  
-      new FileOutputStream("TesteFornecedor.txt");
+                    System.out.println("Objeto gravado com sucesso!");
+                             }
  
-      //Classe responsavel por inserir os objetos
+                    catch(Exception e) {
+                                           e.printStackTrace();
+                                        }
  
-      ObjectOutputStream objGravar = new ObjectOutputStream(arquivoGrav);
- 
-      //Grava o objeto fornecedores no arquivo
- 
-      objGravar.writeObject(fornecedores);
- 
-      objGravar.flush();
- 
-      objGravar.close();
- 
-      arquivoGrav.flush();
- 
-      arquivoGrav.close();
- 
-      System.out.println("Objeto gravado com sucesso!");
- 
-    }
- 
-    catch(Exception e) {
- 
-      e.printStackTrace();
- 
-    }
- 
-    System.out.println("Recuperando objeto: ");
- 
-    try
- 
-    {
- 
-      //Carrega o arquivo
- 
-      FileInputStream arquivoLeitura = new FileInputStream ("TesteFornecedor.txt");
- 
-       //Classe responsavel por recuperar os objetos do arquivo
- 
-      ObjectInputStream objLeitura =  new ObjectInputStream(arquivoLeitura);
- 
-      System.out.println(objLeitura.readObject());
- 
-      objLeitura.close();
- 
-      arquivoLeitura.close();
- 
-    }
- 
-    catch(Exception e) {
- 
-      e.printStackTrace();
- 
-    }
- 
+                    System.out.println("Recuperando objeto: ");
  
                     
-                    
-                    
+                    try {
+                     //Carrega o arquivo
+                     FileInputStream arquivoLeitura = new FileInputStream ("TestFornecedor.txt");
+                     //Classe responsavel por recuperar os objetos do arquivo
+ 
+                     ObjectInputStream objLeitura =  new ObjectInputStream(arquivoLeitura);
+                     System.out.println(objLeitura.readObject());
+                     objLeitura.close();
+                     arquivoLeitura.close();
+                        }
+ 
+                    catch(Exception e) {
+                                              e.printStackTrace();
+                                          }
+ 
                     break;
                     
                 case 6:
