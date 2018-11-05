@@ -79,7 +79,7 @@ public class SistemaDeEstoque implements Serializable{
                                            e.printStackTrace();
                                         }
  
-                    System.out.println("Recuperando objeto: ");
+                   // System.out.println("Recuperando objeto: ");
  
                     
                   /*  try {
@@ -96,8 +96,8 @@ public class SistemaDeEstoque implements Serializable{
                     catch(Exception e) {
                                               e.printStackTrace();
                                           }
- 
-                    break;  */
+ */
+                    break;  
                     
                     
                 case 2:
@@ -284,13 +284,14 @@ public class SistemaDeEstoque implements Serializable{
                                               e.printStackTrace();
                                           }
                      
-                    for(Produto prod : produtos){
+                   /* for(Produto prod : produtos){
                         System.out.print(prod.getNome() + ", Cat: " + prod.getCategoria() + ", ID: " + prod.ID + ", lote: " + prod.lote);
                         System.out.print(", Preço: " + prod.preco + ", Quant: " + prod.quantidade + ", Quant min: " + prod.quantidadeMinima);
                         System.out.println(", Data de Validade: " + prod.getValidade());
                         System.out.println("");
-                    }
+                    }*/
                     break;
+                     
                 case 10:
                     System.out.println("Programa encerrado");
                     break;
