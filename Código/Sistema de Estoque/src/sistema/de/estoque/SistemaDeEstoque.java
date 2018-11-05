@@ -231,9 +231,7 @@ public class SistemaDeEstoque implements Serializable{
  
        //Classe responsavel por recuperar os objetos do arquivo
  
-      ObjectInputStream objLeitura =
- 
-      new ObjectInputStream(arquivoLeitura);
+      ObjectInputStream objLeitura =  new ObjectInputStream(arquivoLeitura);
  
       System.out.println(objLeitura.readObject());
  
