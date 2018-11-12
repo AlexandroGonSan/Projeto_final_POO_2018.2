@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Telas;
+package telasCodigos;
+
+import sistemaDeEstoque.Produto;
+import sistemaDeEstoque.Dados;
 
 /**
  *
@@ -14,8 +17,21 @@ public class TelaAlterarProduto extends javax.swing.JFrame {
     /**
      * Creates new form TelaAlterarProduto
      */
-    public TelaAlterarProduto() {
+    public TelaAlterarProduto(String sel) {
         initComponents();
+        Produto selecionado = new Produto();
+        for(Produto prod : Dados.dados){
+            if(prod.getNome().equals(sel)){
+                selecionado = prod;
+            }
+        }
+        this.taRetrieveNome.setText(selecionado.getNome());
+        this.tfNomeAlterado.setText(selecionado.getNome());
+        this.tfPrecoAlterado.setText(String.valueOf(selecionado.getPreco()));
+        this.tfQntMinAlterado.setText(String.valueOf(selecionado.getQuantidadeMinima()));
+        this.tfQntAtualAlterado.setText(String.valueOf(selecionado.getQuantidade()));
+        
+        
     }
 
     /**
@@ -411,7 +427,7 @@ public class TelaAlterarProduto extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaAlterarProduto().setVisible(true);
+                new TelaAlterarProduto(" ").setVisible(true);
             }
         });
     }

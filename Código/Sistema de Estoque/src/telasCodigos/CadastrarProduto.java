@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Telas;
+package telasCodigos;
 
 import java.awt.Color;
 import javax.swing.JOptionPane;
-import sistema.de.estoque.Dados;
-import sistema.de.estoque.Produto;
+import sistemaDeEstoque.Dados;
+import sistemaDeEstoque.Produto;
 
 /**
  *

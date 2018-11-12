@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Telas;
+package telasCodigos;
 
-import sistema.de.estoque.Dados;
-import sistema.de.estoque.ModeloTabelaProduto;
+import javax.swing.table.TableModel;
+import sistemaDeEstoque.Dados;
+import sistemaDeEstoque.ModeloTabelaProduto;
 
 /**
  *
@@ -127,8 +128,22 @@ public class TelaListarProdutos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btAlterarProd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarProd1ActionPerformed
-        TelaListarProdutos.this.setVisible(false);
-        new CadastrarProduto().setVisible(true);
+        //TelaListarProdutos.this.setVisible(false);
+        //new CadastrarProduto().setVisible(true);
+        int[] colunas = jTable1.getSelectedColumns();
+        TableModel model = jTable1.getModel();
+        int linha = jTable1.getSelectedRow();
+        String select = (String)model.getValueAt(0, 1);
+        
+        //String[][] output =  new String[coluna.length][rowc];
+        /*for(int i = 0; i<coluna.length; i++){
+            for(int row = 0; row < rowc; row++){
+                int column = jTable1.convertColumnIndexToModel(coluna[i]);
+                output[i][row] = model.getValueAt(row, column).toString();
+                System.out.println(output[i][row]);
+            }
+        }*/
+        System.out.println(select);
     }//GEN-LAST:event_btAlterarProd1ActionPerformed
 
     private void btVoltarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarListaActionPerformed
@@ -137,8 +152,14 @@ public class TelaListarProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_btVoltarListaActionPerformed
 
     private void btAlterarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarProdActionPerformed
+        int[] colunas = jTable1.getSelectedColumns();
+        TableModel model = jTable1.getModel();
+        int linha = jTable1.getSelectedRow();
+        String select = String.valueOf(model.getValueAt(linha, 0));
+        
         TelaListarProdutos.this.setVisible(false);
-        new TelaAlterarProduto().setVisible(true);
+        new TelaAlterarProduto(select).setVisible(true);
+        
     }//GEN-LAST:event_btAlterarProdActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

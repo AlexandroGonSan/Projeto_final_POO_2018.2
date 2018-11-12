@@ -1,7 +1,7 @@
 /**Classe que será o modelo para os objetos do tipo Produto
  * @author LuluTeam
  */
-package sistema.de.estoque;
+package sistemaDeEstoque;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -144,7 +144,7 @@ public class Produto implements Serializable   {
      * Método usado para o usuário alterar uma informação do produto.
      */
     public void alterarProduto(){
-        //seria bacana se pudéssemos colocar senha para alterar
+
         int auxInt;
         
         System.out.print("ALTERAR PRODUTO\n"

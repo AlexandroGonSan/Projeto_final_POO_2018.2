@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package sistema.de.estoque;
+package sistemaDeEstoque;
 
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
@@ -54,7 +54,8 @@ public class ModeloTabelaProduto extends AbstractTableModel {
     //@see javax.swing.table.TableModel#getValueAt(int, int)
 
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Produto prod = (Produto) linhas.get(rowIndex);
+        Produto prod = Dados.dados.get(rowIndex);
+        //Produto prod = (Produto) linhas.get(rowIndex);
         /*Player p = new Player();
         p.setSourceLocation(musica.getCaminho());*/
         if (columnIndex != -1) {
