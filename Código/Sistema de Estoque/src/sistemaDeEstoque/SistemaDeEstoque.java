@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
@@ -40,18 +41,23 @@ public class SistemaDeEstoque implements Serializable{
         while(opcao != 10){
             System.out.println("O que deseja fazer ?\nDigite o número da opção desejada:");
             System.out.println("1 - Cadastrar novo Produtos ao estoque");
-            System.out.println("2 - Repor estoque de produto"); //adicionar uma quantidade de um produto no estoque
-            System.out.println("3 - Retirar quantia do produto do estoque"); //remover uma quantidade de um procuto no estoque
-            //System.out.println("2 - Remover Produtos do estoque"); //acho que não precisamos dessa opção no momento
+            System.out.println("2 - Repor estoque de produto"); 
+            System.out.println("3 - Retirar quantia do produto do estoque"); 
             System.out.println("4 - Gerar Relatório das alterações no estoque");
-            //acho que precisamos no momento uma opção para mostrar só um relatório, depois adicionamos mais opções
             System.out.println("5 - Adicionar fornecedor ao sistema");
             System.out.println("6 - Exibir produtos");
             System.out.println("10 - Sair do programa");
             System.out.print("Digite a opção: ");
-            
-            opcao = scanf.nextInt();
-            scanf.nextLine();
+       
+                try{
+                    opcao = scanf.nextInt();
+                    scanf.nextLine();
+                }
+                catch(Exception ex){
+                    System.out.println("Error, o valor digitado precisa ser um número.\n" );
+                    break;
+                }
+           
           
             switch (opcao){
                 case 1:
@@ -62,46 +68,38 @@ public class SistemaDeEstoque implements Serializable{
           
                     relatorios.add(relatorioNovo);
                     try {
- 
-                  
-                     FileOutputStream arquivoGrav = new FileOutputStream("TesteProduto.txt");
- 
-              
+                     FileOutputStream arquivoGrav = new FileOutputStream("TesteProduto.txt"); 
                      ObjectOutputStream objGravar = new ObjectOutputStream(arquivoGrav);
  
-             
                     objGravar.writeObject(produtos);
                     objGravar.flush();
                     objGravar.close();
                     arquivoGrav.flush();
                     arquivoGrav.close();
  
-                    System.out.println("Objeto gravado com sucesso!");
-                             }
- 
-                    catch(Exception e) {
+                    System.out.println("Cadastro realizado com sucesso!");
+                    } 
+                    catch(IOException e) {
                         e.printStackTrace();
                     }
  
                    // System.out.println("Recuperando objeto: ");
- 
-                    
-                  /*  try {
+     
+                  try {
                      //Carrega o arquivo
                      FileInputStream arquivoLeitura = new FileInputStream ("TesteProduto.txt");
                      //Classe responsavel por recuperar os objetos do arquivo
  
                      ObjectInputStream objLeitura =  new ObjectInputStream(arquivoLeitura);
-                     System.out.println(objLeitura.readObject());
+                     //System.out.println(objLeitura.readObject());
                      objLeitura.close();
                      arquivoLeitura.close();
                         }
  
-                    catch(Exception e) {
+                    catch(IOException e) {
                         e.printStackTrace();
                     }
- */
-                    break;  
+                    break;    
                     
                     
                 case 2:
@@ -152,6 +150,21 @@ public class SistemaDeEstoque implements Serializable{
                     System.out.println("Retornando ao menu principal");
                     break;
                 case 3:
+                    try {
+                     //Carrega o arquivo
+                     FileInputStream arquivoLeitura = new FileInputStream ("TesteProduto.txt");
+                     //Classe responsavel por recuperar os objetos do arquivo
+ 
+                     ObjectInputStream objLeitura =  new ObjectInputStream(arquivoLeitura);
+                     //System.out.println(objLeitura.readObject());
+                     objLeitura.close();
+                     arquivoLeitura.close();
+                     }
+ 
+                    catch(Exception e) {
+                            e.printStackTrace();
+                    }
+                    
                     System.out.println("Insira o nome ou parte dele: ");
                     strAux = scanf.nextLine();
                     strAux = strAux.toUpperCase();
@@ -248,8 +261,8 @@ public class SistemaDeEstoque implements Serializable{
                              }
  
                     catch(Exception e) {
-                                           e.printStackTrace();
-                                        }
+                     e.printStackTrace();
+                    }
  
                     System.out.println("Recuperando objeto: ");
  
@@ -266,8 +279,8 @@ public class SistemaDeEstoque implements Serializable{
                         }
  
                     catch(Exception e) {
-                                              e.printStackTrace();
-                                          }
+                        e.printStackTrace();
+                    }
  
                     break;
                     
@@ -288,12 +301,12 @@ public class SistemaDeEstoque implements Serializable{
                             e.printStackTrace();
                     }
                      
-                   /* for(Produto prod : produtos){
+                   for(Produto prod : produtos){
                         System.out.print(prod.getNome() + ", Cat: " + prod.getCategoria() + ", ID: " + prod.ID + ", lote: " + prod.lote);
                         System.out.print(", Preço: " + prod.preco + ", Quant: " + prod.quantidade + ", Quant min: " + prod.quantidadeMinima);
                         System.out.println(", Data de Validade: " + prod.getValidade());
                         System.out.println("");
-                    }*/
+                    }
                     break;
                      
                 case 10:

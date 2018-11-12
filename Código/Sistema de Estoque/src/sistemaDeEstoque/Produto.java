@@ -4,8 +4,8 @@
 package sistemaDeEstoque;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Scanner;
+import java.util.*;
+
         
 /**
  * Classe usada para representar o produto armazenado no estoque.
@@ -65,9 +65,9 @@ public class Produto implements Serializable   {
     public void cadastrarProduto() {
         System.out.print("Digite o nome do produto: ");
         this.setNome(scanf.nextLine());
-        this.ID = this.qntID++;
+        this.ID = Produto.qntID++;
         
-        System.out.print("Insira a data no formato MM/DD/AAAA: ");
+        System.out.print("Insira a data de validade no formato MM/DD/AAAA: ");
         this.validade = new Date(scanf.nextLine());
         
         System.out.print("Digite o lote do produto: ");
@@ -90,14 +90,15 @@ public class Produto implements Serializable   {
         
         String strAux;
         do{
-            System.out.print("Digite o tipo a ser selecionado (higiene, alimento ou medicamento): ");
+            System.out.print("Digite o tipo a ser selecionado (Higiene, Alimento ou Medicamento): ");
             strAux = scanf.nextLine();
         }while(this.setCategoria(strAux) == false); //analisa se a resposta se encontra nos padrões
         
         if (this.quantidadeMinima > this.quantidade){
             System.out.println("Quantidade abaixo do mínimo!");
         }
-        System.out.println();
+        System.out.println("");
+        
     }
     
     /**A função recebe o nome da categoria e valida caso esteja nas categorias.
@@ -221,8 +222,8 @@ public class Produto implements Serializable   {
 
     @Override
     public String toString() {
-        return "Produto{" + "ID =  " + ID + ", validade =  " + validade + ", lote =  " + lote + ",\n quantidade =  " + quantidade + 
-                ", quantidade Minima =  " + quantidadeMinima + ", nome =  " + nome + ", preco =  " + preco + ", Validade = " + dateFormatter.format(validade) +  ", categoria =  " + this.getCategoria() + '}';
+        return "\nProduto {" + " ID =  " + ID + ", validade =  " + validade + ", lote =  " + lote + ",\n quantidade =  " + quantidade + 
+                ", quantidade Minima =  " + quantidadeMinima + ", nome =  " + nome + ", preco =  " + preco + ", Validade = " + validade+  ", categoria =  " + this.getCategoria() + " \n";
     }
         
     /**
