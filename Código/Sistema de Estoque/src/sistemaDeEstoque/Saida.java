@@ -1,7 +1,7 @@
 /*
 
  */
-package sistema.de.estoque;
+package sistemaDeEstoque;
 
 /**
  *

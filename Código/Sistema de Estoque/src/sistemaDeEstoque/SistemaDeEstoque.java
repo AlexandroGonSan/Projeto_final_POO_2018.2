@@ -2,7 +2,7 @@
  * @author LuluTeam
  */
 
-package sistema.de.estoque;
+package sistemaDeEstoque;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,8 +76,8 @@ public class SistemaDeEstoque implements Serializable{
                              }
  
                     catch(Exception e) {
-                                           e.printStackTrace();
-                                        }
+                        e.printStackTrace();
+                    }
  
                    // System.out.println("Recuperando objeto: ");
  
@@ -94,8 +94,8 @@ public class SistemaDeEstoque implements Serializable{
                         }
  
                     catch(Exception e) {
-                                              e.printStackTrace();
-                                          }
+                        e.printStackTrace();
+                    }
  */
                     break;  
                     

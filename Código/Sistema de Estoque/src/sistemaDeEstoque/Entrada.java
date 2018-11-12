@@ -1,7 +1,7 @@
 
 /*@author LuluTeam
 */
-package sistema.de.estoque;
+package sistemaDeEstoque;
 
 /**
  * Classe usada para guardar os dados de uma movimentação de produtos para o estoque.

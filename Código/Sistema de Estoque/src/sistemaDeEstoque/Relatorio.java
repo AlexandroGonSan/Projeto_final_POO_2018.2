@@ -1,4 +1,4 @@
-package sistema.de.estoque;
+package sistemaDeEstoque;
 import java.io.Serializable;
 import java.util.Date;
 

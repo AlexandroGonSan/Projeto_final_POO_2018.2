@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Telas;
+package telasCodigos;
 
 import java.awt.Color;
 import javax.swing.JOptionPane;
-import sistema.de.estoque.Dados;
-import sistema.de.estoque.Fornecedor;
+import sistemaDeEstoque.Dados;
+import sistemaDeEstoque.Fornecedor;
 
 /**
  *
@@ -97,7 +97,6 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
         btCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(450, 390));
 
         jLabelTitulo.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         jLabelTitulo.setText("Cadastrar Novo Fornecedor");
@@ -182,9 +181,10 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
                     .addComponent(jlCNPJ)
                     .addComponent(tfCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jlProdForn)
-                    .addComponent(tfProdForn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tfProdForn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCadFornecedor)

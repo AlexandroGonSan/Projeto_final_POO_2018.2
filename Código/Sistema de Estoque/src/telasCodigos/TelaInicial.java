@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Telas;
+package telasCodigos;
 
 import javax.swing.JOptionPane;
 
@@ -34,7 +34,6 @@ public class TelaInicial extends javax.swing.JFrame {
         btRelatEntrada = new javax.swing.JButton();
         btRelatSaida = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        btAlterarProduto = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -80,14 +79,6 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
-        btAlterarProduto.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        btAlterarProduto.setText("Alterar Produto *");
-        btAlterarProduto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btAlterarProdutoActionPerformed(evt);
-            }
-        });
-
         jButton1.setBackground(new java.awt.Color(0, 102, 204));
         jButton1.setFont(new java.awt.Font("Bell MT", 1, 14)); // NOI18N
         jButton1.setText("i");
@@ -99,12 +90,12 @@ public class TelaInicial extends javax.swing.JFrame {
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 102, 0));
+        jLabel2.setForeground(new java.awt.Color(255, 153, 0));
         jLabel2.setText("torage");
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 255));
         jLabel4.setText("EX");
 
         jLabel5.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
@@ -145,7 +136,6 @@ public class TelaInicial extends javax.swing.JFrame {
                             .addComponent(btRelatEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btListarProds, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btCadNovoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btAlterarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btCadastrarFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(277, 277, 277)
@@ -180,14 +170,12 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btListarProds, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btAlterarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(btRelatEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btRelatSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btCadastrarFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4))
+                .addGap(57, 57, 57))
         );
 
         pack();
@@ -217,11 +205,6 @@ public class TelaInicial extends javax.swing.JFrame {
         TelaInicial.this.setVisible(false);
         new TelaListarProdutos().setVisible(true);
     }//GEN-LAST:event_btListarProdsActionPerformed
-
-    private void btAlterarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarProdutoActionPerformed
-        TelaInicial.this.setVisible(false);
-        new TelaAlterarProduto().setVisible(true);
-    }//GEN-LAST:event_btAlterarProdutoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JOptionPane.showMessageDialog(null, "Cadastrar Produto - Cadastra um novo produto ainda não presente no estoque atual.\n\n" + 
@@ -273,7 +256,6 @@ public class TelaInicial extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Menu1;
-    private javax.swing.JButton btAlterarProduto;
     private javax.swing.JButton btCadNovoProd;
     private javax.swing.JButton btCadastrarFornecedor;
     private javax.swing.JButton btListarProds;
