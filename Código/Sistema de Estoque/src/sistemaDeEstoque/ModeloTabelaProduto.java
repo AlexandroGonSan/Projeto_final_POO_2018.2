@@ -1,63 +1,98 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+    *@author LuluTeam
  */
 package sistemaDeEstoque;
 
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 /**
- *
- * @author Administrador
+ * Classe para controlar as tabelas da interface.
+ * @author LuluTeam
  */
 public class ModeloTabelaProduto extends AbstractTableModel {
 
     private ArrayList linhas = null;
     private String[] colunas = {"ID", "Nome", "Quantidade"};
 
+    /**
+     * O método é usado para definir as informações da tabela na interface.
+     * @param dados - é os dados com as informações necessárias sobre o produto(ID, Nome, Quantidade).
+     */
     public ModeloTabelaProduto(ArrayList dados) {
         setLinhas(dados);
     }
 
+    /**
+     * O método é usado para retornar os dados para as colunas na interface.
+     * @return retorna as informações para preencher as colunas.
+     */
     public String[] getColunas() {
         return colunas;
     }
 
+    /**
+     * O método é usado para retornar os dados para as linhas na interface.
+     * @return retorna as informações para preencher as linhas.
+     */
     public ArrayList getLinhas() {
         return linhas;
     }
 
+    /**
+     * O método configura as colunas da lista dos produtos.
+     * @param strings - valor recebido para colocar nas colunas.
+     */
     public void setColunas(String[] strings) {
         colunas = strings;
     }
 
-    public void setLinhas(ArrayList list) {
+    /**
+     * O método configura as linhas da lista dos produtos.
+     * @param list - valor recebido para colocar nas linhas.
+     */
+    private void setLinhas(ArrayList list) {
         linhas = list;
     }
 
-    //Retorna o numero de colunas no modelo
-    //@see javax.swing.table.TableModel#getColumnCount()
+     /**
+     * O método retorna o número de colunas no modelo.
+     * @return o número de colunas no modelo para a interface.
+     * @see javax.swing.table.TableModel#getColumnCount()
+     */
+   
+    @Override
     public int getColumnCount() {
         return getColunas().length;
     }
-
-    //Retorna o numero de linhas existentes no modelo
-    //@see javax.swing.table.TableModel#getRowCount()
+    
+    /**
+     * O método retorna o número de linhas existentes no modelo.
+     * @return o número de linhas no modelo para a interface.
+     * @see javax.swing.table.TableModel#getRowCount()
+     */
+    
+    @Override
     public int getRowCount() {
         return getLinhas().size();
     }
 
+    @Override
     public String getColumnName(int columnIndex) {
         return colunas[columnIndex];
     }
-    //Obtem o valor na linha e coluna
-    //@see javax.swing.table.TableModel#getValueAt(int, int)
-
+    
+    /**
+     * O método obtem o valor na linha e coluna.
+     * @param rowIndex - linha onde está o produto;
+     * @param columnIndex -  coluna onde está o produto;
+     * @return o produto já que não foi selecionado nada na interface.
+     * //@see javax.swing.table.TableModel#getValueAt(int, int).
+    */
+    
+    @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Produto prod = Dados.dados.get(rowIndex);
-        //Produto prod = (Produto) linhas.get(rowIndex);
-        /*Player p = new Player();
-        p.setSourceLocation(musica.getCaminho());*/
+        
         if (columnIndex != -1) {
             switch (columnIndex) {
                 case 0:

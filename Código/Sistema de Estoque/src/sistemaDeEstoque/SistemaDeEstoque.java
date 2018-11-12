@@ -13,14 +13,18 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
  
-
+/**
+ * Classe principal do sistema, onde ocorre o gerenciamento das classes,
+ * para o funcionamento do sistema.
+ * @author LuluTeam
+ */
 public class SistemaDeEstoque implements Serializable{
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+      
         List<Produto> produtos = new ArrayList<>();
         List<Fornecedor> fornecedores = new ArrayList<>();
         List<Relatorio> relatorios = new ArrayList<>();
@@ -28,8 +32,8 @@ public class SistemaDeEstoque implements Serializable{
         int opcao = 0;
         int intAux;
         String strAux;
-        List<Produto> listAux = new ArrayList<>(); //lista auxiliar para ajudar na busca 
-        //new comment
+        List<Produto> listAux = new ArrayList<>(); 
+   
         
         Scanner scanf = new Scanner(System.in);
         
@@ -47,25 +51,25 @@ public class SistemaDeEstoque implements Serializable{
             System.out.print("Digite a opção: ");
             
             opcao = scanf.nextInt();
-            scanf.nextLine();//isso corrige o erro de pular a próxima inserção
-            //Switch para a escolha da opção
+            scanf.nextLine();
+          
             switch (opcao){
                 case 1:
                     System.out.println("ADICIONAR PRODUTO");
                     produtos.add(new Produto());
-                    //Produto novo = produtos.get(produtos.size()-1);
+                    
                     Entrada relatorioNovo = new Entrada(produtos.get(produtos.size()-1));
-                    //x.gerarRelatorio();
+          
                     relatorios.add(relatorioNovo);
                     try {
  
-                     //Gera o arquivo para armazenar o objeto
+                  
                      FileOutputStream arquivoGrav = new FileOutputStream("TesteProduto.txt");
  
-                     //Classe responsavel por inserir os objetos
+              
                      ObjectOutputStream objGravar = new ObjectOutputStream(arquivoGrav);
  
-                     //Grava o objeto produtos no arquivo
+             
                     objGravar.writeObject(produtos);
                     objGravar.flush();
                     objGravar.close();
@@ -281,8 +285,8 @@ public class SistemaDeEstoque implements Serializable{
                         }
  
                     catch(Exception e) {
-                                              e.printStackTrace();
-                                          }
+                            e.printStackTrace();
+                    }
                      
                    /* for(Produto prod : produtos){
                         System.out.print(prod.getNome() + ", Cat: " + prod.getCategoria() + ", ID: " + prod.ID + ", lote: " + prod.lote);
