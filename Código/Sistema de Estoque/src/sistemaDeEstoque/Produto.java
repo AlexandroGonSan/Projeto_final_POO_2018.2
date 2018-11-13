@@ -2,6 +2,11 @@
  * @author LuluTeam
  */
 package sistemaDeEstoque;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -10,7 +15,8 @@ import java.util.*;
 /**
  * Classe usada para representar o produto armazenado no estoque.
  */
-public class Produto implements Serializable   {
+
+public class Produto implements Serializable{
     static Integer qntID = 1;
     Integer ID;  
     Date validade = new Date(); 
@@ -19,7 +25,7 @@ public class Produto implements Serializable   {
     int quantidadeMinima; 
     private String nome; 
     double preco; 
-    private String categoria; 
+    private String categoria;
     
     transient Scanner scanf = new Scanner(System.in);
     private SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
@@ -57,6 +63,7 @@ public class Produto implements Serializable   {
         this.validade.setDate(Integer.parseInt(day));
         this.validade.setMonth(Integer.parseInt(month)-1);
         this.validade.setYear(Integer.parseInt(year)-1900);
+        
     }
 
     /**
@@ -219,7 +226,9 @@ public class Produto implements Serializable   {
         }
         return false;
     }
+    
 
+ 
     @Override
     public String toString() {
         return "\nProduto {" + " ID =  " + ID + ", validade =  " + validade + ", lote =  " + lote + ",\n quantidade =  " + quantidade + 

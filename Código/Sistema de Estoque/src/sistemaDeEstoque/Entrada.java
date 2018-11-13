@@ -2,12 +2,15 @@
     *@author LuluTeam
 */
 package sistemaDeEstoque;
+
+import java.io.Serializable;
+
 /**
  * Classe usada para guardar os dados de uma movimentação de produtos para o estoque.
  *      Essa classe extende a classe abstrata Relatorio.
  * @author LuluTeam
  */
-public class Entrada extends Relatorio {
+public class Entrada extends Relatorio implements Serializable{
     String fornecedor;
     /**
      * Construtor da classe. Ele recebe os dados do objeto Produto para para preencher os dados do objeto Entrada.

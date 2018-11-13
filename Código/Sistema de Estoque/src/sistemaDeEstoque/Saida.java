@@ -1,11 +1,12 @@
 package sistemaDeEstoque;
+import java.io.Serializable;
 
 /**
  * Classe do relatório gerado assim que há saída de produtos do estoque.
  * @author LuluTeam
  */
 
-public class Saida extends Relatorio {
+public class Saida extends Relatorio implements Serializable{
     String destino;
     /**
      * Construtor da classe. Ele recebe os dados do objeto Produto para para preencher os dados do objeto Saida.
