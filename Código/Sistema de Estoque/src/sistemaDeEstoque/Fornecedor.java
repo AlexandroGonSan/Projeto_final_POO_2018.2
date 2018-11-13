@@ -1,5 +1,5 @@
 /*
-
+    *@author LuluTeam
  */
 package sistemaDeEstoque;
 
@@ -11,7 +11,8 @@ import java.util.Scanner;
  *  - nome (String): nome do fornecedor;
  *  - CNPJ (String): CNPJ do fornecedor devendo conter 14 dígitos;
  *  - produtoFornecido (String): nome do produto fornecido;
- * @author Linhares Filho
+ *  - alterar (String): a informação a ser alterada pelo usuário;
+ * @author LuluTeam
  */
 public class Fornecedor implements Serializable{
     String nome;
@@ -26,11 +27,12 @@ public class Fornecedor implements Serializable{
     }
     
     /**
-     * O construtors recebe os parâmetros para inserir nos atributos.
+     * O construtor recebe os parâmetros para inserir nos atributos.
      * @param razao String - recebe a razão social do fornecedor;
      * @param prodForn String - recebe o produto que ele fornece;
      * @param CNPJ String - possui 14 dígitos e é o CNPJ do fornecedor.
      */
+    
     public Fornecedor(String razao, String prodForn, String CNPJ){
         this.nome = razao;
         this.produtoFornecido = prodForn;

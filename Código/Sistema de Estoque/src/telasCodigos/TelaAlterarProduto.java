@@ -16,6 +16,7 @@ public class TelaAlterarProduto extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaAlterarProduto
+     * @param sel - nome para selecionar o produto a ser alterado.
      */
     public TelaAlterarProduto(String sel) {
         initComponents();

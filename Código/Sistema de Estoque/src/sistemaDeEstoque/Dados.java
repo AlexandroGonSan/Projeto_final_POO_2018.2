@@ -1,14 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+    *@author LuluTeam
+*/
 package sistemaDeEstoque;
 
 import java.util.ArrayList;
 
 /**
- * Classe usada para a interface com o usuário.
+ * Classe usada para controlar os da interface.
  *  * @author LuluTeam
  */
 public class Dados {

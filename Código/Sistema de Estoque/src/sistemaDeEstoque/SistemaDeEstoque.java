@@ -9,18 +9,23 @@ import java.util.List;
 import java.util.Scanner;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
  
-
+/**
+ * Classe principal do sistema, onde ocorre o gerenciamento das classes,
+ * para o funcionamento do sistema.
+ * @author LuluTeam
+ */
 public class SistemaDeEstoque implements Serializable{
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+      
         List<Produto> produtos = new ArrayList<>();
         List<Fornecedor> fornecedores = new ArrayList<>();
         List<Relatorio> relatorios = new ArrayList<>();
@@ -28,76 +33,73 @@ public class SistemaDeEstoque implements Serializable{
         int opcao = 0;
         int intAux;
         String strAux;
-        List<Produto> listAux = new ArrayList<>(); //lista auxiliar para ajudar na busca 
-        //new comment
+        List<Produto> listAux = new ArrayList<>(); 
+   
         
         Scanner scanf = new Scanner(System.in);
         
         while(opcao != 10){
             System.out.println("O que deseja fazer ?\nDigite o número da opção desejada:");
             System.out.println("1 - Cadastrar novo Produtos ao estoque");
-            System.out.println("2 - Repor estoque de produto"); //adicionar uma quantidade de um produto no estoque
-            System.out.println("3 - Retirar quantia do produto do estoque"); //remover uma quantidade de um procuto no estoque
-            //System.out.println("2 - Remover Produtos do estoque"); //acho que não precisamos dessa opção no momento
+            System.out.println("2 - Repor estoque de produto"); 
+            System.out.println("3 - Retirar quantia do produto do estoque"); 
             System.out.println("4 - Gerar Relatório das alterações no estoque");
-            //acho que precisamos no momento uma opção para mostrar só um relatório, depois adicionamos mais opções
             System.out.println("5 - Adicionar fornecedor ao sistema");
             System.out.println("6 - Exibir produtos");
             System.out.println("10 - Sair do programa");
             System.out.print("Digite a opção: ");
-            
-            opcao = scanf.nextInt();
-            scanf.nextLine();//isso corrige o erro de pular a próxima inserção
-            //Switch para a escolha da opção
+       
+                try{
+                    opcao = scanf.nextInt();
+                    scanf.nextLine();
+                }
+                catch(Exception ex){
+                    System.out.println("Error, o valor digitado precisa ser um número.\n" );
+                    break;
+                }
+           
+          
             switch (opcao){
                 case 1:
                     System.out.println("ADICIONAR PRODUTO");
                     produtos.add(new Produto());
-                    //Produto novo = produtos.get(produtos.size()-1);
+                    
                     Entrada relatorioNovo = new Entrada(produtos.get(produtos.size()-1));
-                    //x.gerarRelatorio();
+          
                     relatorios.add(relatorioNovo);
                     try {
- 
-                     //Gera o arquivo para armazenar o objeto
-                     FileOutputStream arquivoGrav = new FileOutputStream("TesteProduto.txt");
- 
-                     //Classe responsavel por inserir os objetos
+                     FileOutputStream arquivoGrav = new FileOutputStream("TesteProduto.txt"); 
                      ObjectOutputStream objGravar = new ObjectOutputStream(arquivoGrav);
  
-                     //Grava o objeto produtos no arquivo
                     objGravar.writeObject(produtos);
                     objGravar.flush();
                     objGravar.close();
                     arquivoGrav.flush();
                     arquivoGrav.close();
  
-                    System.out.println("Objeto gravado com sucesso!");
-                             }
- 
-                    catch(Exception e) {
+                    System.out.println("Cadastro realizado com sucesso!");
+                    } 
+                    catch(IOException e) {
                         e.printStackTrace();
                     }
  
                    // System.out.println("Recuperando objeto: ");
- 
-                    
-                  /*  try {
+     
+                  try {
                      //Carrega o arquivo
                      FileInputStream arquivoLeitura = new FileInputStream ("TesteProduto.txt");
                      //Classe responsavel por recuperar os objetos do arquivo
  
                      ObjectInputStream objLeitura =  new ObjectInputStream(arquivoLeitura);
-                     System.out.println(objLeitura.readObject());
+                     //System.out.println(objLeitura.readObject());
                      objLeitura.close();
                      arquivoLeitura.close();
                         }
  
-                    catch(Exception e) {
+                    catch(IOException e) {
                         e.printStackTrace();
                     }
- */
-                    break;  
+                    break;    
                     
                     
                 case 2:
@@ -148,6 +150,21 @@ public class SistemaDeEstoque implements Serializable{
                     System.out.println("Retornando ao menu principal");
                     break;
                 case 3:
+                    try {
+                     //Carrega o arquivo
+                     FileInputStream arquivoLeitura = new FileInputStream ("TesteProduto.txt");
+                     //Classe responsavel por recuperar os objetos do arquivo
+ 
+                     ObjectInputStream objLeitura =  new ObjectInputStream(arquivoLeitura);
+                     //System.out.println(objLeitura.readObject());
+                     objLeitura.close();
+                     arquivoLeitura.close();
+                     }
+ 
+                    catch(Exception e) {
+                            e.printStackTrace();
+                    }
+                    
                     System.out.println("Insira o nome ou parte dele: ");
                     strAux = scanf.nextLine();
                     strAux = strAux.toUpperCase();
@@ -244,8 +261,8 @@ public class SistemaDeEstoque implements Serializable{
                              }
  
                     catch(Exception e) {
-                                           e.printStackTrace();
-                                        }
+                     e.printStackTrace();
+                    }
  
                     System.out.println("Recuperando objeto: ");
  
@@ -262,8 +279,8 @@ public class SistemaDeEstoque implements Serializable{
                         }
  
                     catch(Exception e) {
-                                              e.printStackTrace();
-                                          }
+                        e.printStackTrace();
+                    }
  
                     break;
                     
@@ -281,15 +298,15 @@ public class SistemaDeEstoque implements Serializable{
                         }
  
                     catch(Exception e) {
-                                              e.printStackTrace();
-                                          }
+                            e.printStackTrace();
+                    }
                      
-                   /* for(Produto prod : produtos){
+                   for(Produto prod : produtos){
                         System.out.print(prod.getNome() + ", Cat: " + prod.getCategoria() + ", ID: " + prod.ID + ", lote: " + prod.lote);
                         System.out.print(", Preço: " + prod.preco + ", Quant: " + prod.quantidade + ", Quant min: " + prod.quantidadeMinima);
                         System.out.println(", Data de Validade: " + prod.getValidade());
                         System.out.println("");
-                    }*/
+                    }
                     break;
                      
                 case 10:

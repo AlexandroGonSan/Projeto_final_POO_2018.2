@@ -4,22 +4,22 @@
 package sistemaDeEstoque;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Scanner;
+import java.util.*;
+
         
 /**
  * Classe usada para representar o produto armazenado no estoque.
  */
 public class Produto implements Serializable   {
     static Integer qntID = 1;
-    Integer ID;  // ok
-    Date validade = new Date(); //ok
-    String lote; //ok
-    int quantidade = 0; //ok
-    int quantidadeMinima; //ok
-    private String nome; //ok
-    double preco; //ok
-    private String categoria; //ok
+    Integer ID;  
+    Date validade = new Date(); 
+    String lote; 
+    int quantidade = 0; 
+    int quantidadeMinima; 
+    private String nome; 
+    double preco; 
+    private String categoria; 
     
     transient Scanner scanf = new Scanner(System.in);
     private SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
@@ -65,21 +65,10 @@ public class Produto implements Serializable   {
     public void cadastrarProduto() {
         System.out.print("Digite o nome do produto: ");
         this.setNome(scanf.nextLine());
-        this.ID = this.qntID++;
-       /* System.out.println("Digite o ID do produto:");
-        this.ID = scanf.nextInt();*/
+        this.ID = Produto.qntID++;
         
-        System.out.print("Insira a data no formato MM/DD/AAAA: ");
+        System.out.print("Insira a data de validade no formato MM/DD/AAAA: ");
         this.validade = new Date(scanf.nextLine());
-        /*System.out.println("Digite o dia de validade:");
-        this.validade.setDate(scanf.nextInt());
-        
-        System.out.println("Digite o mês de validade:");
-        this.validade.setMonth(scanf.nextInt());
-        
-        System.out.println("Digite o ano de validade:");
-        this.validade.setYear(scanf.nextInt());
-        scanf.nextLine();//isso corrige o erro de pular a próxima inserção*/
         
         System.out.print("Digite o lote do produto: ");
         this.lote = scanf.nextLine();
@@ -101,14 +90,15 @@ public class Produto implements Serializable   {
         
         String strAux;
         do{
-            System.out.print("Digite o tipo a ser selecionado (higiene, alimento ou medicamento): ");
+            System.out.print("Digite o tipo a ser selecionado (Higiene, Alimento ou Medicamento): ");
             strAux = scanf.nextLine();
         }while(this.setCategoria(strAux) == false); //analisa se a resposta se encontra nos padrões
         
         if (this.quantidadeMinima > this.quantidade){
             System.out.println("Quantidade abaixo do mínimo!");
         }
-        System.out.println();
+        System.out.println("");
+        
     }
     
     /**A função recebe o nome da categoria e valida caso esteja nas categorias.
@@ -167,12 +157,7 @@ public class Produto implements Serializable   {
             case 2:
                 System.out.print("Insira a nova data no formato MM/DD/AAAA: ");
                 this.validade = new Date(scanf.nextLine());
-                /*System.out.print("Insira o novo dia da validade: ");
-                this.validade.setDate(scanf.nextInt());
-                System.out.print("Insira o novo mês da validade: ");
-                this.validade.setMonth(scanf.nextInt());
-                System.out.print("Insira o novo ano da validade: ");
-                this.validade.setYear(scanf.nextInt());*/
+           
             case 3:
                 System.out.print("Insira o novo lote: ");
                 this.lote = scanf.next();
@@ -237,8 +222,8 @@ public class Produto implements Serializable   {
 
     @Override
     public String toString() {
-        return "Produto{" + "ID =  " + ID + ", validade =  " + validade + ", lote =  " + lote + ",\n quantidade =  " + quantidade + 
-                ", quantidade Minima =  " + quantidadeMinima + ", nome =  " + nome + ", preco =  " + preco + ", Validade = " + dateFormatter.format(validade) +  ", categoria =  " + this.getCategoria() + '}';
+        return "\nProduto {" + " ID =  " + ID + ", validade =  " + validade + ", lote =  " + lote + ",\n quantidade =  " + quantidade + 
+                ", quantidade Minima =  " + quantidadeMinima + ", nome =  " + nome + ", preco =  " + preco + ", Validade = " + validade+  ", categoria =  " + this.getCategoria() + " \n";
     }
         
     /**
@@ -273,6 +258,10 @@ public class Produto implements Serializable   {
         return quantidadeMinima;
     }
     
+    /**
+     * O método configura o nome para todas as letras maiúsculas.
+     * @param texto - nome a ser configurado para maiúsculo.
+     */
     public void setNome(String texto){
         this.nome = texto.toUpperCase();
     }
@@ -291,8 +280,5 @@ public class Produto implements Serializable   {
      */
     public double getPreco() {
         return preco;
-    }
-    
-    
-    
+    }  
 }
