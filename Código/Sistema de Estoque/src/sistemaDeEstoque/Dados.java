@@ -3,13 +3,17 @@
 */
 package sistemaDeEstoque;
 
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Classe usada para controlar os da interface.
+ * Classe usada para controlar os dados da interface.
  *  * @author LuluTeam
  */
 public class Dados {
+    
 
     /**
      *IDdado atributo para controlar o ID do produto
@@ -25,7 +29,7 @@ public class Dados {
      *Array dados é onde os dados dos produtos são armazenados
      */
     public static ArrayList<Produto> dados = new ArrayList<Produto>();
-
+     
     /**
      *Array Forn é onde os dados dos fornecedores são armazenados
      */
