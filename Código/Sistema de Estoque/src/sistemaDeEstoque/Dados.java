@@ -42,7 +42,8 @@ public class Dados implements Serializable {
     public static ArrayList<Relatorio> relatorios  = new ArrayList<Relatorio>();
     
     public static void deserializarProdutos(){
-        try {
+        try
+        {
             FileInputStream arquivoLeitura = new FileInputStream ("TesteProduto.txt");
             ObjectInputStream objLeitura =  new ObjectInputStream(arquivoLeitura);
             Dados.dados = (ArrayList<Produto>) objLeitura.readObject();

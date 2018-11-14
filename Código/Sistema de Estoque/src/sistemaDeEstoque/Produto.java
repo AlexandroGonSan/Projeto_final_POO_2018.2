@@ -2,6 +2,8 @@
  * @author LuluTeam
  */
 package sistemaDeEstoque;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -106,9 +108,7 @@ public class Produto implements Serializable{
             System.out.println("Quantidade abaixo do mínimo!");
         }
         System.out.println("");
-        
     }
-    
     /**A função recebe o nome da categoria e valida caso esteja nas categorias.
      * @param valor String - recebe o nome da categoria.
      * @return boolean - retorna true caso o argumento valor seja uma das categorias.
