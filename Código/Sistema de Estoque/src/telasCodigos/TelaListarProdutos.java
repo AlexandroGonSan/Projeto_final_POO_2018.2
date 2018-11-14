@@ -8,6 +8,7 @@ package telasCodigos;
 import javax.swing.table.TableModel;
 import sistemaDeEstoque.Dados;
 import sistemaDeEstoque.ModeloTabelaProduto;
+import sistemaDeEstoque.Produto;
 
 /**
  *
@@ -20,10 +21,10 @@ public class TelaListarProdutos extends javax.swing.JFrame {
      */
     public TelaListarProdutos() {
         initComponents();
-        jSplitPane1.setDividerLocation(-1);
+        jSplitPane1.resetToPreferredSizes();
         jSplitPane1.setEnabled(false);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,8 +43,6 @@ public class TelaListarProdutos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btPopular = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
         btAlterarProd2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btAlterarProd = new javax.swing.JButton();
@@ -53,24 +52,24 @@ public class TelaListarProdutos extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lbQntA = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
+        tfNomeAlt = new javax.swing.JTextField();
+        tfPrecoAlt = new javax.swing.JTextField();
+        tfQntMAlt = new javax.swing.JTextField();
+        lbVal = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        lbLote = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        cbCatAlt = new javax.swing.JComboBox<>();
+        ckRepor = new javax.swing.JCheckBox();
+        ckRetirar = new javax.swing.JCheckBox();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
+        tfRepor = new javax.swing.JTextField();
+        tfRetirar = new javax.swing.JTextField();
+        lbID = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -79,7 +78,10 @@ public class TelaListarProdutos extends javax.swing.JFrame {
             }
         });
 
+        jSplitPane1.setLastDividerLocation(420);
+
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setPreferredSize(new java.awt.Dimension(500, 410));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -129,12 +131,6 @@ public class TelaListarProdutos extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jLabel16.setText("Selecione o produto e aperte [ >> ] para alterá-lo");
 
-        jLabel17.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
-        jLabel17.setText("Não encontrou o produo?");
-
-        jLabel18.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
-        jLabel18.setText("O produto não foi alterado!");
-
         btAlterarProd2.setFont(new java.awt.Font("Bahnschrift", 1, 11)); // NOI18N
         btAlterarProd2.setText("Atualizar");
         btAlterarProd2.addActionListener(new java.awt.event.ActionListener() {
@@ -149,61 +145,50 @@ public class TelaListarProdutos extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(btVoltarLista))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(39, 39, 39)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(53, 53, 53)
-                                .addComponent(jLabel1))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(158, 158, 158)
-                                .addComponent(btPopular, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(29, 29, 29)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel18)
-                                .addComponent(jLabel17))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btAlterarProd1)
-                                .addComponent(btAlterarProd2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(jLabel16)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btAlterarProd2, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btAlterarProd1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btVoltarLista, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(14, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btPopular, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(139, 139, 139))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(33, 33, 33)
                 .addComponent(jLabel1)
-                .addGap(29, 29, 29)
+                .addGap(21, 21, 21)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btPopular, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btAlterarProd1)
-                    .addComponent(jLabel17))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel18)
-                    .addComponent(btAlterarProd2))
-                .addGap(22, 22, 22)
+                .addComponent(btAlterarProd1)
+                .addGap(23, 23, 23)
+                .addComponent(btAlterarProd2)
+                .addGap(18, 18, 18)
                 .addComponent(btVoltarLista)
-                .addContainerGap())
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel2.setPreferredSize(new java.awt.Dimension(400, 410));
 
         btAlterarProd.setFont(new java.awt.Font("Bahnschrift", 1, 11)); // NOI18N
         btAlterarProd.setText("Alterar Produto");
@@ -241,8 +226,8 @@ public class TelaListarProdutos extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jLabel5.setText("Qnt Atual:");
 
-        jLabel6.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
-        jLabel6.setText("-Qnt Atual-");
+        lbQntA.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        lbQntA.setText("-Qnt Atual-");
 
         jLabel7.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jLabel7.setText("Qnt Mínima:");
@@ -250,26 +235,36 @@ public class TelaListarProdutos extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jLabel8.setText("ID:");
 
-        jLabel9.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
-        jLabel9.setText("-Validade-");
+        lbVal.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        lbVal.setText("-Validade-");
 
         jLabel10.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jLabel10.setText("Categoria:");
 
-        jLabel11.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
-        jLabel11.setText("-Lote-");
+        lbLote.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        lbLote.setText("-Lote-");
 
         jLabel12.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jLabel12.setText("Lote:");
 
-        jComboBox1.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Higiene", "Alimento", "Medicamento" }));
+        cbCatAlt.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        cbCatAlt.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Higiene", "Alimento", "Medicamento" }));
 
-        jCheckBox1.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
-        jCheckBox1.setText("Repor estoque");
+        ckRepor.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        ckRepor.setText("Repor estoque");
+        ckRepor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ckReporActionPerformed(evt);
+            }
+        });
 
-        jCheckBox2.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
-        jCheckBox2.setText("Retirar do estoque");
+        ckRetirar.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        ckRetirar.setText("Retirar do estoque");
+        ckRetirar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ckRetirarActionPerformed(evt);
+            }
+        });
 
         jLabel13.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jLabel13.setText("Qnt:");
@@ -277,12 +272,12 @@ public class TelaListarProdutos extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jLabel14.setText("Qnt:");
 
-        jTextField4.setEnabled(false);
+        tfRepor.setEnabled(false);
 
-        jTextField5.setEnabled(false);
+        tfRetirar.setEnabled(false);
 
-        jLabel15.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
-        jLabel15.setText("-ID-");
+        lbID.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        lbID.setText("-ID-");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -295,59 +290,56 @@ public class TelaListarProdutos extends javax.swing.JFrame {
                         .addGap(35, 35, 35)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1)
+                        .addComponent(tfNomeAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel15)
-                        .addGap(20, 20, 20))
+                        .addComponent(lbID))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btRepor)
+                            .addComponent(ckRepor)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfRepor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(51, 51, 51)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(ckRetirar)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jLabel14)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(tfRetirar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btRetirar))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel7))
+                                    .addComponent(jLabel12)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(tfQntMAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(58, 58, 58)
+                                        .addComponent(jLabel10)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbLote)
+                                    .addComponent(cbCatAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tfPrecoAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(lbQntA)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel4)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addComponent(jLabel6)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jLabel4)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel9))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel12)
-                                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(58, 58, 58)
-                                                .addComponent(jLabel10)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel11)))))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btRepor)
-                                    .addComponent(jCheckBox1)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel13)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(51, 51, 51)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jCheckBox2)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addComponent(jLabel14)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(btRetirar)))))
-                        .addContainerGap(41, Short.MAX_VALUE))))
+                                .addComponent(lbVal)))))
+                .addContainerGap(75, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(128, 128, 128)
                 .addComponent(btAlterarProd)
@@ -359,39 +351,39 @@ public class TelaListarProdutos extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
+                    .addComponent(tfNomeAlt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15))
+                    .addComponent(lbID))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel6)
+                    .addComponent(lbQntA)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel9))
+                    .addComponent(lbVal))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11)
+                    .addComponent(tfPrecoAlt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbLote)
                     .addComponent(jLabel12))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfQntMAlt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbCatAlt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btAlterarProd)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jCheckBox2))
+                    .addComponent(ckRepor)
+                    .addComponent(ckRetirar))
                 .addGap(7, 7, 7)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(jLabel14)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfRepor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfRetirar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btRepor)
@@ -409,7 +401,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
@@ -419,10 +411,9 @@ public class TelaListarProdutos extends javax.swing.JFrame {
     private void btAlterarProd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarProd1ActionPerformed
         //TelaListarProdutos.this.setVisible(false);
         //new CadastrarProduto().setVisible(true);
-        int[] colunas = jTable1.getSelectedColumns();
-        TableModel model = jTable1.getModel();
+       
         int linha = jTable1.getSelectedRow();
-        String select = (String)model.getValueAt(0, 1);
+        int select = (Integer)jTable1.getModel().getValueAt(linha, 0);
         
         //String[][] output =  new String[coluna.length][rowc];
         /*for(int i = 0; i<coluna.length; i++){
@@ -464,7 +455,32 @@ public class TelaListarProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_btReporActionPerformed
 
     private void btPopularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPopularActionPerformed
-        // TODO add your handling code here:
+        int linha = jTable1.getSelectedRow();
+        int select = (Integer)jTable1.getModel().getValueAt(linha, 0);
+        
+        for(Produto prod : Dados.dados){
+            if(prod.getID() == select){
+                selecionado = prod;
+            }
+        }
+        
+        this.tfNomeAlt.setText(selecionado.getNome());
+        this.tfQntMAlt.setText(Integer.toString(selecionado.getQuantidadeMinima()));
+        this.tfPrecoAlt.setText(Double.toString(selecionado.getPreco()));
+        
+        this.lbID.setText(Integer.toString(selecionado.getID()));
+        this.lbLote.setText(selecionado.getLote());
+        this.lbVal.setText(selecionado.getValidade());
+        this.lbQntA.setText(Integer.toString(selecionado.getQuantidade()));
+        
+        if(selecionado.getCategoria().equals("Higiene")){
+            cbCatAlt.setSelectedIndex(0);
+        }else if(selecionado.getCategoria().equals("Alimento")){
+            cbCatAlt.setSelectedIndex(1);
+        }else if(selecionado.getCategoria().equals("Medicamento")){
+            cbCatAlt.setSelectedIndex(2);
+        }
+        
     }//GEN-LAST:event_btPopularActionPerformed
 
     private void btRetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRetirarActionPerformed
@@ -474,6 +490,26 @@ public class TelaListarProdutos extends javax.swing.JFrame {
     private void btAlterarProd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarProd2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btAlterarProd2ActionPerformed
+
+    private void ckReporActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckReporActionPerformed
+        if(ckRepor.isSelected()){
+            tfRepor.setEnabled(true);
+            tfRetirar.setEnabled(false);
+            ckRetirar.setSelected(false);
+        }else{
+            tfRepor.setEnabled(false);
+        }
+    }//GEN-LAST:event_ckReporActionPerformed
+
+    private void ckRetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckRetirarActionPerformed
+        if(ckRepor.isSelected()){
+            tfRetirar.setEnabled(true);
+            tfRepor.setEnabled(false);
+            ckRepor.setSelected(false);
+        }else{
+            tfRetirar.setEnabled(false);
+        }
+    }//GEN-LAST:event_ckRetirarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -519,36 +555,34 @@ public class TelaListarProdutos extends javax.swing.JFrame {
     private javax.swing.JButton btRepor;
     private javax.swing.JButton btRetirar;
     private javax.swing.JButton btVoltarLista;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> cbCatAlt;
+    private javax.swing.JCheckBox ckRepor;
+    private javax.swing.JCheckBox ckRetirar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JLabel lbID;
+    private javax.swing.JLabel lbLote;
+    private javax.swing.JLabel lbQntA;
+    private javax.swing.JLabel lbVal;
+    private javax.swing.JTextField tfNomeAlt;
+    private javax.swing.JTextField tfPrecoAlt;
+    private javax.swing.JTextField tfQntMAlt;
+    private javax.swing.JTextField tfRepor;
+    private javax.swing.JTextField tfRetirar;
     // End of variables declaration//GEN-END:variables
 }

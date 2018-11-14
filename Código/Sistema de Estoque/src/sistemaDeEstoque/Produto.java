@@ -34,9 +34,6 @@ public class Produto implements Serializable{
     /**Método para cadastrar as informações quando o produto for inserido.
      * Como é um cadastro, todas as informações são inseridas agora.
      */
-    public Produto(){
-        this.cadastrarProduto();
-    }
     
     /**
      * Construtor que recebe nos argumentos as informações a serem inseridas nos atributos do objeto.
