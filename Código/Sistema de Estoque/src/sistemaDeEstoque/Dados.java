@@ -28,6 +28,20 @@ public class Dados {
      *Array dados é onde os dados dos produtos são armazenados
      */
     public static ArrayList<Produto> dados = new ArrayList<Produto>();
+    public static ArrayList<Produto> dadosSerealizados(){
+        try {   
+            FileInputStream arquivoLeitura = new FileInputStream ("TesteProduto.txt");
+            ObjectInputStream objLeitura =  new ObjectInputStream(arquivoLeitura);
+            dados = (ArrayList<Produto>) objLeitura.readObject();
+            objLeitura.close();
+            arquivoLeitura.close();
+        }
+        catch(Exception e) {
+            System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
+        }
+        return dados;
+    } 
+    
      
     /**
      *Array Forn é onde os dados dos fornecedores são armazenados
