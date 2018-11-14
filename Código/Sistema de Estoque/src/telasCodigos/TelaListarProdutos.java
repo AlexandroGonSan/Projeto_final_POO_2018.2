@@ -5,6 +5,7 @@
  */
 package telasCodigos;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
 import sistemaDeEstoque.Dados;
 import sistemaDeEstoque.ModeloTabelaProduto;
@@ -62,7 +63,6 @@ public class TelaListarProdutos extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         lbLote = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        cbCatAlt = new javax.swing.JComboBox<>();
         ckRepor = new javax.swing.JCheckBox();
         ckRetirar = new javax.swing.JCheckBox();
         jLabel13 = new javax.swing.JLabel();
@@ -70,6 +70,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
         tfRepor = new javax.swing.JTextField();
         tfRetirar = new javax.swing.JTextField();
         lbID = new javax.swing.JLabel();
+        lbCat = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -159,7 +160,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
                                     .addComponent(btAlterarProd2, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btAlterarProd1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btVoltarLista, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btPopular, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -235,6 +236,12 @@ public class TelaListarProdutos extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jLabel8.setText("ID:");
 
+        tfNomeAlt.setEnabled(false);
+
+        tfPrecoAlt.setEnabled(false);
+
+        tfQntMAlt.setEnabled(false);
+
         lbVal.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         lbVal.setText("-Validade-");
 
@@ -247,11 +254,9 @@ public class TelaListarProdutos extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jLabel12.setText("Lote:");
 
-        cbCatAlt.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
-        cbCatAlt.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Higiene", "Alimento", "Medicamento" }));
-
         ckRepor.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         ckRepor.setText("Repor estoque");
+        ckRepor.setEnabled(false);
         ckRepor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ckReporActionPerformed(evt);
@@ -260,6 +265,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
 
         ckRetirar.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         ckRetirar.setText("Retirar do estoque");
+        ckRetirar.setEnabled(false);
         ckRetirar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ckRetirarActionPerformed(evt);
@@ -279,6 +285,9 @@ public class TelaListarProdutos extends javax.swing.JFrame {
         lbID.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         lbID.setText("-ID-");
 
+        lbCat.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        lbCat.setText("-Categoria-");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -286,6 +295,30 @@ public class TelaListarProdutos extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(tfPrecoAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel12))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(lbQntA)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel4))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(tfQntMAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel10)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbVal)
+                            .addComponent(lbCat)
+                            .addComponent(lbLote)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(jLabel2)
@@ -311,35 +344,8 @@ public class TelaListarProdutos extends javax.swing.JFrame {
                                     .addComponent(jLabel14)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(tfRetirar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(btRetirar))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel12)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(tfQntMAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(58, 58, 58)
-                                        .addComponent(jLabel10)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbLote)
-                                    .addComponent(cbCatAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfPrecoAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(lbQntA)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel4)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbVal)))))
-                .addContainerGap(75, Short.MAX_VALUE))
+                                .addComponent(btRetirar)))))
+                .addContainerGap(96, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(128, 128, 128)
                 .addComponent(btAlterarProd)
@@ -364,17 +370,17 @@ public class TelaListarProdutos extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(tfPrecoAlt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbLote)
-                    .addComponent(jLabel12))
+                    .addComponent(jLabel12)
+                    .addComponent(lbLote))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(tfQntMAlt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10)
-                    .addComponent(cbCatAlt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbCat))
                 .addGap(18, 18, 18)
                 .addComponent(btAlterarProd)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ckRepor)
                     .addComponent(ckRetirar))
@@ -409,7 +415,23 @@ public class TelaListarProdutos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    Produto selecionado = new Produto();
+    Produto selecionado = new Produto(0);
+    
+    private void resetaCampos(){
+        this.tfNomeAlt.setText("");
+        this.tfPrecoAlt.setText("");
+        this.tfQntMAlt.setText("");
+        this.lbID.setText("-ID-");
+        this.lbCat.setText("-Categoria-");
+        this.lbQntA.setText("-Qnt Atual-");
+        this.lbLote.setText("-Lote-");
+        this.lbVal.setText("-Validade-");
+        
+        this.tfNomeAlt.setEnabled(false);
+        this.tfPrecoAlt.setEnabled(false);
+        this.tfQntMAlt.setEnabled(false);
+        
+    }
        
     
     private void btAlterarProd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarProd1ActionPerformed
@@ -436,12 +458,11 @@ public class TelaListarProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_btVoltarListaActionPerformed
 
     private void btAlterarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarProdActionPerformed
-        int[] colunas = jTable1.getSelectedColumns();
-        TableModel model = jTable1.getModel();
-        int linha = jTable1.getSelectedRow();
-        String select = String.valueOf(model.getValueAt(linha, 0));
-
+        selecionado.setNome((String)tfNomeAlt.getText());
+        selecionado.setPreco(Double.parseDouble(tfPrecoAlt.getText()));
+        selecionado.setQuantidadeMinima(Integer.parseInt(tfQntMAlt.getText()));
         
+        resetaCampos();        
     }//GEN-LAST:event_btAlterarProdActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -455,7 +476,18 @@ public class TelaListarProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void btReporActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btReporActionPerformed
-        // TODO add your handling code here:
+        if(ckRepor.isEnabled() == true){
+            if(tfRepor.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "valor inválido!");
+            }else{
+                selecionado.reporQuantia(Integer.parseInt(tfRepor.getText()));
+                JOptionPane.showMessageDialog(null, "Quantia reposta com sucesso!");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Selecione [Repor estoque] para realizar a operação.");
+        }
+        
+        resetaCampos();
     }//GEN-LAST:event_btReporActionPerformed
 
     private void btPopularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPopularActionPerformed
@@ -468,6 +500,12 @@ public class TelaListarProdutos extends javax.swing.JFrame {
             }
         }
         
+        this.tfNomeAlt.setEnabled(true);
+        this.tfPrecoAlt.setEnabled(true);
+        this.tfQntMAlt.setEnabled(true);
+        this.ckRepor.setEnabled(true);
+        this.ckRetirar.setEnabled(true);
+        
         this.tfNomeAlt.setText(selecionado.getNome());
         this.tfQntMAlt.setText(Integer.toString(selecionado.getQuantidadeMinima()));
         this.tfPrecoAlt.setText(Double.toString(selecionado.getPreco()));
@@ -476,23 +514,29 @@ public class TelaListarProdutos extends javax.swing.JFrame {
         this.lbLote.setText(selecionado.getLote());
         this.lbVal.setText(selecionado.getValidade());
         this.lbQntA.setText(Integer.toString(selecionado.getQuantidade()));
+        this.lbCat.setText(selecionado.getCategoria());
         
-        if(selecionado.getCategoria().equals("Higiene")){
-            cbCatAlt.setSelectedIndex(0);
-        }else if(selecionado.getCategoria().equals("Alimento")){
-            cbCatAlt.setSelectedIndex(1);
-        }else if(selecionado.getCategoria().equals("Medicamento")){
-            cbCatAlt.setSelectedIndex(2);
-        }
         
     }//GEN-LAST:event_btPopularActionPerformed
 
     private void btRetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRetirarActionPerformed
-        // TODO add your handling code here:
+       if(ckRetirar.isEnabled() == true){
+            if(tfRetirar.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "valor inválido!");
+            }else{
+                selecionado.retirarQuantia(Integer.parseInt(tfRetirar.getText()));
+                JOptionPane.showMessageDialog(null, "Quantia retirada com sucesso!");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Selecione [Retirar do estoque] para realizar a operação.");
+        }
+        
+        resetaCampos();
     }//GEN-LAST:event_btRetirarActionPerformed
 
     private void btAlterarProd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarProd2ActionPerformed
-        // TODO add your handling code here:
+        TelaListarProdutos.this.setVisible(false);
+        new TelaListarProdutos().setVisible(true);
     }//GEN-LAST:event_btAlterarProd2ActionPerformed
 
     private void ckReporActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckReporActionPerformed
@@ -559,7 +603,6 @@ public class TelaListarProdutos extends javax.swing.JFrame {
     private javax.swing.JButton btRepor;
     private javax.swing.JButton btRetirar;
     private javax.swing.JButton btVoltarLista;
-    private javax.swing.JComboBox<String> cbCatAlt;
     private javax.swing.JCheckBox ckRepor;
     private javax.swing.JCheckBox ckRetirar;
     private javax.swing.JLabel jLabel1;
@@ -579,6 +622,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lbCat;
     private javax.swing.JLabel lbID;
     private javax.swing.JLabel lbLote;
     private javax.swing.JLabel lbQntA;

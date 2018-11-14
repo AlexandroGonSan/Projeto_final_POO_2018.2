@@ -23,7 +23,7 @@ public class Produto implements Serializable{
     private String categoria;
     
     transient Scanner scanf = new Scanner(System.in);
-    private SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
+    //private SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
       
     
     /**Método para cadastrar as informações quando o produto for inserido.
@@ -56,6 +56,9 @@ public class Produto implements Serializable{
         this.validade.setMonth(Integer.parseInt(month)-1);
         this.validade.setYear(Integer.parseInt(year)-1900);
         
+    }
+    
+    public Produto(int a) {
     }
 
     public Produto() {
@@ -240,7 +243,7 @@ public class Produto implements Serializable{
      * @return Integer - ID do produto.
      */
     public String getValidade(){
-        return this.validade.getDate() + "/" + this.validade.getMonth() + "/" + this.validade.getYear();
+        return this.validade.getDate() + "/" + (this.validade.getMonth()+1) + "/" + (this.validade.getYear()+1900);
     }
 
     /**
