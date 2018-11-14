@@ -2,11 +2,6 @@
  * @author LuluTeam
  */
 package sistemaDeEstoque;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -70,6 +65,7 @@ public class Produto implements Serializable{
     /**
      * Método para o usuário cadastrar as informações do produto.
      */
+    
     public void cadastrarProduto() {
         System.out.print("Digite o nome do produto: ");
         this.setNome(scanf.nextLine());
@@ -94,13 +90,14 @@ public class Produto implements Serializable{
         do{
             System.out.print("Digite o preço do produto (use vírgula para separar a parte inteira): ");
             this.preco = scanf.nextDouble();
+            scanf.nextLine();
         }while(this.preco <= 0);
         
         String strAux;
         do{
             System.out.print("Digite o tipo a ser selecionado (Higiene, Alimento ou Medicamento): ");
             strAux = scanf.nextLine();
-        }while(this.setCategoria(strAux) == false); //analisa se a resposta se encontra nos padrões
+        }while(this.setCategoria(strAux) == false); 
         
         if (this.quantidadeMinima > this.quantidade){
             System.out.println("Quantidade abaixo do mínimo!");
@@ -223,13 +220,15 @@ public class Produto implements Serializable{
             if (this.quantidadeMinima > this.quantidade){//analisa se a quantidade atual é menor que a do mínimo
                 System.out.println("Quantidade abaixo do mínimo!");
             }
+            if (this.quantidade < this.quantidadeMinima){
+                System.out.println("Atenção, a quantidade do produto está abaixo do recomendado");
+            }
+            
             return true;
         }
         return false;
     }
     
-
- 
     @Override
     public String toString() {
         return "\nProduto {" + " ID =  " + ID + ", validade =  " + validade + ", lote =  " + lote + ",\n quantidade =  " + quantidade + 

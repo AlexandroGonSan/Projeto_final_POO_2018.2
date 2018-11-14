@@ -49,13 +49,13 @@ public class SistemaDeEstoque implements Serializable{
             System.out.println("10 - Sair do programa");
             System.out.print("Digite a opção: ");
        
-                try{
-                    opcao = scanf.nextInt();
-                    scanf.nextLine();
-                }
-                catch(Exception ex){
-                    System.out.println("Error, o valor digitado precisa ser um número.\n" );
-                    break;
+            try{
+                opcao = scanf.nextInt();
+                scanf.nextLine();
+            }
+            catch(Exception ex){
+                System.out.println("Error, o valor digitado precisa ser um número.\n" );
+                break;
                 }
            
           
@@ -71,7 +71,7 @@ public class SistemaDeEstoque implements Serializable{
                      }
  
                     catch(Exception e) {
-                            e.printStackTrace();
+                            System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
                     }
                     try {
                  
@@ -83,7 +83,7 @@ public class SistemaDeEstoque implements Serializable{
                      }
  
                     catch(Exception e) {
-                            e.printStackTrace();
+                            System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
                     }
                     
                     System.out.println("ADICIONAR PRODUTO:");
@@ -103,7 +103,7 @@ public class SistemaDeEstoque implements Serializable{
                         System.out.println("Cadastro realizado com sucesso!");
                     } 
                     catch(IOException e) {
-                        e.printStackTrace();
+                        System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
                     }
                     try {
                         FileOutputStream arquivoGrav = new FileOutputStream("Relatorios.txt"); 
@@ -115,7 +115,7 @@ public class SistemaDeEstoque implements Serializable{
                         arquivoGrav.close();
                     } 
                     catch(IOException e) {
-                        e.printStackTrace();
+                        System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
                     }
                     break;    
                     
@@ -131,7 +131,7 @@ public class SistemaDeEstoque implements Serializable{
                      }
  
                     catch(Exception e) {
-                            e.printStackTrace();
+                            System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
                     }
                     try {
                  
@@ -143,7 +143,7 @@ public class SistemaDeEstoque implements Serializable{
                      }
  
                     catch(Exception e) {
-                            e.printStackTrace();
+                            System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
                     }
                  
                     System.out.println("Insira o nome ou parte dele: ");
@@ -197,10 +197,9 @@ public class SistemaDeEstoque implements Serializable{
                         objGravar.close();
                         arquivoGrav.flush();
                         arquivoGrav.close();
-                        System.out.println("Cadastro realizado com sucesso!");
                     } 
                     catch(IOException e) {
-                        e.printStackTrace();
+                        System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
                     }
                     try {
                         FileOutputStream arquivoGrav = new FileOutputStream("Relatorios.txt"); 
@@ -212,7 +211,7 @@ public class SistemaDeEstoque implements Serializable{
                         arquivoGrav.close();
                     } 
                     catch(IOException e) {
-                        e.printStackTrace();
+                        System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
                     }
                     
                     System.out.println("Retornando ao menu principal");
@@ -228,7 +227,7 @@ public class SistemaDeEstoque implements Serializable{
                      }
  
                     catch(Exception e) {
-                            e.printStackTrace();
+                            System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
                     }
                     
                     try {
@@ -241,7 +240,7 @@ public class SistemaDeEstoque implements Serializable{
                      }
  
                     catch(Exception e) {
-                            e.printStackTrace();
+                            System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
                     }
                     
                     System.out.println("Insira o nome ou parte dele: ");
@@ -300,7 +299,7 @@ public class SistemaDeEstoque implements Serializable{
                         System.out.println("Cadastro realizado com sucesso!");
                     } 
                     catch(IOException e) {
-                        e.printStackTrace();
+                        System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
                     }
                     try {
                         FileOutputStream arquivoGrav = new FileOutputStream("Relatorios.txt"); 
@@ -312,7 +311,7 @@ public class SistemaDeEstoque implements Serializable{
                         arquivoGrav.close();
                     } 
                     catch(IOException e) {
-                        e.printStackTrace();
+                        System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
                     }
                     
                     System.out.println("Retornando ao menu principal");
@@ -329,7 +328,7 @@ public class SistemaDeEstoque implements Serializable{
                      }
  
                     catch(Exception e) {
-                            e.printStackTrace();
+                            System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
                     }
                     
                     System.out.println(""); 
@@ -363,7 +362,7 @@ public class SistemaDeEstoque implements Serializable{
                      arquivoLeitura.close();
                     }
                     catch(Exception e) {
-                            e.printStackTrace();
+                            System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
                     }
                     
                     System.out.println("ADICIONAR FORNECEDOR");
@@ -383,7 +382,7 @@ public class SistemaDeEstoque implements Serializable{
                     }
  
                     catch(Exception e) {
-                     e.printStackTrace();
+                        System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
                     }
  
                     break;
