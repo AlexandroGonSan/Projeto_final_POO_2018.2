@@ -81,9 +81,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jlProdForn" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="tfProdForn" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="tfProdForn" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="139" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">

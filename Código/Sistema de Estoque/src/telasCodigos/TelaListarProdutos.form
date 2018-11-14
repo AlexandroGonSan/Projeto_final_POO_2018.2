@@ -78,7 +78,7 @@
                                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="btAlterarProd2" min="-2" pref="278" max="-2" attributes="0"/>
-                                          <Component id="btAlterarProd1" min="-2" pref="278" max="-2" attributes="0"/>
+                                          <Component id="btCadNew" min="-2" pref="278" max="-2" attributes="0"/>
                                           <Component id="btVoltarLista" alignment="0" min="-2" pref="278" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -106,7 +106,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btPopular" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btAlterarProd1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btCadNew" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       <Component id="btAlterarProd2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -141,7 +141,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="btAlterarProd1">
+            <Component class="javax.swing.JButton" name="btCadNew">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Bahnschrift" size="11" style="1"/>
@@ -149,7 +149,7 @@
                 <Property name="text" type="java.lang.String" value="Cadastrar Novo Produto"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAlterarProd1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btCadNewActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btVoltarLista">
@@ -195,7 +195,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Bahnschrift" size="11" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Atualizar"/>
+                <Property name="text" type="java.lang.String" value="Atualizar planilha"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAlterarProd2ActionPerformed"/>

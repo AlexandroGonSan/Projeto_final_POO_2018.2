@@ -6,6 +6,7 @@
 package telasCodigos;
 
 import javax.swing.JOptionPane;
+import sistemaDeEstoque.Dados;
 
 /**
  *
@@ -18,6 +19,9 @@ public class TelaInicial extends javax.swing.JFrame {
      */
     public TelaInicial() {
         initComponents();
+        Dados.deserializarProdutos();
+        Dados.deserializarFornecedor();
+        Dados.deserializarRelatorio();
     }
 
     /**

@@ -369,7 +369,8 @@ public class CadastrarProduto extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Produto Cadastrado com Sucesso!");
                 /*tem q dar Override no toString do fornecedor
                   to com peguiça então faço depois*/
-                System.out.println(Dados.dados);
+                //System.out.println(Dados.dados);
+                Dados.serializarProduto();
                 limpaCampos();
             }else{
                 JOptionPane.showMessageDialog(null, "Um dos campos: [Qnt], [Qnt Mínima] ou [Preço]\n não está preenchido com números!");

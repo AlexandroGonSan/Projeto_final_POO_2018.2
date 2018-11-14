@@ -206,6 +206,7 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
                         tfProdForn.getText(),
                         tfCNPJ.getText()  
                  ));
+                Dados.serializarFornecedor();
                 JOptionPane.showMessageDialog(null, "Fornecedor Cadastrado com Sucesso!");
                 System.out.println(Dados.Forn);
                 limpaCampos();

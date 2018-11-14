@@ -64,6 +64,11 @@ public class TelaRelatorioEntrada extends javax.swing.JFrame {
 
         btRegRelatIn.setFont(new java.awt.Font("Bahnschrift", 1, 11)); // NOI18N
         btRegRelatIn.setText("Registrar");
+        btRegRelatIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRegRelatInActionPerformed(evt);
+            }
+        });
 
         btCleanRelatIn.setFont(new java.awt.Font("Bahnschrift", 1, 11)); // NOI18N
         btCleanRelatIn.setText("Limpar");
@@ -178,6 +183,10 @@ public class TelaRelatorioEntrada extends javax.swing.JFrame {
         this.cbFornecedorIn.setSelectedIndex(0);
         this.cbProdIn.setSelectedIndex(0);
     }//GEN-LAST:event_btCleanRelatInActionPerformed
+
+    private void btRegRelatInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegRelatInActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btRegRelatInActionPerformed
 
     /**
      * @param args the command line arguments

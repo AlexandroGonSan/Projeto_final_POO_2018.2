@@ -39,7 +39,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        btAlterarProd1 = new javax.swing.JButton();
+        btCadNew = new javax.swing.JButton();
         btVoltarLista = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btPopular = new javax.swing.JButton();
@@ -102,11 +102,11 @@ public class TelaListarProdutos extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTable1);
 
-        btAlterarProd1.setFont(new java.awt.Font("Bahnschrift", 1, 11)); // NOI18N
-        btAlterarProd1.setText("Cadastrar Novo Produto");
-        btAlterarProd1.addActionListener(new java.awt.event.ActionListener() {
+        btCadNew.setFont(new java.awt.Font("Bahnschrift", 1, 11)); // NOI18N
+        btCadNew.setText("Cadastrar Novo Produto");
+        btCadNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btAlterarProd1ActionPerformed(evt);
+                btCadNewActionPerformed(evt);
             }
         });
 
@@ -133,7 +133,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
         jLabel16.setText("Selecione o produto e aperte [ >> ] para alterá-lo");
 
         btAlterarProd2.setFont(new java.awt.Font("Bahnschrift", 1, 11)); // NOI18N
-        btAlterarProd2.setText("Atualizar");
+        btAlterarProd2.setText("Atualizar planilha");
         btAlterarProd2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btAlterarProd2ActionPerformed(evt);
@@ -158,7 +158,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
                                 .addGap(19, 19, 19)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btAlterarProd2, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btAlterarProd1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btCadNew, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btVoltarLista, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -178,7 +178,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btPopular, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btAlterarProd1)
+                .addComponent(btCadNew)
                 .addGap(23, 23, 23)
                 .addComponent(btAlterarProd2)
                 .addGap(18, 18, 18)
@@ -434,27 +434,15 @@ public class TelaListarProdutos extends javax.swing.JFrame {
     }
        
     
-    private void btAlterarProd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarProd1ActionPerformed
-        //TelaListarProdutos.this.setVisible(false);
-        //new CadastrarProduto().setVisible(true);
-       
-        int linha = jTable1.getSelectedRow();
-        int select = (Integer)jTable1.getModel().getValueAt(linha, 0);
-        
-        //String[][] output =  new String[coluna.length][rowc];
-        /*for(int i = 0; i<coluna.length; i++){
-            for(int row = 0; row < rowc; row++){
-                int column = jTable1.convertColumnIndexToModel(coluna[i]);
-                output[i][row] = model.getValueAt(row, column).toString();
-                System.out.println(output[i][row]);
-            }
-        }*/
-        System.out.println(select);
-    }//GEN-LAST:event_btAlterarProd1ActionPerformed
+    private void btCadNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadNewActionPerformed
+        TelaListarProdutos.this.dispose();
+        new CadastrarProduto().setVisible(true);
+    }//GEN-LAST:event_btCadNewActionPerformed
 
     private void btVoltarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarListaActionPerformed
-        TelaListarProdutos.this.setVisible(false);
+        TelaListarProdutos.this.dispose();
         new TelaInicial().setVisible(true);
+        
     }//GEN-LAST:event_btVoltarListaActionPerformed
 
     private void btAlterarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarProdActionPerformed
@@ -491,6 +479,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_btReporActionPerformed
 
     private void btPopularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPopularActionPerformed
+      try{ 
         int linha = jTable1.getSelectedRow();
         int select = (Integer)jTable1.getModel().getValueAt(linha, 0);
         
@@ -515,8 +504,9 @@ public class TelaListarProdutos extends javax.swing.JFrame {
         this.lbVal.setText(selecionado.getValidade());
         this.lbQntA.setText(Integer.toString(selecionado.getQuantidade()));
         this.lbCat.setText(selecionado.getCategoria());
-        
-        
+      }catch(ArrayIndexOutOfBoundsException e){
+          JOptionPane.showMessageDialog(null, "Nenhum produto selecionado!");
+      }      
     }//GEN-LAST:event_btPopularActionPerformed
 
     private void btRetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRetirarActionPerformed
@@ -535,7 +525,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_btRetirarActionPerformed
 
     private void btAlterarProd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarProd2ActionPerformed
-        TelaListarProdutos.this.setVisible(false);
+        TelaListarProdutos.this.dispose();
         new TelaListarProdutos().setVisible(true);
     }//GEN-LAST:event_btAlterarProd2ActionPerformed
 
@@ -597,8 +587,8 @@ public class TelaListarProdutos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAlterarProd;
-    private javax.swing.JButton btAlterarProd1;
     private javax.swing.JButton btAlterarProd2;
+    private javax.swing.JButton btCadNew;
     private javax.swing.JButton btPopular;
     private javax.swing.JButton btRepor;
     private javax.swing.JButton btRetirar;
