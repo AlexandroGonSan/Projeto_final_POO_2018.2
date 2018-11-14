@@ -61,10 +61,37 @@ public class SistemaDeEstoque implements Serializable{
           
             switch (opcao){
                 case 1:
+                    try {
+                 
+                     FileInputStream arquivoLeitura = new FileInputStream ("TesteProduto.txt");
+                     ObjectInputStream objLeitura =  new ObjectInputStream(arquivoLeitura);
+                     produtos = (List<Produto>) objLeitura.readObject();
+                     objLeitura.close();
+                     arquivoLeitura.close();
+                     }
+ 
+                    catch(Exception e) {
+                            e.printStackTrace();
+                    }
+                    try {
+                 
+                     FileInputStream arquivoLeitura = new FileInputStream ("Relatorios.txt");
+                     ObjectInputStream objLeitura =  new ObjectInputStream(arquivoLeitura);
+                     relatorios = (List<Relatorio>) objLeitura.readObject();
+                     objLeitura.close();
+                     arquivoLeitura.close();
+                     }
+ 
+                    catch(Exception e) {
+                            e.printStackTrace();
+                    }
+                    
                     System.out.println("ADICIONAR PRODUTO:");
                     produtos.add(new Produto());
                     Relatorio relatorioNovo = new Entrada(produtos.get(produtos.size()-1));
                     relatorios.add(relatorioNovo);
+                    
+                    
                     try {
                         FileOutputStream arquivoGrav = new FileOutputStream("TesteProduto.txt"); 
                         ObjectOutputStream objGravar = new ObjectOutputStream(arquivoGrav);
@@ -105,7 +132,19 @@ public class SistemaDeEstoque implements Serializable{
  
                     catch(Exception e) {
                             e.printStackTrace();
-                    }       
+                    }
+                    try {
+                 
+                     FileInputStream arquivoLeitura = new FileInputStream ("Relatorios.txt");
+                     ObjectInputStream objLeitura =  new ObjectInputStream(arquivoLeitura);
+                     relatorios = (List<Relatorio>) objLeitura.readObject();
+                     objLeitura.close();
+                     arquivoLeitura.close();
+                     }
+ 
+                    catch(Exception e) {
+                            e.printStackTrace();
+                    }
                  
                     System.out.println("Insira o nome ou parte dele: ");
                     strAux = scanf.nextLine();
@@ -147,9 +186,35 @@ public class SistemaDeEstoque implements Serializable{
                         relatorios.add(relatorioNovo2);
                         System.out.println("");
                         System.out.println("Relatório da operação efetuada:");
-                        relatorios.get(relatorios.size()-1).gerarRelatorio(); 
-                                                                            
+                        relatorios.get(relatorios.size()-1).gerarRelatorio();                                                
                     }
+                    
+                    try {
+                        FileOutputStream arquivoGrav = new FileOutputStream("TesteProduto.txt"); 
+                        ObjectOutputStream objGravar = new ObjectOutputStream(arquivoGrav);
+                        objGravar.writeObject(produtos);
+                        objGravar.flush(); 
+                        objGravar.close();
+                        arquivoGrav.flush();
+                        arquivoGrav.close();
+                        System.out.println("Cadastro realizado com sucesso!");
+                    } 
+                    catch(IOException e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        FileOutputStream arquivoGrav = new FileOutputStream("Relatorios.txt"); 
+                        ObjectOutputStream objGravar = new ObjectOutputStream(arquivoGrav);
+                        objGravar.writeObject(relatorios);
+                        objGravar.flush(); 
+                        objGravar.close();
+                        arquivoGrav.flush();
+                        arquivoGrav.close();
+                    } 
+                    catch(IOException e) {
+                        e.printStackTrace();
+                    }
+                    
                     System.out.println("Retornando ao menu principal");
                     break;
                 case 3:
@@ -158,6 +223,19 @@ public class SistemaDeEstoque implements Serializable{
                      FileInputStream arquivoLeitura = new FileInputStream ("TesteProduto.txt");
                      ObjectInputStream objLeitura =  new ObjectInputStream(arquivoLeitura);
                      produtos = (List<Produto>) objLeitura.readObject();
+                     objLeitura.close();
+                     arquivoLeitura.close();
+                     }
+ 
+                    catch(Exception e) {
+                            e.printStackTrace();
+                    }
+                    
+                    try {
+                 
+                     FileInputStream arquivoLeitura = new FileInputStream ("Relatorios.txt");
+                     ObjectInputStream objLeitura =  new ObjectInputStream(arquivoLeitura);
+                     relatorios = (List<Relatorio>) objLeitura.readObject();
                      objLeitura.close();
                      arquivoLeitura.close();
                      }
@@ -211,15 +289,41 @@ public class SistemaDeEstoque implements Serializable{
                         relatorios.get(relatorios.size()-1).gerarRelatorio();
                         System.out.println(""); 
                     }
+                    try {
+                        FileOutputStream arquivoGrav = new FileOutputStream("TesteProduto.txt"); 
+                        ObjectOutputStream objGravar = new ObjectOutputStream(arquivoGrav);
+                        objGravar.writeObject(produtos);
+                        objGravar.flush(); 
+                        objGravar.close();
+                        arquivoGrav.flush();
+                        arquivoGrav.close();
+                        System.out.println("Cadastro realizado com sucesso!");
+                    } 
+                    catch(IOException e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        FileOutputStream arquivoGrav = new FileOutputStream("Relatorios.txt"); 
+                        ObjectOutputStream objGravar = new ObjectOutputStream(arquivoGrav);
+                        objGravar.writeObject(relatorios);
+                        objGravar.flush(); 
+                        objGravar.close();
+                        arquivoGrav.flush();
+                        arquivoGrav.close();
+                    } 
+                    catch(IOException e) {
+                        e.printStackTrace();
+                    }
                     
                     System.out.println("Retornando ao menu principal");
                     break;
                 case 4:
+                    
                     try {
                  
-                     FileInputStream arquivoLeitura = new FileInputStream ("TesteProduto.txt");
+                     FileInputStream arquivoLeitura = new FileInputStream ("Relatorios.txt");
                      ObjectInputStream objLeitura =  new ObjectInputStream(arquivoLeitura);
-                     produtos = (List<Produto>) objLeitura.readObject();
+                     relatorios = (List<Relatorio>) objLeitura.readObject();
                      objLeitura.close();
                      arquivoLeitura.close();
                      }
@@ -227,6 +331,7 @@ public class SistemaDeEstoque implements Serializable{
                     catch(Exception e) {
                             e.printStackTrace();
                     }
+                    
                     System.out.println(""); 
                     System.out.println("Gerando Relatórios...");
                     System.out.println("");
@@ -246,13 +351,24 @@ public class SistemaDeEstoque implements Serializable{
                             relatorios.get(i).gerarRelatorio();
                         }
                     }
-                    
-                    
+
                     break;
                 case 5:
+                    try {
                  
+                     FileInputStream arquivoLeitura = new FileInputStream ("TesteFornecedor.txt");
+                     ObjectInputStream objLeitura =  new ObjectInputStream(arquivoLeitura);
+                     fornecedores = (List<Fornecedor>) objLeitura.readObject();
+                     objLeitura.close();
+                     arquivoLeitura.close();
+                    }
+                    catch(Exception e) {
+                            e.printStackTrace();
+                    }
+                    
                     System.out.println("ADICIONAR FORNECEDOR");
                     fornecedores.add(new Fornecedor());
+                    
                     try {
  
                         FileOutputStream arquivoGrav = new FileOutputStream("TesteFornecedor.txt");
@@ -269,23 +385,6 @@ public class SistemaDeEstoque implements Serializable{
                     catch(Exception e) {
                      e.printStackTrace();
                     }
- 
-                    System.out.println("Recuperando objeto: ");
- 
-                    
-                     try {
-             
-                     FileInputStream arquivoLeitura = new FileInputStream ("TesteProduto.txt");
-                     ObjectInputStream objLeitura =  new ObjectInputStream(arquivoLeitura);
-                     produtos = (List<Produto>) objLeitura.readObject();
-                     objLeitura.close();
-                     arquivoLeitura.close();
-                     
-                     }
- 
-                    catch(Exception e) {
-                            e.printStackTrace();
-                    }   
  
                     break;
                     
@@ -308,8 +407,7 @@ public class SistemaDeEstoque implements Serializable{
  
                     catch(Exception e) {
                             System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
-                    }   
-                     
+                    }                       
                    
                     break;
                      

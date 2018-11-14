@@ -63,6 +63,10 @@ public class Produto implements Serializable{
         
     }
 
+    public Produto() {
+        this.cadastrarProduto();
+    }
+
     /**
      * Método para o usuário cadastrar as informações do produto.
      */

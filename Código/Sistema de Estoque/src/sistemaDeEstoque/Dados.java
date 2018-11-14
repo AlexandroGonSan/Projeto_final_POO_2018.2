@@ -13,7 +13,6 @@ import java.util.List;
  *  * @author LuluTeam
  */
 public class Dados {
-    
 
     /**
      *IDdado atributo para controlar o ID do produto

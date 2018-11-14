@@ -408,6 +408,10 @@ public class TelaListarProdutos extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    Produto selecionado = new Produto();
+       
+    
     private void btAlterarProd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarProd1ActionPerformed
         //TelaListarProdutos.this.setVisible(false);
         //new CadastrarProduto().setVisible(true);
