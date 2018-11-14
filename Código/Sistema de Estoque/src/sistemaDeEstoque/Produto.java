@@ -259,6 +259,14 @@ public class Produto implements Serializable{
         return lote;
     }
 
+    public void setQuantidadeMinima(int quantidadeMinima) {
+        this.quantidadeMinima = quantidadeMinima;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
+    } 
+    
     /**
      * Método de retorno da quantidade mínima do produto.
      * @return int - quantidade mínima do produto.
