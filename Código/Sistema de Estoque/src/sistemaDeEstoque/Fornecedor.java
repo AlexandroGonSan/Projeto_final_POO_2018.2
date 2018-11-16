@@ -15,13 +15,10 @@ import java.util.Scanner;
  * @author LuluTeam
  */
 public class Fornecedor implements Serializable{
-    String nome;
-    String CNPJ;
-    String produtoFornecido;
-    private String alterar;
-    
-    transient Scanner scanf = new Scanner(System.in);
-
+    private String nome;
+    private String CNPJ;
+    private String produtoFornecido;
+    //private String alterar;
 
     public String getNome() {
         return nome;
@@ -56,6 +53,7 @@ public class Fornecedor implements Serializable{
      * O método é usado para o usuário cadastar os dados do fornecedor.
      */
     public void cadastrarFornecedor(){
+        Scanner scanf = new Scanner(System.in);
         System.out.print("Insira o nome do fornecedor: ");
         this.nome = scanf.nextLine();
         this.nome = this.nome.toUpperCase();
@@ -76,9 +74,11 @@ public class Fornecedor implements Serializable{
      * Esse método é usado para alterar o nome ou CNPJ do fornecedor.
      */
     public void alterarFornecedor(){
+        String alterar;
+        Scanner scanf = new Scanner(System.in);
         System.out.println("O que deseja alterar do fornecedor? Nome ou CNPJ?");
-        this.alterar = scanf.nextLine();
-        this.alterar = this.alterar.toUpperCase();
+        alterar = scanf.nextLine();
+        alterar = alterar.toUpperCase();
         if("NOME".equals(alterar)){
             System.out.println("Digite o novo Nome: ");
             this.nome = scanf.nextLine();
@@ -95,7 +95,5 @@ public class Fornecedor implements Serializable{
                      
         }
     }
-    
-    
 }
   
