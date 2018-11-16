@@ -38,4 +38,16 @@ public abstract class Relatorio implements Serializable {
 	System.out.println("Data: " + this.dataES);
         
     }
+
+    public Date getDataES() {
+        return dataES;
+    }
+
+    public Integer getProtocolo() {
+        return protocolo;
+    }
+    
+    public String getTipo(){
+        return "";
+    }
 }

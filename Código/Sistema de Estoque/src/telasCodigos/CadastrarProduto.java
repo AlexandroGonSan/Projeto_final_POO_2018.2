@@ -8,7 +8,9 @@ package telasCodigos;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import sistemaDeEstoque.Dados;
+import sistemaDeEstoque.Entrada;
 import sistemaDeEstoque.Produto;
+import sistemaDeEstoque.Relatorio;
 
 /**
  *
@@ -370,7 +372,9 @@ public class CadastrarProduto extends javax.swing.JFrame {
                 /*tem q dar Override no toString do fornecedor
                   to com peguiça então faço depois*/
                 //System.out.println(Dados.dados);
-                Dados.serializarProduto();
+                Relatorio relatorioNovo = new Entrada(Dados.dados.get(Dados.dados.size()-1));
+                Dados.relatorios.add(relatorioNovo);
+                
                 limpaCampos();
             }else{
                 JOptionPane.showMessageDialog(null, "Um dos campos: [Qnt], [Qnt Mínima] ou [Preço]\n não está preenchido com números!");

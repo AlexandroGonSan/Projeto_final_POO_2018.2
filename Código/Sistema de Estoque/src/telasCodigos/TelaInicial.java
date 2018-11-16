@@ -67,7 +67,7 @@ public class TelaInicial extends javax.swing.JFrame {
         });
 
         btRelatorios.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        btRelatorios.setText("Relatórios");
+        btRelatorios.setText("Registros de Movimentação");
         btRelatorios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btRelatoriosActionPerformed(evt);
@@ -184,8 +184,8 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_menuSobreActionPerformed
 
     private void btRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRelatoriosActionPerformed
-        TelaInicial.this.setVisible(false);
-        new TelaRelatorioEntrada().setVisible(true);
+        TelaInicial.this.dispose();
+        new TelaListarRelat().setVisible(true);
     }//GEN-LAST:event_btRelatoriosActionPerformed
 
     private void btListarProdsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btListarProdsActionPerformed

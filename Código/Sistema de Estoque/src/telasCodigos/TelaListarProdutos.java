@@ -524,8 +524,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
             return true;
         }
     }
-       
-    
+          
     private void btCadNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadNewActionPerformed
         TelaListarProdutos.this.dispose();
         new CadastrarProduto().setVisible(true);
