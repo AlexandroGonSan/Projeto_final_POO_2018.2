@@ -62,8 +62,7 @@ public class Dados implements Serializable {
             objGravar.flush(); 
             objGravar.close();
             arquivoGrav.flush();
-            arquivoGrav.close();
-            System.out.println("Cadastro realizado com sucesso!");
+            arquivoGrav.close();            
         } 
         catch(IOException e) {
             System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
@@ -92,7 +91,6 @@ public class Dados implements Serializable {
             objGravar.close();
             arquivoGrav.flush();
             arquivoGrav.close();
-            System.out.println("Objeto gravado com sucesso!");
         } 
         catch(Exception e) {
             System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());

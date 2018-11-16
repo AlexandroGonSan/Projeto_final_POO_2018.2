@@ -127,7 +127,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
         });
 
         botaoCancelar.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
-        botaoCancelar.setText("Cancelar");
+        botaoCancelar.setText("Voltar");
         botaoCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoCancelarActionPerformed(evt);
@@ -150,10 +150,10 @@ public class CadastrarProduto extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(botaoCadastrarProd, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(14, 14, 14)
-                                .addComponent(botaoLimparCampos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(botaoLimparCampos, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(botaoCancelar))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(botaoCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addComponent(jLabel9)
@@ -344,8 +344,8 @@ public class CadastrarProduto extends javax.swing.JFrame {
     }
     
     private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
-        CadastrarProduto.this.setVisible(false);
-        new TelaInicial().setVisible(true);
+        CadastrarProduto.this.dispose();
+        new TelaInicial(0).setVisible(true);
     }//GEN-LAST:event_botaoCancelarActionPerformed
 
     private void botaoLimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparCamposActionPerformed

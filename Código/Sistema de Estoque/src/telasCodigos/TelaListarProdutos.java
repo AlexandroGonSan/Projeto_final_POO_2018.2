@@ -457,7 +457,6 @@ public class TelaListarProdutos extends javax.swing.JFrame {
 
     
     Produto selecionado = new Produto(0);
-    private NumberFormat formatoN;
     
     
     private void resetaCampos(){

@@ -23,6 +23,10 @@ public class TelaInicial extends javax.swing.JFrame {
         Dados.deserializarFornecedor();
         Dados.deserializarRelatorio();
     }
+    
+    public TelaInicial(int a){
+        initComponents();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,6 +46,8 @@ public class TelaInicial extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         btCadastrarFornecedor = new javax.swing.JButton();
+        btListarForn = new javax.swing.JButton();
+        btExit = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         Menu1 = new javax.swing.JMenu();
         menuSobre = new javax.swing.JMenuItem();
@@ -104,6 +110,22 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
+        btListarForn.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        btListarForn.setText("Listar Fornecedores");
+        btListarForn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btListarFornActionPerformed(evt);
+            }
+        });
+
+        btExit.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        btExit.setText("Sair do Sistema");
+        btExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btExitActionPerformed(evt);
+            }
+        });
+
         Menu1.setText("Informações");
 
         menuSobre.setText("Sobre");
@@ -122,52 +144,61 @@ public class TelaInicial extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addComponent(jLabel4)
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel2)
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
+                .addContainerGap(70, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btExit, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(63, 63, 63)
+                            .addComponent(jLabel4)
+                            .addGap(0, 0, 0)
+                            .addComponent(jLabel2)
+                            .addGap(0, 0, 0)
+                            .addComponent(jLabel5))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btRelatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btListarProds, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btCadNovoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btCadastrarFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(77, Short.MAX_VALUE))
+                            .addComponent(btCadastrarFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btListarForn, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jButton1)
-                .addGap(0, 11, Short.MAX_VALUE)
+                .addGap(0, 46, Short.MAX_VALUE)
                 .addComponent(jLabel1)
+                .addGap(332, 332, 332))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
+                        .addGap(57, 57, 57)
                         .addComponent(btCadNovoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btCadastrarFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btListarProds, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btRelatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))))
-                .addGap(75, 75, 75))
+                        .addComponent(btListarProds, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5)))
+                .addGap(18, 18, 18)
+                .addComponent(btListarForn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(btRelatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btExit, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -205,6 +236,18 @@ public class TelaInicial extends javax.swing.JFrame {
         TelaInicial.this.setVisible(false);
         new CadastrarFornecedor().setVisible(true);
     }//GEN-LAST:event_btCadastrarFornecedorActionPerformed
+
+    private void btListarFornActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btListarFornActionPerformed
+        TelaInicial.this.dispose();
+        new TelaListarFornecedores().setVisible(true);
+    }//GEN-LAST:event_btListarFornActionPerformed
+
+    private void btExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExitActionPerformed
+        Dados.serializarFornecedor();
+        Dados.serializarProduto();
+        Dados.serializarRelatorio();;
+        System.exit(0);
+    }//GEN-LAST:event_btExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -245,6 +288,8 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JMenu Menu1;
     private javax.swing.JButton btCadNovoProd;
     private javax.swing.JButton btCadastrarFornecedor;
+    private javax.swing.JButton btExit;
+    private javax.swing.JButton btListarForn;
     private javax.swing.JButton btListarProds;
     private javax.swing.JButton btRelatorios;
     private javax.swing.JButton jButton1;

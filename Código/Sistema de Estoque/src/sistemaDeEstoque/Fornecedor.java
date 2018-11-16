@@ -21,6 +21,19 @@ public class Fornecedor implements Serializable{
     private String alterar;
     
     transient Scanner scanf = new Scanner(System.in);
+
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getProdutoFornecido() {
+        return produtoFornecido;
+    }
+    
+    
+    public Fornecedor(int a){
+    }
     
     Fornecedor(){
         this.cadastrarFornecedor();

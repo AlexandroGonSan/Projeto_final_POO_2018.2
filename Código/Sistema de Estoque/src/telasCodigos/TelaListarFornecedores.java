@@ -6,18 +6,19 @@
 package telasCodigos;
 
 import sistemaDeEstoque.Dados;
-import sistemaDeEstoque.ModeloTabelaRelatorio;
+import sistemaDeEstoque.Fornecedor;
+import sistemaDeEstoque.ModeloTabelaFornecedor;
 
 /**
  *
  * @author Kook Ho
  */
-public class TelaListarRelat extends javax.swing.JFrame {
+public class TelaListarFornecedores extends javax.swing.JFrame {
 
     /**
-     * Creates new form TelaListarRelat
+     * Creates new form TelaListarFornecedores
      */
-    public TelaListarRelat() {
+    public TelaListarFornecedores() {
         initComponents();
     }
 
@@ -30,11 +31,12 @@ public class TelaListarRelat extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        btNewForn = new javax.swing.JButton();
         btVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -43,9 +45,6 @@ public class TelaListarRelat extends javax.swing.JFrame {
                 formWindowOpened(evt);
             }
         });
-
-        jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
-        jLabel1.setText("Registros de Movimentação");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -65,15 +64,25 @@ public class TelaListarRelat extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel2.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
-        jLabel2.setText("Clique duas vezes no registro desejado para obter");
+        jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
+        jLabel1.setText("Fornecedores Cadastrados");
 
-        jLabel3.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
-        jLabel3.setText("mais informações sobre a movimentação.");
-        jLabel3.setToolTipText("");
+        jLabel2.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        jLabel2.setText("Clique duas vezes para exibir informações.");
+
+        jLabel3.setFont(new java.awt.Font("Bahnschrift", 1, 10)); // NOI18N
+        jLabel3.setText("Não encontrou o fornecedor?");
+
+        btNewForn.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        btNewForn.setText("Cadastrar Fornecedor");
+        btNewForn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNewFornActionPerformed(evt);
+            }
+        });
 
         btVoltar.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
-        btVoltar.setText("Retornar ao Menu");
+        btVoltar.setText("Voltar ao Menu");
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btVoltarActionPerformed(evt);
@@ -87,34 +96,38 @@ public class TelaListarRelat extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
+                        .addGap(73, 73, 73)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(62, 62, 62)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2)))))
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btNewForn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btVoltar)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(27, 27, 27)
                 .addComponent(jLabel1)
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(jLabel2)
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(49, 49, 49)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btNewForn)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addComponent(btVoltar)
                 .addContainerGap())
         );
@@ -123,21 +136,29 @@ public class TelaListarRelat extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    Fornecedor forn = new Fornecedor(0);
+    
+    private void btNewFornActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNewFornActionPerformed
+        TelaListarFornecedores.this.dispose();
+        new CadastrarFornecedor().setVisible(true);
+    }//GEN-LAST:event_btNewFornActionPerformed
+
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
+        TelaListarFornecedores.this.dispose();
+        new TelaInicial().setVisible(true);
+    }//GEN-LAST:event_btVoltarActionPerformed
+
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         if (evt.getClickCount() >= 2){
             System.out.println(jTable1.getModel().getValueAt(jTable1.getSelectedRow(), -1));
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
-    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
-        TelaListarRelat.this.dispose();
-        new TelaInicial(0).setVisible(true);
-    }//GEN-LAST:event_btVoltarActionPerformed
-
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        jTable1.setModel(new ModeloTabelaRelatorio(Dados.relatorios));
+        jTable1.setModel(new ModeloTabelaFornecedor(Dados.Forn));
     }//GEN-LAST:event_formWindowOpened
-
+    
+    
     
     /**
      * @param args the command line arguments
@@ -156,25 +177,26 @@ public class TelaListarRelat extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaListarRelat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListarFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaListarRelat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListarFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaListarRelat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListarFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaListarRelat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListarFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaListarRelat().setVisible(true);
+                new TelaListarFornecedores().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btNewForn;
     private javax.swing.JButton btVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
