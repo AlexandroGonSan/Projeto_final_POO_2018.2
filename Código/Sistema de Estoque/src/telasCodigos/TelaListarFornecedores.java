@@ -39,8 +39,11 @@ public class TelaListarFornecedores extends javax.swing.JFrame {
         btNewForn = new javax.swing.JButton();
         btVoltar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
@@ -145,7 +148,7 @@ public class TelaListarFornecedores extends javax.swing.JFrame {
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         TelaListarFornecedores.this.dispose();
-        new TelaInicial().setVisible(true);
+        new TelaInicial(0).setVisible(true);
     }//GEN-LAST:event_btVoltarActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
@@ -157,6 +160,10 @@ public class TelaListarFornecedores extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         jTable1.setModel(new ModeloTabelaFornecedor(Dados.Forn));
     }//GEN-LAST:event_formWindowOpened
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        new TelaInicial(0).setVisible(true);
+    }//GEN-LAST:event_formWindowClosed
     
     
     

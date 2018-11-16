@@ -55,6 +55,11 @@ public class TelaInicial extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         btCadNovoProd.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         btCadNovoProd.setText("Cadastrar Novo Produto");
@@ -206,7 +211,7 @@ public class TelaInicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btCadNovoProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadNovoProdActionPerformed
-        TelaInicial.this.setVisible(false);
+        TelaInicial.this.dispose();
         new CadastrarProduto().setVisible(true);
     }//GEN-LAST:event_btCadNovoProdActionPerformed
 
@@ -220,7 +225,7 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_btRelatoriosActionPerformed
 
     private void btListarProdsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btListarProdsActionPerformed
-        TelaInicial.this.setVisible(false);
+        TelaInicial.this.dispose();
         new TelaListarProdutos().setVisible(true);
     }//GEN-LAST:event_btListarProdsActionPerformed
 
@@ -233,7 +238,7 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btCadastrarFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarFornecedorActionPerformed
-        TelaInicial.this.setVisible(false);
+        TelaInicial.this.dispose();
         new CadastrarFornecedor().setVisible(true);
     }//GEN-LAST:event_btCadastrarFornecedorActionPerformed
 
@@ -245,9 +250,15 @@ public class TelaInicial extends javax.swing.JFrame {
     private void btExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExitActionPerformed
         Dados.serializarFornecedor();
         Dados.serializarProduto();
-        Dados.serializarRelatorio();;
+        Dados.serializarRelatorio();
         System.exit(0);
     }//GEN-LAST:event_btExitActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        Dados.serializarFornecedor();
+        Dados.serializarProduto();
+        Dados.serializarRelatorio();
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments

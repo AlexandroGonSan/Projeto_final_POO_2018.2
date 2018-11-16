@@ -77,8 +77,11 @@ public class TelaListarProdutos extends javax.swing.JFrame {
         lbID = new javax.swing.JLabel();
         lbCat = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
@@ -681,6 +684,10 @@ public class TelaListarProdutos extends javax.swing.JFrame {
           JOptionPane.showMessageDialog(null, "Nenhum produto selecionado!");
       } 
     }//GEN-LAST:event_btReporRetirarActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        new TelaInicial(0).setVisible(true);
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
