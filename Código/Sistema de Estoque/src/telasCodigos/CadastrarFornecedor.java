@@ -132,7 +132,7 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
         });
 
         btCancelar.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
-        btCancelar.setText("Cancelar");
+        btCancelar.setText("Voltar");
         btCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btCancelarActionPerformed(evt);
@@ -227,8 +227,7 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
     }//GEN-LAST:event_btLimparActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
-        CadastrarFornecedor.this.setVisible(false);
-        new TelaInicial().setVisible(true);
+        CadastrarFornecedor.this.dispose();
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed

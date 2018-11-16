@@ -6,12 +6,13 @@
 package telasCodigos;
 
 import java.awt.Color;
-import java.text.NumberFormat;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
 import sistemaDeEstoque.Dados;
+import sistemaDeEstoque.Entrada;
 import sistemaDeEstoque.ModeloTabelaProduto;
 import sistemaDeEstoque.Produto;
+import sistemaDeEstoque.Saida;
 
 /**
  *
@@ -533,9 +534,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_btCadNewActionPerformed
 
     private void btVoltarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarListaActionPerformed
-        TelaListarProdutos.this.dispose();
-        new TelaInicial().setVisible(true);
-        
+        TelaListarProdutos.this.dispose();        
     }//GEN-LAST:event_btVoltarListaActionPerformed
 
     private void btAlterarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarProdActionPerformed
@@ -568,6 +567,14 @@ public class TelaListarProdutos extends javax.swing.JFrame {
                 try{
                     int testRepor = Integer.parseInt(tfRepor.getText());
                     selecionado.reporQuantia(Integer.parseInt(tfRepor.getText()));
+                    Dados.relatorios.add(
+                                new Entrada(
+                                        selecionado,
+                                        "Entrada",
+                                        Integer.parseInt(tfRepor.getText()),
+                                        "Adição ao estoque."
+                                )
+                    );
                     JOptionPane.showMessageDialog(null, "Quantia reposta com sucesso!");
                 }catch(NumberFormatException e){
                     JOptionPane.showMessageDialog(null, "Valor inválido!");
@@ -622,6 +629,14 @@ public class TelaListarProdutos extends javax.swing.JFrame {
                 try{
                     int testRepor = Integer.parseInt(tfRetirar.getText());
                     selecionado.retirarQuantia(Integer.parseInt(tfRetirar.getText()));
+                    Dados.relatorios.add(
+                            new Saida(
+                                    selecionado,
+                                    "Saída",
+                                    Integer.parseInt(tfRetirar.getText()),
+                                    "Retirado do estoque."
+                            )
+                    );
                     JOptionPane.showMessageDialog(null, "Quantia retirada com sucesso!");
                 }catch(NumberFormatException e){
                     JOptionPane.showMessageDialog(null, "Valor inválido!");
@@ -635,7 +650,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_btRetirarActionPerformed
 
     private void btAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizarActionPerformed
-        TelaListarProdutos.this.dispose();
+        TelaListarProdutos.this.setVisible(false);
         new TelaListarProdutos().setVisible(true);
     }//GEN-LAST:event_btAtualizarActionPerformed
 

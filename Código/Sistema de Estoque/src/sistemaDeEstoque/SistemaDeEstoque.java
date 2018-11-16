@@ -87,7 +87,7 @@ public class SistemaDeEstoque implements Serializable{
                     
                     System.out.println("ADICIONAR PRODUTO:");
                     Dados.dados.add(new Produto());
-                    Relatorio relatorioNovo = new Entrada(Dados.dados.get(Dados.dados.size()-1));
+                    Relatorio relatorioNovo = new Entrada(Dados.dados.get(Dados.dados.size()-1), "Entrada", 10, "Cadastro");
                     Dados.relatorios.add(relatorioNovo);
                     
                     
@@ -180,12 +180,12 @@ public class SistemaDeEstoque implements Serializable{
                             quantidade = scanf.nextInt();
                         }while(quantidade <= 0 );
                         listAux.get(intAux).reporQuantia(quantidade);
-                        Relatorio relatorioNovo2 = new Entrada(listAux.get(intAux));
+                        Relatorio relatorioNovo2 = new Entrada(listAux.get(intAux), "repor", 10, "Reposiçao");
                         relatorioNovo2.quantidade = quantidade;
                         Dados.relatorios.add(relatorioNovo2);
                         System.out.println("");
                         System.out.println("Relatório da operação efetuada:");
-                        Dados.relatorios.get(Dados.relatorios.size()-1).gerarRelatorio();                                                
+                        Dados.relatorios.get(Dados.relatorios.size()-1).gerarRelatorio(listAux.get(intAux));                                                
                     }
                     
                     try {
@@ -279,12 +279,12 @@ public class SistemaDeEstoque implements Serializable{
                       
                         listAux.get(intAux).retirarQuantia(quantidade);
                    
-                        Relatorio relatorioNovo3 = new Saida(listAux.get(intAux));
+                        Relatorio relatorioNovo3 = new Saida(listAux.get(intAux), "saida", 10, "Retirada");
                         relatorioNovo3.quantidade = quantidade;
                         Dados.relatorios.add(relatorioNovo3);
                         System.out.println("");
                         System.out.println("Relatório da operação efetuada:");
-                        Dados.relatorios.get(Dados.relatorios.size()-1).gerarRelatorio();
+                        Dados.relatorios.get(Dados.relatorios.size()-1).gerarRelatorio(listAux.get(intAux));
                         System.out.println(""); 
                     }
                     try {
@@ -337,7 +337,7 @@ public class SistemaDeEstoque implements Serializable{
                     for(int i = 0 ; i <= Dados.relatorios.size()-1; i++){
             
                         if(Dados.relatorios.get(i) instanceof Entrada){
-                            Dados.relatorios.get(i).gerarRelatorio();
+ //                           Dados.relatorios.get(i).gerarRelatorio();
                         }
                     }
                     
@@ -346,7 +346,7 @@ public class SistemaDeEstoque implements Serializable{
                     for(int i = 0 ; i <= Dados.relatorios.size()-1; i++){
                         
                         if(Dados.relatorios.get(i) instanceof Saida){
-                            Dados.relatorios.get(i).gerarRelatorio();
+  //                          Dados.relatorios.get(i).gerarRelatorio();
                         }
                     }
 

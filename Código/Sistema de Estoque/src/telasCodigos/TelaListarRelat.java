@@ -5,8 +5,11 @@
  */
 package telasCodigos;
 
+import javax.swing.JOptionPane;
 import sistemaDeEstoque.Dados;
 import sistemaDeEstoque.ModeloTabelaRelatorio;
+import sistemaDeEstoque.Produto;
+import sistemaDeEstoque.Relatorio;
 
 /**
  *
@@ -126,15 +129,28 @@ public class TelaListarRelat extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    Relatorio relat  = new Relatorio(0) {};
+    
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        if (evt.getClickCount() >= 2){
-            System.out.println(jTable1.getModel().getValueAt(jTable1.getSelectedRow(), -1));
+     if (evt.getClickCount() >= 2){
+            int linha = jTable1.getSelectedRow();
+            int select = (Integer)jTable1.getModel().getValueAt(linha, 0);
+        
+            for(Relatorio relato : Dados.relatorios){
+                if(relato.getProtocolo()== select){
+                    relat = relato;
+                }
+            }
+            JOptionPane.showMessageDialog(null, "Relatório de " + relat.getTipo() + "\n"
+                                                +"Produto: " + relat.getProduto() + "\n"
+                                                +"Descrição: " + relat.getDescricao() + "\n"
+                                                +"Quantidade: " + relat.getQuantidade() + "\n"
+                                                +"Registrado em: "  + relat.getDataES());
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         TelaListarRelat.this.dispose();
-        new TelaInicial(0).setVisible(true);
     }//GEN-LAST:event_btVoltarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

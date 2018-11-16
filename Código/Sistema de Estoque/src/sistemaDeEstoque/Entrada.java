@@ -18,9 +18,10 @@ public class Entrada extends Relatorio implements Serializable{
      * @param  novo - objeto usado para receber os dados.
      */
     
-    public Entrada(Produto novo) {
-        super(novo);
+    public Entrada(Produto novo, String tipo, Integer qnt, String descricao) {
+        super(novo, tipo, qnt, descricao);
     }
+
     
     /**
      * O método imprime na tela as informações do objeto relatório, 
@@ -28,8 +29,8 @@ public class Entrada extends Relatorio implements Serializable{
      * para imprimir parte das informações.
      */
     @Override
-    public void gerarRelatorio(){
-        super.gerarRelatorio();
+    public void gerarRelatorio(Produto produto){
+        super.gerarRelatorio(produto);
         System.out.println("Quantidade do produto inserido: " + this.quantidade);
     }
 }

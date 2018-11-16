@@ -350,7 +350,6 @@ public class CadastrarProduto extends javax.swing.JFrame {
     
     private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
         CadastrarProduto.this.dispose();
-        new TelaInicial(0).setVisible(true);
     }//GEN-LAST:event_botaoCancelarActionPerformed
 
     private void botaoLimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparCamposActionPerformed
@@ -377,8 +376,12 @@ public class CadastrarProduto extends javax.swing.JFrame {
                 /*tem q dar Override no toString do fornecedor
                   to com peguiça então faço depois*/
                 //System.out.println(Dados.dados);
-                Relatorio relatorioNovo = new Entrada(Dados.dados.get(Dados.dados.size()-1));
+                Relatorio relatorioNovo = new Entrada(Dados.dados.get(Dados.dados.size()-1), "Entrada", Integer.parseInt(tfQnt.getText()), "Cadastro de produto novo");
+                System.out.println(relatorioNovo.getDataES());
+                System.out.println(relatorioNovo.getTipo());
+                System.out.println(relatorioNovo.getProtocolo());
                 Dados.relatorios.add(relatorioNovo);
+                
                 
                 limpaCampos();
             }else{

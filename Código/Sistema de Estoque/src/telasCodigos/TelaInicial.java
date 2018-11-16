@@ -211,7 +211,7 @@ public class TelaInicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btCadNovoProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadNovoProdActionPerformed
-        TelaInicial.this.dispose();
+        TelaInicial.this.setVisible(false);
         new CadastrarProduto().setVisible(true);
     }//GEN-LAST:event_btCadNovoProdActionPerformed
 
@@ -225,7 +225,7 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_btRelatoriosActionPerformed
 
     private void btListarProdsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btListarProdsActionPerformed
-        TelaInicial.this.dispose();
+        TelaInicial.this.setVisible(false);
         new TelaListarProdutos().setVisible(true);
     }//GEN-LAST:event_btListarProdsActionPerformed
 
@@ -238,19 +238,16 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btCadastrarFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarFornecedorActionPerformed
-        TelaInicial.this.dispose();
+        TelaInicial.this.setVisible(false);
         new CadastrarFornecedor().setVisible(true);
     }//GEN-LAST:event_btCadastrarFornecedorActionPerformed
 
     private void btListarFornActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btListarFornActionPerformed
-        TelaInicial.this.dispose();
+        TelaInicial.this.setVisible(false);
         new TelaListarFornecedores().setVisible(true);
     }//GEN-LAST:event_btListarFornActionPerformed
 
     private void btExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExitActionPerformed
-        Dados.serializarFornecedor();
-        Dados.serializarProduto();
-        Dados.serializarRelatorio();
         System.exit(0);
     }//GEN-LAST:event_btExitActionPerformed
 

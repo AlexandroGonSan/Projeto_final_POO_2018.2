@@ -148,7 +148,6 @@ public class TelaListarFornecedores extends javax.swing.JFrame {
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         TelaListarFornecedores.this.dispose();
-        new TelaInicial(0).setVisible(true);
     }//GEN-LAST:event_btVoltarActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked

@@ -10,32 +10,41 @@ import java.util.Date;
 public abstract class Relatorio implements Serializable {
     int quantidade;
     Date dataES;
-    Produto produto;
+    String produto;
     Integer protocolo;
-    static int quantidadeProtocolo = 0;
+    static int quantidadeProtocolo = 1;
+    String tipo;
+    String descricao;
     
-    Relatorio(Produto produto){
-        this.produto = produto;
-        this.quantidade = produto.quantidade;
+    Relatorio(Produto produto, String tipo,Integer qnt, String descricao){
+        this.produto = produto.getNome();
+        this.quantidade = qnt;
         this.dataES = new Date();
-        quantidadeProtocolo = quantidadeProtocolo + 1; // A cada protocolo gerado soma +1 na variável
-        this.protocolo = quantidadeProtocolo;
         
+        this.protocolo = quantidadeProtocolo++;
+        this.tipo = tipo;
+        this.descricao = descricao;
     }
 
+    public Relatorio(int a){
+        
+    }
+    
     /**
      * Método para gerar relatório com todas as informações do objeto.
      */
     
-    public void gerarRelatorio(){
+    
+    
+    public void gerarRelatorio(Produto produto){
         
         System.out.println("");
-        System.out.println("Número do protocolo gerado: 0000" + this.protocolo);
-        System.out.println("Categoria do produto:" + this.produto.getCategoria());
-        System.out.println("Nome do produto: " + this.produto.getNome());
-        System.out.println("Código ID do produto: " + this.produto.ID);
-        System.out.println("Lote do produto: " + this.produto.lote);
-	System.out.println("Data: " + this.dataES);
+        System.out.println("Número do protocolo gerado: 0000" + protocolo);
+        System.out.println("Categoria do produto:" + produto.getCategoria());
+        System.out.println("Nome do produto: " + produto.getNome());
+        System.out.println("Código ID do produto: " + produto.ID);
+        System.out.println("Lote do produto: " + produto.lote);
+	System.out.println("Data: " + dataES);
         
     }
 
@@ -48,6 +57,20 @@ public abstract class Relatorio implements Serializable {
     }
     
     public String getTipo(){
-        return "";
+        return this.tipo;
     }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public String getProduto() {
+        return produto;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+    
+    
 }
