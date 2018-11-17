@@ -28,13 +28,9 @@ public abstract class Relatorio implements Serializable {
     public Relatorio(int a){
         
     }
-    
     /**
      * Método para gerar relatório com todas as informações do objeto.
      */
-    
-    
-    
     public void gerarRelatorio(Produto produto){
         
         System.out.println("");
@@ -46,19 +42,15 @@ public abstract class Relatorio implements Serializable {
 	System.out.println("Data: " + dataES);
         
     }
-
     public Date getDataES() {
         return dataES;
     }
-
     public Integer getProtocolo() {
         return protocolo;
     }
-    
     public String getTipo(){
         return this.tipo;
     }
-    
     public boolean setTipo(String valor){
         String aux = valor.toUpperCase();
         switch (aux) {
