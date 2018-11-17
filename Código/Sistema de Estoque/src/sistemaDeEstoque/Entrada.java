@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @author LuluTeam
  */
 public class Entrada extends Relatorio implements Serializable{
-    String fornecedor;
+    private String fornecedor;
     /**
      * Construtor da classe. Ele recebe os dados do objeto Produto para para preencher os dados do objeto Entrada.
      * Esta classe usa o construtor da superclasse Relatorio inserir os dados.
@@ -31,6 +31,14 @@ public class Entrada extends Relatorio implements Serializable{
     @Override
     public void gerarRelatorio(Produto produto){
         super.gerarRelatorio(produto);
-        System.out.println("Quantidade do produto inserido: " + this.quantidade);
+        System.out.println("Quantidade do produto inserido: " + this.getQuantidade());
+    }
+    
+    public String getFornecedor(){
+        return fornecedor;
+    }
+    
+    public void setFornecedor(String entrada){
+        this.fornecedor = entrada.toUpperCase();
     }
 }

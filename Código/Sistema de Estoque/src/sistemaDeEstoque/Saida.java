@@ -22,7 +22,7 @@ public class Saida extends Relatorio implements Serializable{
     @Override
     public void gerarRelatorio(Produto produto){
         super.gerarRelatorio(produto);
-        System.out.println("Quantidade do produto retirado: " + this.quantidade);
+        System.out.println("Quantidade do produto retirado: " + this.getQuantidade());
         //System.out.println("Data da retirada:" + this.getDataES());
     }
 }

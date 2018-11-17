@@ -29,7 +29,8 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
         jlCNPJ.setForeground(Color.black);
         temp = tfCNPJ.getText();
         try{
-            int preco = Integer.parseInt(this.tfCNPJ.getText());
+            int preco = Integer.parseInt(temp.substring(0, 7));
+            preco = Integer.parseInt(temp.substring(7));
             if(this.temp.length() != 14){
                 jlCNPJ.setForeground(Color.red);
                 return false;
@@ -37,6 +38,10 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
             
             return true;
         }catch(NumberFormatException e){
+            jlCNPJ.setForeground(Color.red);
+            
+            return false;
+        }catch(IndexOutOfBoundsException e){
             jlCNPJ.setForeground(Color.red);
             
             return false;

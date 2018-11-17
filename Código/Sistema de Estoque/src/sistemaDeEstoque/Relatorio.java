@@ -8,21 +8,20 @@ import java.util.Date;
  */
 
 public abstract class Relatorio implements Serializable {
-    int quantidade;
+    private int quantidade;
     Date dataES;
-    String produto;
+    private String produto;
     Integer protocolo;
     static int quantidadeProtocolo = 1;
-    String tipo;
+    private String tipo;
     String descricao;
     
-    Relatorio(Produto produto, String tipo,Integer qnt, String descricao){
-        this.produto = produto.getNome();
-        this.quantidade = qnt;
+    Relatorio(Produto produto, String tipo, Integer qnt, String descricao){
+        this.setProduto(produto.getNome());
+        this.setQuantidade(qnt);
         this.dataES = new Date();
-        
         this.protocolo = quantidadeProtocolo++;
-        this.tipo = tipo;
+        this.setTipo(tipo);
         this.descricao = descricao;
     }
 
@@ -59,18 +58,46 @@ public abstract class Relatorio implements Serializable {
     public String getTipo(){
         return this.tipo;
     }
-
+    
+    public boolean setTipo(String valor){
+        String aux = valor.toUpperCase();
+        switch (aux) {
+            case "HIGIENE":
+                this.tipo = "HIGIENE";
+                return true;
+            case "ALIMENTO":
+                this.tipo = "ALIMENTO";
+                return true;
+            case "MEDICAMENTO":
+                this.tipo = "MEDICAMENTO";
+                return true;
+            default:
+                break;
+        }
+        return false;
+    }
+    
     public int getQuantidade() {
         return quantidade;
+    }
+    
+    public boolean setQuantidade(int valor){
+        if(valor >= 0){
+            this.quantidade = valor;
+            return true;
+        }
+        return false;
     }
 
     public String getProduto() {
         return produto;
     }
-
+    
+    public void setProduto(String entrada){
+        this.produto = entrada.toUpperCase();
+    }
+    
     public String getDescricao() {
         return descricao;
     }
-    
-    
 }

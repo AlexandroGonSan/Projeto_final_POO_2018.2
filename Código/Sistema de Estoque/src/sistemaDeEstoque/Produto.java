@@ -18,10 +18,10 @@ public class Produto implements Serializable{
     Integer ID;  
     Date validade = new Date(); 
     String lote; 
-    int quantidade = 0; 
-    int quantidadeMinima; 
+    private int quantidade = 0; 
+    private int quantidadeMinima; 
     private String nome; 
-    double preco; 
+    private double preco; 
     private String categoria;
     
     transient Scanner scanf = new Scanner(System.in);
@@ -109,26 +109,6 @@ public class Produto implements Serializable{
         }
         System.out.println("");
     }
-    /**A função recebe o nome da categoria e valida caso esteja nas categorias.
-     * @param valor String - recebe o nome da categoria.
-     * @return boolean - retorna true caso o argumento valor seja uma das categorias.
-     */
-    public boolean setCategoria(String valor){
-        String aux = valor.toUpperCase();
-        if(aux.equals("HIGIENE")){
-            this.categoria = "HIGIENE";
-            return true;
-        }
-        if(aux.equals("ALIMENTO")){
-            this.categoria = "ALIMENTO";
-            return true;
-        }
-        if(aux.equals("MEDICAMENTO")){
-            this.categoria = "MEDICAMENTO";
-            return true;
-        }
-        return false;
-    }
     
     /**
      * Método de retorno da categoria do produto.
@@ -136,6 +116,29 @@ public class Produto implements Serializable{
      */
     public String getCategoria() {
         return categoria;
+    }
+    
+    /**
+     * A função recebe o nome da categoria e valida caso esteja nas categorias.
+     * @param valor String - recebe o nome da categoria.
+     * @return boolean - retorna true caso o argumento valor seja uma das categorias.
+     */
+    public boolean setCategoria(String valor){
+        String aux = valor.toUpperCase();
+        switch (aux) {
+            case "HIGIENE":
+                this.categoria = "HIGIENE";
+                return true;
+            case "ALIMENTO":
+                this.categoria = "ALIMENTO";
+                return true;
+            case "MEDICAMENTO":
+                this.categoria = "MEDICAMENTO";
+                return true;
+            default:
+                break;
+        }
+        return false;
     }
     
     /**
@@ -171,13 +174,13 @@ public class Produto implements Serializable{
                 this.lote = scanf.next();
             case 4:
                 System.out.print("Insira a nova quantidade mínima: ");
-                this.quantidadeMinima = scanf.nextInt();
+                this.setQuantidadeMinima(scanf.nextInt());
             case 5:
                 System.out.print("Insira o nome: ");
                 this.setNome(scanf.nextLine());
             case 6:
                 System.out.print("Insira o preço: ");
-                this.preco = scanf.nextDouble();
+                this.setPreco(scanf.nextDouble());
             case 7:
                 System.out.print("Insira a categoria: ");
                 if( this.setCategoria(scanf.next()) ){//retorna true se for uma das categorias
@@ -226,7 +229,6 @@ public class Produto implements Serializable{
             if (this.quantidade < this.quantidadeMinima){
                 System.out.println("Atenção, a quantidade do produto está abaixo do recomendado");
             }
-            
             return true;
         }
         return false;
@@ -261,14 +263,6 @@ public class Produto implements Serializable{
     public String getLote() {
         return lote;
     }
-
-    public void setQuantidadeMinima(int quantidadeMinima) {
-        this.quantidadeMinima = quantidadeMinima;
-    }
-
-    public void setPreco(double preco) {
-        this.preco = preco;
-    } 
     
     /**
      * Método de retorno da quantidade mínima do produto.
@@ -278,12 +272,28 @@ public class Produto implements Serializable{
         return quantidadeMinima;
     }
     
+    public boolean setQuantidadeMinima(int valor) {
+        if(valor > 0){
+            this.quantidadeMinima = valor;
+            return true;
+        }
+        return false;
+    }
+    
     /**
-     * O método configura o nome para todas as letras maiúsculas.
-     * @param texto - nome a ser configurado para maiúsculo.
+     * Método de retorno da categoria do produto.
+     * @return double - preço do produto.
      */
-    public void setNome(String texto){
-        this.nome = texto.toUpperCase();
+    public double getPreco() {
+        return preco;
+    }
+    
+    public boolean setPreco(double preco) {
+        if(preco > 0.0){
+            this.preco = preco;
+            return true;
+        }
+        return false;
     }
     
     /**
@@ -293,12 +303,12 @@ public class Produto implements Serializable{
     public String getNome() {
         return nome;
     }
-
+    
     /**
-     * Método de retorno da categoria do produto.
-     * @return double - preço do produto.
+     * O método configura o nome para todas as letras maiúsculas.
+     * @param texto - nome a ser configurado para maiúsculo.
      */
-    public double getPreco() {
-        return preco;
-    }  
+    public void setNome(String texto){
+        this.nome = texto.toUpperCase();
+    }
 }
