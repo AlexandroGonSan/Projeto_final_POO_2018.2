@@ -25,4 +25,7 @@ public class Saida extends Relatorio implements Serializable{
         System.out.println("Quantidade do produto retirado: " + this.getQuantidade());
         //System.out.println("Data da retirada:" + this.getDataES());
     }
+    public String getTipo(){
+        return ("Saida");
+    }
 }

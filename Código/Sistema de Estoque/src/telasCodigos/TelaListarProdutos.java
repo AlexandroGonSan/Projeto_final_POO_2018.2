@@ -628,16 +628,20 @@ public class TelaListarProdutos extends javax.swing.JFrame {
             }else{
                 try{
                     int testRepor = Integer.parseInt(tfRetirar.getText());
-                    selecionado.retirarQuantia(Integer.parseInt(tfRetirar.getText()));
-                    Dados.relatorios.add(
+                    boolean resposta = selecionado.retirarQuantia(Integer.parseInt(tfRetirar.getText()));
+                    if(resposta){
+                        Dados.relatorios.add(
                             new Saida(
-                                    selecionado,
-                                    "Saída",
-                                    Integer.parseInt(tfRetirar.getText()),
-                                    "Retirado do estoque."
+                                selecionado,
+                                "Saída",
+                                Integer.parseInt(tfRetirar.getText()),
+                                "Retirado do estoque."
                             )
-                    );
-                    JOptionPane.showMessageDialog(null, "Quantia retirada com sucesso!");
+                        );
+                        JOptionPane.showMessageDialog(null, "Quantia retirada com sucesso!");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Quantia não retirada");
+                    }
                 }catch(NumberFormatException e){
                     JOptionPane.showMessageDialog(null, "Valor inválido!");
                 }

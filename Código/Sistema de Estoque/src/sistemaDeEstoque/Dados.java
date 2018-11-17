@@ -49,6 +49,7 @@ public class Dados implements Serializable {
             Dados.dados = (ArrayList<Produto>) objLeitura.readObject();
             objLeitura.close();
             arquivoLeitura.close();
+            Dados.IDdado += Dados.dados.size();
         }
         catch(Exception e) {
             System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
@@ -76,6 +77,7 @@ public class Dados implements Serializable {
             Dados.Forn = (ArrayList<Fornecedor>) objLeitura.readObject();
             objLeitura.close();
             arquivoLeitura.close();
+            Dados.IDForn += Dados.Forn.size();
         }
         catch(Exception e) {
             System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
@@ -104,6 +106,7 @@ public class Dados implements Serializable {
             Dados.relatorios = (ArrayList<Relatorio>) objLeitura.readObject();
             objLeitura.close();
             arquivoLeitura.close();
+            Dados.IDRela += Dados.relatorios.size();
         }
         catch(Exception e) {
             System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());

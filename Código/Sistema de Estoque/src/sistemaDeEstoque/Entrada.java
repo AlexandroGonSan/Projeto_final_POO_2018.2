@@ -41,4 +41,7 @@ public class Entrada extends Relatorio implements Serializable{
     public void setFornecedor(String entrada){
         this.fornecedor = entrada.toUpperCase();
     }
+    public String getTipo(){
+        return ("Entrada");
+    }
 }

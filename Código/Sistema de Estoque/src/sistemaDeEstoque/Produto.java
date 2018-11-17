@@ -225,8 +225,6 @@ public class Produto implements Serializable{
             this.quantidade -= valor;
             if (this.quantidadeMinima > this.quantidade){//analisa se a quantidade atual é menor que a do mínimo
                 System.out.println("Quantidade abaixo do mínimo!");
-            }
-            if (this.quantidade < this.quantidadeMinima){
                 System.out.println("Atenção, a quantidade do produto está abaixo do recomendado");
             }
             return true;
