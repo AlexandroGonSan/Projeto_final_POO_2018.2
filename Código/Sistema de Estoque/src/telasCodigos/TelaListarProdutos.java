@@ -460,7 +460,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    Produto selecionado = new Produto(0);
+    private Produto selecionado = new Produto(0);
     
     
     private void resetaCampos(){
@@ -479,7 +479,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
         
     }
     
-    private Boolean checaCamposAlterar(){
+    private boolean checaCamposAlterar(){
         lbQntMin.setForeground(Color.black);
         labelPreco.setForeground(Color.black);
         lbNome.setForeground(Color.black);

@@ -23,7 +23,7 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
         initComponents();
     }
     
-    String temp;
+    private String temp;
     
     private boolean checaCNPJ(){
         jlCNPJ.setForeground(Color.black);

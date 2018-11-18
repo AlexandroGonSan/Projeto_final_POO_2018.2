@@ -139,7 +139,7 @@ public class TelaListarFornecedores extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    Fornecedor forn = new Fornecedor(0);
+    private Fornecedor forn = new Fornecedor(0);
     
     private void btNewFornActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNewFornActionPerformed
         TelaListarFornecedores.this.dispose();

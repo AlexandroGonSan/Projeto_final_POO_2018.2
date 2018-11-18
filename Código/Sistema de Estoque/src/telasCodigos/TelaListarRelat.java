@@ -129,7 +129,7 @@ public class TelaListarRelat extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    Relatorio relat  = new Relatorio(0) {};
+    private Relatorio relat  = new Relatorio(0) {};
     
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
      if (evt.getClickCount() >= 2){
