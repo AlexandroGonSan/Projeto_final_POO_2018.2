@@ -74,10 +74,10 @@ public class Sobre extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jLabel10.setText("Francis Nutefe Tsigbey");
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Rockwell", 0, 48)); // NOI18N
         jLabel2.setText("Team");
 
-        jLabel11.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Rockwell", 0, 48)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 255, 0));
         jLabel11.setText("Lulu");
 
@@ -132,7 +132,7 @@ public class Sobre extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
