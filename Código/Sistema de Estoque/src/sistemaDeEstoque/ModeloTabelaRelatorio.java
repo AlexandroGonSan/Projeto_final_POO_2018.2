@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 /**
  * Classe para controlar as tabelas da interface.
+ * - linhas (ArrayList): guarda a lista dos fornecedores;
+ * - colunas (String[]): array com o nome das colunas que há na tabela.
  * @author LuluTeam
  */
 public class ModeloTabelaRelatorio extends AbstractTableModel {
@@ -75,7 +77,11 @@ public class ModeloTabelaRelatorio extends AbstractTableModel {
     public int getRowCount() {
         return getLinhas().size();
     }
-
+    /**
+     * Esse método retorna o nome da coluna.
+     * @param columnIndex int - índice da coluna.
+     * @return String - nome da coluna.
+     */
     @Override
     public String getColumnName(int columnIndex) {
         return colunas[columnIndex];
