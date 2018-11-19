@@ -10,7 +10,6 @@ import java.util.Date;
  *      - dataES (Date): data que aconteceu aquela movimentação;
  *      - produto (String): nome do produto;
  *      - protocolo (Integer): identificador único daquele protocolo;
- *      - quantidadeProtocolo (int) : esse valor guarda a quantidade de protocolos;
  *      - tipo (String): tipo do produto;
  *      - descricao (String): descrição da movimentação;
  */
@@ -20,7 +19,6 @@ public abstract class Relatorio implements Serializable {
     Date dataES;
     private String produto;
     Integer protocolo;
-    static int quantidadeProtocolo = 1;
     private String tipo;
     String descricao;
     
@@ -35,7 +33,7 @@ public abstract class Relatorio implements Serializable {
         this.setProduto(produto.getNome());
         this.setQuantidade(qnt);
         this.dataES = new Date();
-        this.protocolo = quantidadeProtocolo++;
+        this.protocolo = Dados.IDRela++;
         this.setTipo(tipo);
         this.descricao = descricao;
     }

@@ -5,7 +5,6 @@ import java.util.*;
 /**
  * Classe usada para representar o produto armazenado no estoque.
  * Ele possui o seguintes atributos:
- *      - qntID (Integer): variável que guarda a quantidade de Produtos.
  *      - ID (Integer): identificador daquele produto;
  *      - validade (Date): data de validade do produto;
  *      - lote (String): lote daquele produto;
@@ -17,7 +16,6 @@ import java.util.*;
  */
 
 public class Produto implements Serializable{
-    static Integer qntID = 1;
     Integer ID;  
     Date validade = new Date(); 
     String lote; 
@@ -78,7 +76,8 @@ public class Produto implements Serializable{
         
         System.out.print("Digite o nome do produto: ");
         this.setNome(scanf.nextLine());
-        this.ID = Produto.qntID++;
+   
+        this.ID = Dados.IDdado++;
         
         System.out.print("Insira a data de validade no formato MM/DD/AAAA: ");
         this.validade = new Date(scanf.nextLine());
