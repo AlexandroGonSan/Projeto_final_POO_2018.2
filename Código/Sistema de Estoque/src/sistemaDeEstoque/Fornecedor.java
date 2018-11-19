@@ -11,14 +11,12 @@ import java.util.Scanner;
  *  - nome (String): nome do fornecedor;
  *  - CNPJ (String): CNPJ do fornecedor devendo conter 14 dígitos;
  *  - produtoFornecido (String): nome do produto fornecido;
- *  - alterar (String): a informação a ser alterada pelo usuário;
  * @author LuluTeam
  */
 public class Fornecedor implements Serializable{
     private String nome;
     private String CNPJ;
     private String produtoFornecido;
-    //private String alterar;
     
     public Fornecedor(int a){
     }
@@ -55,10 +53,20 @@ public class Fornecedor implements Serializable{
         this.produtoFornecido = entrada.toUpperCase();
     }
     
+    /**
+     * Esse método retorna o CNPJ do fonecedor.
+     * @return String - retorna o CNPJ.
+     */
     public String getCNPJ(){
         return this.CNPJ;
     }
     
+    /**
+     * Esse método muda o CNPJ caso ele seja válido, ou seja, se ele tem somente números e tem 14 dígitos e
+     * retorna um valor booleano.
+     * @param entrada String - parâmetro com o novo CNPJ.
+     * @return boolean - retorna true caso tenha ocorrido a mudança ou false no caso contrário.
+     */
     public boolean setCNPJ(String entrada){
         try{
             int aux = Integer.parseInt(entrada);
