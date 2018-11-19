@@ -230,11 +230,11 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_btListarProdsActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JOptionPane.showMessageDialog(null, "Cadastrar Produto - Cadastra um novo produto ainda não presente no estoque atual.\n\n" + 
-                "Listar Produtos - Mostra uma lista com os produtos atualmente cadastrados e suas respectivas informações.\n\n" + 
-                "Alterar Produto - Possibilita alterar as informações de um produto cadastrado (Tenha em mente o ID e os campos do produto!).\n\n" +
-                "Registrar Relatório de Entrada - Gera um relatório que registra qual produto entrou no estoque e quantos dele entraram.\n\n" +
-                "Registrar Relatório de Saída - Gera um relatório que registra qual produto saiu do estoque,S para onde e quantos deste produto sairam.");
+        JOptionPane.showMessageDialog(null, "Cadastrar Novo Produto - Cadastra um novo produto ainda não presente no estoque atual.\n\n" + 
+                "Cadastrar Novo Fornecedor - Cadastra um novo fornecedor ainda não presente no sistema.\n\n" + 
+                "Listar Produtos - Mostra uma lista com os produtos atualmente cadastrados e permite a alteração de suas informações.\n\n" +
+                "Listar Fornecedor - Mostra uma lista com os fornecedores atualmente cadastrados e suas respectivas informações.\n\n" +
+                "Registros de Movimentação - Mostra uma lista com as informações sobre as movimentações realizadas, seja entrada ou saída.\n\n");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btCadastrarFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarFornecedorActionPerformed

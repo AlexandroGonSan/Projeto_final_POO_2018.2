@@ -78,10 +78,13 @@ public class TelaListarProdutos extends javax.swing.JFrame {
         lbID = new javax.swing.JLabel();
         lbCat = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
             }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -534,7 +537,8 @@ public class TelaListarProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_btCadNewActionPerformed
 
     private void btVoltarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarListaActionPerformed
-        TelaListarProdutos.this.dispose();        
+        TelaListarProdutos.this.dispose();  
+        new TelaInicial().setVisible(true);
     }//GEN-LAST:event_btVoltarListaActionPerformed
 
     private void btAlterarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarProdActionPerformed
@@ -654,7 +658,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_btRetirarActionPerformed
 
     private void btAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizarActionPerformed
-        TelaListarProdutos.this.setVisible(false);
+        TelaListarProdutos.this.dispose();
         new TelaListarProdutos().setVisible(true);
     }//GEN-LAST:event_btAtualizarActionPerformed
 
@@ -705,8 +709,15 @@ public class TelaListarProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_btReporRetirarActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        new TelaInicial(0).setVisible(true);
+
     }//GEN-LAST:event_formWindowClosed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        int a = JOptionPane.showConfirmDialog(null, "Se fechar agora perderá todas as alterações. Deseja continuar?", "Aviso!", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        if(a == 0){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
