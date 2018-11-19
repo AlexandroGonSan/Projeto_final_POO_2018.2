@@ -13,7 +13,32 @@ import sistemaDeEstoque.Produto;
 import sistemaDeEstoque.Relatorio;
 
 /**
- *
+ * essa classe representa a tela de cadastrar um novo produto.
+ * Ele possui os seguintes atributos:
+ *      - botaoCadastrarProd (JButton): botão 'Cadastrar';
+    private javax.swing.JButton botaoCancelar;
+    private javax.swing.JButton botaoLimparCampos;
+    private javax.swing.JComboBox cbAnoVal;
+    private javax.swing.JComboBox cbCategoria;
+    private javax.swing.JComboBox cbDiaVal;
+    private javax.swing.JComboBox cbMesVal;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jlDescricao;
+    private javax.swing.JLabel jlLote;
+    private javax.swing.JLabel jlNome;
+    private javax.swing.JLabel jlPreco;
+    private javax.swing.JLabel jlQnt;
+    private javax.swing.JLabel jlQntMin;
+    private javax.swing.JTextArea taDescricao;
+    private javax.swing.JTextField tfLote;
+    private javax.swing.JTextField tfNome;
+    private javax.swing.JTextField tfPreco;
+    private javax.swing.JTextField tfQnt;
+    private javax.swing.JTextField tfQntMin;
  * @author Kook Ho
  */
 public class CadastrarProduto extends javax.swing.JFrame {

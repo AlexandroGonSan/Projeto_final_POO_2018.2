@@ -13,7 +13,16 @@ import sistemaDeEstoque.Fornecedor;
 /**
  * Classe que representa a tela de cadastrar fornecedor.
  * Ela possui os seguintes atributos:
- *      - temp (String): variável auxiliar;
+ *      - btCadFornecedor (JButton): representa o botão 'Cadastrar';
+ *      - btCancelar (JButton):  representa o botão 'Cancelar';
+ *      - btLimpar (JButton):  representa o botão 'Limpar';
+ *      - jLabelTitulo (Jlabel): título 'Cadastrar Novo Fornecedor';
+ *      - jlCNPJ (JLabel): título 'CNPJ';
+ *      - jlProdForn (JLabel): título 'Produto Fornecido';
+ *      - jlRazaoSocial (JLabel): título 'Razão Social';
+ *      - tfCNPJ (JTextField): campo de preenchimento do CNPJ;
+ *      - tfProdForn (JTextField): campo de preenchimento do Produto Fornecido;
+ *      - tfRazaoSoc (JTextField): campo de preenchimento da razão social;
  * @author Kook Ho
  */
 public class CadastrarFornecedor extends javax.swing.JFrame {
@@ -86,7 +95,7 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
         }
     }
     /**
-     * 
+     * Esse método esvazia os campos de preencher texto.
      */
     private void limpaCampos(){
         this.tfRazaoSoc.setText("");
@@ -219,7 +228,7 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     /**
-     * Esse método trata quando o botão de cadastrar é apertado.
+     * Esse método é executado quando o botão de 'Cadastrar' é apertado. Ele salva os dados em uma instância Fonecedor.
      * @param evt ActionEvent - variável do evento.
      */
     private void btCadFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadFornecedorActionPerformed
@@ -242,20 +251,36 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Campo Vazio!");
         }
     }//GEN-LAST:event_btCadFornecedorActionPerformed
-
+    /**
+     * Esse método é executado quando o botão de 'Limpar' é apertado. Ele esvazia os campos de preencher texto.
+     * @param evt ActionEvent - variável do evento.
+     */
     private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
         limpaCampos();
     }//GEN-LAST:event_btLimparActionPerformed
 
+    /**
+     * Esse método cancela o cadastro e volta para o menu principal.
+     * @param evt ActionEvent - variável do evento.
+     */
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
         CadastrarFornecedor.this.dispose();
         new TelaInicial().setVisible(true);
     }//GEN-LAST:event_btCancelarActionPerformed
 
+    /**
+     * @deprecated Esse método foi trocado por formWindowClosing(java.awt.event.WindowEvent evt).
+     * Ela é ativada quando é fechado a janela.
+     * @param evt ActionEvent - variável do evento.
+     */
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         
     }//GEN-LAST:event_formWindowClosed
-
+    /**
+     * Ela é ativada quando se tenta fechar a janela, 
+     * quando é ativado ele pergunta se realmente deseja fechar a janela e caso pressione o botão sim, ele fecha a janela, caso não, a janela é mantida.
+     * @param evt ActionEvent - variável do evento.
+     */
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         int a = JOptionPane.showConfirmDialog(null, "Se fechar agora perderá todas as alterações. Deseja continuar?", "Aviso!", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if(a == 0){
@@ -264,6 +289,7 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     /**
+     * Esse método cria e mostra a janela na tela.
      * @param args the command line arguments
      */
     public static void main(String args[]) {
