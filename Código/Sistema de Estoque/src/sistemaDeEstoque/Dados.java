@@ -61,6 +61,10 @@ public class Dados implements Serializable {
             System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
         }
     }
+
+    /**
+     * Esse método serializa os dados dos produtos em um arquivo e em caso de erro, ele emite no terminal o erro.
+     */
     public static void serializarProduto(){
         try {
             FileOutputStream arquivoGrav = new FileOutputStream("TesteProduto.txt"); 
@@ -76,6 +80,10 @@ public class Dados implements Serializable {
         }
     }
     
+    /**
+     * O método busca pelo arquivo que contém os dados dos fornecedores salvos anteriormente 
+     * e carrega para o programa, caso o arquivo não exista, ele exibe um aviso de erro no terminal.
+     */
     public static void deserializarFornecedor(){
         try {
             FileInputStream arquivoLeitura = new FileInputStream ("TesteFornecedor.txt");
