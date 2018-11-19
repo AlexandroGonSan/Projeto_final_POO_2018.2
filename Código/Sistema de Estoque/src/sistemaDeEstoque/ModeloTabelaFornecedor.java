@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 /**
  * Classe para controlar as tabelas da interface.
+ * - linhas (ArrayList): guarda a lista dos fornecedores;
+ * - colunas (String[]): array comm o nome da dos itens que há na tabela.
  * @author LuluTeam
  */
 public class ModeloTabelaFornecedor extends AbstractTableModel {

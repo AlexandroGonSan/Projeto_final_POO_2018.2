@@ -9,13 +9,12 @@ import java.io.Serializable;
  * Classe usada para guardar os dados de uma movimentação de produtos para o estoque.
  *      Essa classe extende a classe abstrata Relatorio.
  *      Ele possui o seguintes atributos:
+ *      - fornecedor (String): nome do fornecedor ddaquela movimentação.
  *      fornecedor - nome do fornecedor daquele produto.
  * @author LuluTeam
  */
 public class Entrada extends Relatorio implements Serializable{
-    /**
-     * fornecedor recebe o nome do fornecedor ddaquela movimentação.
-     */
+
     private String fornecedor;
     /**
      * Construtor da classe. Ele recebe os dados do objeto Produto para para preencher os dados do objeto Entrada.

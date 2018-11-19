@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 /**
  * Classe usada para controlar os dados da interface com o usuário.
+ * Ela possui os seguintes atributos:
  * @author LuluTeam
  */
 public class Dados implements Serializable {
