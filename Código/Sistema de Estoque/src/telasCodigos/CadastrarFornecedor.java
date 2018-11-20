@@ -242,7 +242,6 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
                  ));
                 Dados.serializarFornecedor();
                 JOptionPane.showMessageDialog(null, "Fornecedor Cadastrado com Sucesso!");
-                System.out.println(Dados.Forn);
                 limpaCampos();
             }else{
                 JOptionPane.showMessageDialog(null, "CNPJ está incorreto!");

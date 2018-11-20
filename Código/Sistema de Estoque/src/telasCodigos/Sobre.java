@@ -12,7 +12,7 @@ package telasCodigos;
 public class Sobre extends javax.swing.JFrame {
 
     /**
-     * Creates new form Sobre
+     * Cria uma nova tela de [Sobre] e incializa seus componentes.
      */
     public Sobre() {
         initComponents();
@@ -151,12 +151,17 @@ public class Sobre extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Borão que descarta a tela de [Sobre].
+     * @param evt - Variável de evento.
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Sobre.this.setVisible(false);
+        Sobre.this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Método principal da classe que executa e inicializa a tela.
+     * @param args - Argumentos passados pela linha de comando.
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
