@@ -63,10 +63,10 @@ public class Sobre extends javax.swing.JFrame {
         });
 
         jLabel7.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
-        jLabel7.setText("Autores: Tarlison Sanders Lima Brito");
+        jLabel7.setText("Autores:      Tarlison Sander Lima Brito");
 
         jLabel8.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
-        jLabel8.setText("Luigi Muller S. Linhares");
+        jLabel8.setText("Luigi Muller Sousa Linhares");
 
         jLabel9.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jLabel9.setText("Joshua Kook Ho Pereira");

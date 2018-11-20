@@ -39,7 +39,7 @@ import sistemaDeEstoque.Relatorio;
     private javax.swing.JTextField tfPreco;
     private javax.swing.JTextField tfQnt;
     private javax.swing.JTextField tfQntMin;
- * @author Kook Ho
+ * @author LuluTeam
  */
 public class CadastrarProduto extends javax.swing.JFrame {
     
@@ -83,6 +83,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         botaoLimparCampos = new javax.swing.JButton();
         botaoCancelar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -167,12 +168,22 @@ public class CadastrarProduto extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        jButton1.setText("i");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(68, 68, 68)
+                .addGap(21, 21, 21)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -235,7 +246,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jlQnt)
                                     .addComponent(tfQnt, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addContainerGap(70, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,8 +276,9 @@ public class CadastrarProduto extends javax.swing.JFrame {
                     .addComponent(jlPreco)
                     .addComponent(tfPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlLote)
-                    .addComponent(tfLote, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
+                    .addComponent(tfLote, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(cbDiaVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -274,7 +286,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
                     .addComponent(jLabel10)
                     .addComponent(jLabel11)
                     .addComponent(cbMesVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoCadastrarProd)
                     .addComponent(botaoLimparCampos)
@@ -299,9 +311,23 @@ public class CadastrarProduto extends javax.swing.JFrame {
             
             return true;
         }catch(NumberFormatException e){
-            jlQnt.setForeground(Color.red);
-            jlQntMin.setForeground(Color.red);
-            jlPreco.setForeground(Color.red);
+            try{
+                double preco = Double.parseDouble(this.tfPreco.getText());
+            }catch(NumberFormatException a){
+                jlPreco.setForeground(Color.red);
+            }
+            
+            try{
+                int quant = Integer.parseInt(this.tfQnt.getText());
+            }catch(NumberFormatException a){
+                jlQnt.setForeground(Color.red);
+            }
+            
+            try{
+                int quantmin = Integer.parseInt(this.tfQntMin.getText());
+            }catch(NumberFormatException a){
+                jlQntMin.setForeground(Color.red);
+            }
             
             return false;
         }
@@ -437,6 +463,10 @@ public class CadastrarProduto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowClosing
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JOptionPane.showMessageDialog(null, "Coloque ponto [ . ] ao invés de [ , ] para separar as casas decimais");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -480,6 +510,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbCategoria;
     private javax.swing.JComboBox<String> cbDiaVal;
     private javax.swing.JComboBox<String> cbMesVal;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;

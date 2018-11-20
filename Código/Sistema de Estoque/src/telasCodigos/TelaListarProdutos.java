@@ -673,7 +673,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_ckReporActionPerformed
 
     private void ckRetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckRetirarActionPerformed
-        if(ckRepor.isSelected()){
+        if(ckRetirar.isSelected()){
             tfRetirar.setEnabled(true);
             tfRepor.setEnabled(false);
             ckRepor.setSelected(false);
