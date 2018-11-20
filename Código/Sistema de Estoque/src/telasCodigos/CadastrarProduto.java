@@ -495,7 +495,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
      * @param evt - Variável de evento.
      */
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-
+           
     }//GEN-LAST:event_formWindowClosed
 
     /**
