@@ -181,7 +181,7 @@ public class SistemaDeEstoque implements Serializable{
                         }while(quantidade <= 0 );
                         listAux.get(intAux).reporQuantia(quantidade);
                         Relatorio relatorioNovo2 = new Entrada(listAux.get(intAux), "repor", 10, "Reposiçao");
-                        relatorioNovo2.quantidade = quantidade;
+                        relatorioNovo2.setQuantidade(quantidade);
                         Dados.relatorios.add(relatorioNovo2);
                         System.out.println("");
                         System.out.println("Relatório da operação efetuada:");
@@ -275,12 +275,12 @@ public class SistemaDeEstoque implements Serializable{
                         do{
                             System.out.println("Insira a quantidade a retirar: ");
                             quantidade = scanf.nextInt();
-                        }while( quantidade <= 0 || quantidade > listAux.get(intAux).quantidade);
+                        }while( quantidade <= 0 || quantidade > listAux.get(intAux).getQuantidade());
                       
                         listAux.get(intAux).retirarQuantia(quantidade);
                    
                         Relatorio relatorioNovo3 = new Saida(listAux.get(intAux), "saida", 10, "Retirada");
-                        relatorioNovo3.quantidade = quantidade;
+                        relatorioNovo3.setQuantidade(quantidade);
                         Dados.relatorios.add(relatorioNovo3);
                         System.out.println("");
                         System.out.println("Relatório da operação efetuada:");
@@ -397,7 +397,7 @@ public class SistemaDeEstoque implements Serializable{
                      arquivoLeitura.close();
                         for(Produto prod : Dados.dados){
                             System.out.print("\n"+prod.getNome() + ", Cat: " + prod.getCategoria() + ", ID: " + prod.ID + ", lote: " + prod.lote);
-                            System.out.print(", Preço: " + prod.preco + ", Quant: " + prod.quantidade + ", Quant min: " + prod.quantidadeMinima);
+                            System.out.print(", Preço: " + prod.getPreco() + ", Quant: " + prod.getQuantidade() + ", Quant min: " + prod.getQuantidadeMinima());
                             System.out.println(", Data de Validade: " + prod.getValidade());
                             System.out.println("");
                         }

@@ -91,7 +91,7 @@
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="56" max="32767" attributes="0"/>
+              <EmptySpace pref="55" max="32767" attributes="0"/>
               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
@@ -150,7 +150,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Bahnschrift" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Autores: Tarlison Sanders Lima Brito"/>
+        <Property name="text" type="java.lang.String" value="Autores:      Tarlison Sander Lima Brito"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
@@ -158,7 +158,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Bahnschrift" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Luigi Muller S. Linhares"/>
+        <Property name="text" type="java.lang.String" value="Luigi Muller Sousa Linhares"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
@@ -180,7 +180,7 @@
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="48" style="1"/>
+          <Font name="Rockwell" size="48" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Team"/>
       </Properties>
@@ -188,7 +188,7 @@
     <Component class="javax.swing.JLabel" name="jLabel11">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="48" style="1"/>
+          <Font name="Rockwell" size="48" style="0"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="ff" red="0" type="rgb"/>

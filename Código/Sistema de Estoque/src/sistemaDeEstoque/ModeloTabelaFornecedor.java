@@ -6,7 +6,9 @@ package sistemaDeEstoque;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 /**
- * Classe para controlar as tabelas da interface.
+ * Classe para controlar as tabelas da interface relacionada aos fornecedores.
+ * - linhas (ArrayList): guarda a lista dos fornecedores;
+ * - colunas (String[]): array com o nome das colunas que há na tabela.
  * @author LuluTeam
  */
 public class ModeloTabelaFornecedor extends AbstractTableModel {
@@ -70,12 +72,15 @@ public class ModeloTabelaFornecedor extends AbstractTableModel {
      * @return o número de linhas no modelo para a interface.
      * @see javax.swing.table.TableModel#getRowCount()
      */
-    
     @Override
     public int getRowCount() {
         return getLinhas().size();
     }
-
+    /**
+     * Esse método retorna o nome da coluna.
+     * @param columnIndex int - valor da coluna.
+     * @return String - nome da coluna.
+     */
     @Override
     public String getColumnName(int columnIndex) {
         return colunas[columnIndex];

@@ -11,6 +11,9 @@ public class Saida extends Relatorio implements Serializable{
      * Construtor da classe. Ele recebe os dados do objeto Produto para para preencher os dados do objeto Saida.
      * Ele usa o construtor da superclasse Relatorio para inserir os dados.
      * @param novo Saida - objeto usado para receberos dados.
+     * @param tipo
+     * @param qnt
+     * @param descricao
      */
     public Saida(Produto novo, String tipo, Integer qnt, String descricao){
         super(novo, tipo, qnt, descricao);
@@ -18,11 +21,19 @@ public class Saida extends Relatorio implements Serializable{
     
     /**
      * Método que gera o relatório armazenado no objeto.
+     * @param produto Produto - parâmetro com os dados.
      */
     @Override
     public void gerarRelatorio(Produto produto){
         super.gerarRelatorio(produto);
-        System.out.println("Quantidade do produto retirado: " + this.quantidade);
+        System.out.println("Quantidade do produto retirado: " + this.getQuantidade());
         //System.out.println("Data da retirada:" + this.getDataES());
+    }
+    /**
+     * Esse método retorna o tipo da movimentação.
+     * @return String - tipo de retorno.
+     */
+    public String getTipo(){
+        return ("Saida");
     }
 }

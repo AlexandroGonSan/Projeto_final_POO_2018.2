@@ -6,13 +6,13 @@
 package telasCodigos;
 
 /**
- *
+ * Classe que representa a tela com as informações do grupo.
  * @author Kook Ho
  */
 public class Sobre extends javax.swing.JFrame {
 
     /**
-     * Creates new form Sobre
+     * Cria uma nova tela de [Sobre] e incializa seus componentes.
      */
     public Sobre() {
         initComponents();
@@ -63,10 +63,10 @@ public class Sobre extends javax.swing.JFrame {
         });
 
         jLabel7.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
-        jLabel7.setText("Autores: Tarlison Sanders Lima Brito");
+        jLabel7.setText("Autores:      Tarlison Sander Lima Brito");
 
         jLabel8.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
-        jLabel8.setText("Luigi Muller S. Linhares");
+        jLabel8.setText("Luigi Muller Sousa Linhares");
 
         jLabel9.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jLabel9.setText("Joshua Kook Ho Pereira");
@@ -74,10 +74,10 @@ public class Sobre extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jLabel10.setText("Francis Nutefe Tsigbey");
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Rockwell", 0, 48)); // NOI18N
         jLabel2.setText("Team");
 
-        jLabel11.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Rockwell", 0, 48)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 255, 0));
         jLabel11.setText("Lulu");
 
@@ -132,7 +132,7 @@ public class Sobre extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
@@ -151,12 +151,17 @@ public class Sobre extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Borão que descarta a tela de [Sobre].
+     * @param evt - Variável de evento.
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Sobre.this.setVisible(false);
+        Sobre.this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Método principal da classe que executa e inicializa a tela.
+     * @param args - Argumentos passados pela linha de comando.
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

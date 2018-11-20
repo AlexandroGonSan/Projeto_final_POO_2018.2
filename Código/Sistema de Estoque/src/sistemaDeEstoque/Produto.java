@@ -1,36 +1,29 @@
-/**Classe que será o modelo para os objetos do tipo Produto
- * @author LuluTeam
- */
 package sistemaDeEstoque;
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.*;
-
         
 /**
  * Classe usada para representar o produto armazenado no estoque.
+ * Ele possui o seguintes atributos:
+ *      - ID (Integer): identificador daquele produto;
+ *      - validade (Date): data de validade do produto;
+ *      - lote (String): lote daquele produto;
+ *      - quantidade (int): quantidade do produto;
+ *      - quantidadeMinima (int); quantidade mínima recomendada para o estoque;
+ *      - nome (String): nome do produto;
+ *      - preco (double): preço do produto;
+ *      - categoria (String): categoria do produto (alimento, higiene e medicamento);
  */
 
 public class Produto implements Serializable{
-    static Integer qntID = 1;
     Integer ID;  
     Date validade = new Date(); 
     String lote; 
-    int quantidade = 0; 
-    int quantidadeMinima; 
+    private int quantidade = 0; 
+    private int quantidadeMinima; 
     private String nome; 
-    double preco; 
+    private double preco; 
     private String categoria;
-    
-    transient Scanner scanf = new Scanner(System.in);
-    //private SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
-      
-    
-    /**Método para cadastrar as informações quando o produto for inserido.
-     * Como é um cadastro, todas as informações são inseridas agora.
-     */
     
     /**
      * Construtor que recebe nos argumentos as informações a serem inseridas nos atributos do objeto.
@@ -60,9 +53,16 @@ public class Produto implements Serializable{
         
     }
     
+    /**
+     * Esse construtor serve para instanciar o Produto;
+     * @param a int - valor qualquer.
+     */
     public Produto(int a) {
     }
 
+    /**
+     * Esse construtor cadastra através do método cadastrarProduto().
+     */
     public Produto() {
         this.cadastrarProduto();
     }
@@ -72,9 +72,12 @@ public class Produto implements Serializable{
      */
     
     public void cadastrarProduto() {
+        Scanner scanf = new Scanner(System.in);
+        
         System.out.print("Digite o nome do produto: ");
         this.setNome(scanf.nextLine());
-        this.ID = Produto.qntID++;
+   
+        this.ID = Dados.IDdado++;
         
         System.out.print("Insira a data de validade no formato MM/DD/AAAA: ");
         this.validade = new Date(scanf.nextLine());
@@ -109,26 +112,6 @@ public class Produto implements Serializable{
         }
         System.out.println("");
     }
-    /**A função recebe o nome da categoria e valida caso esteja nas categorias.
-     * @param valor String - recebe o nome da categoria.
-     * @return boolean - retorna true caso o argumento valor seja uma das categorias.
-     */
-    public boolean setCategoria(String valor){
-        String aux = valor.toUpperCase();
-        if(aux.equals("HIGIENE")){
-            this.categoria = "HIGIENE";
-            return true;
-        }
-        if(aux.equals("ALIMENTO")){
-            this.categoria = "ALIMENTO";
-            return true;
-        }
-        if(aux.equals("MEDICAMENTO")){
-            this.categoria = "MEDICAMENTO";
-            return true;
-        }
-        return false;
-    }
     
     /**
      * Método de retorno da categoria do produto.
@@ -139,11 +122,35 @@ public class Produto implements Serializable{
     }
     
     /**
+     * A função recebe o nome da categoria e valida caso esteja nas categorias aceitas.
+     * @param valor String - recebe o nome da categoria.
+     * @return boolean - retorna true caso o argumento valor seja uma das categorias.
+     */
+    public boolean setCategoria(String valor){
+        String aux = valor.toUpperCase();
+        switch (aux) {
+            case "HIGIENE":
+                this.categoria = "HIGIENE";
+                return true;
+            case "ALIMENTO":
+                this.categoria = "ALIMENTO";
+                return true;
+            case "MEDICAMENTO":
+                this.categoria = "MEDICAMENTO";
+                return true;
+            default:
+                break;
+        }
+        return false;
+    }
+    
+    /**
      * Método usado para o usuário alterar uma informação do produto.
      */
     public void alterarProduto(){
 
         int auxInt;
+        Scanner scanf = new Scanner(System.in);
         
         System.out.print("ALTERAR PRODUTO\n"
                 + "Digite qual item vc deseja alterar:\n"
@@ -171,13 +178,13 @@ public class Produto implements Serializable{
                 this.lote = scanf.next();
             case 4:
                 System.out.print("Insira a nova quantidade mínima: ");
-                this.quantidadeMinima = scanf.nextInt();
+                this.setQuantidadeMinima(scanf.nextInt());
             case 5:
                 System.out.print("Insira o nome: ");
                 this.setNome(scanf.nextLine());
             case 6:
                 System.out.print("Insira o preço: ");
-                this.preco = scanf.nextDouble();
+                this.setPreco(scanf.nextDouble());
             case 7:
                 System.out.print("Insira a categoria: ");
                 if( this.setCategoria(scanf.next()) ){//retorna true se for uma das categorias
@@ -222,20 +229,23 @@ public class Produto implements Serializable{
             this.quantidade -= valor;
             if (this.quantidadeMinima > this.quantidade){//analisa se a quantidade atual é menor que a do mínimo
                 System.out.println("Quantidade abaixo do mínimo!");
-            }
-            if (this.quantidade < this.quantidadeMinima){
                 System.out.println("Atenção, a quantidade do produto está abaixo do recomendado");
             }
-            
             return true;
         }
         return false;
     }
-    
+    /**
+     * Método de retorno de informações do produto, retornando o seguinte texto:
+     * Produto {ID = 'ID do produto', validade =  'validade do produto', lote =  'lote do produto' 
+     * quantidade =  'quantidade do produto', quantidade Minima =  'quantidadeMinima do produto', nome =  'nome do produto', 
+     * preco =  'preco do produto', categoria = 'categoria do produto'
+     * @return String - texto de retorno;
+     */
     @Override
     public String toString() {
         return "\nProduto {" + " ID =  " + ID + ", validade =  " + validade + ", lote =  " + lote + ",\n quantidade =  " + quantidade + 
-                ", quantidade Minima =  " + quantidadeMinima + ", nome =  " + nome + ", preco =  " + preco + ", Validade = " + validade+  ", categoria =  " + this.getCategoria() + " \n";
+                ", quantidade Minima =  " + quantidadeMinima + ", nome =  " + nome + ", preco =  " + preco + ", categoria = " + this.getCategoria() + " \n";
     }
         
     /**
@@ -261,14 +271,6 @@ public class Produto implements Serializable{
     public String getLote() {
         return lote;
     }
-
-    public void setQuantidadeMinima(int quantidadeMinima) {
-        this.quantidadeMinima = quantidadeMinima;
-    }
-
-    public void setPreco(double preco) {
-        this.preco = preco;
-    } 
     
     /**
      * Método de retorno da quantidade mínima do produto.
@@ -279,11 +281,37 @@ public class Produto implements Serializable{
     }
     
     /**
-     * O método configura o nome para todas as letras maiúsculas.
-     * @param texto - nome a ser configurado para maiúsculo.
+     * Esse valor altera a quantidade mínima se for válido.
+     * @param valor - novo valor para a quantidade mínima.
+     * @return boolean - true caso a quantidade mínima tenha sido mudado e false caso seja não tenha ocorrido a mudança.
      */
-    public void setNome(String texto){
-        this.nome = texto.toUpperCase();
+    public boolean setQuantidadeMinima(int valor) {
+        if(valor > 0){
+            this.quantidadeMinima = valor;
+            return true;
+        }
+        return false;
+    }
+    
+    /**
+     * Método de retorno do preço do produto.
+     * @return double - preço do produto.
+     */
+    public double getPreco() {
+        return preco;
+    }
+    
+    /**
+     * Esse método muda o preço do produto caso seja um valor válido.
+     * @param preco double - novo preço para alterar.
+     * @return boolean - true caso o preço tenha sido mudado e false caso seja não tenha ocorrido a mudança.
+     */
+    public boolean setPreco(double preco) {
+        if(preco > 0.0){
+            this.preco = preco;
+            return true;
+        }
+        return false;
     }
     
     /**
@@ -293,12 +321,12 @@ public class Produto implements Serializable{
     public String getNome() {
         return nome;
     }
-
+    
     /**
-     * Método de retorno da categoria do produto.
-     * @return double - preço do produto.
+     * O método configura o nome para todas as letras maiúsculas.
+     * @param texto - nome a ser configurado para maiúsculo.
      */
-    public double getPreco() {
-        return preco;
-    }  
+    public void setNome(String texto){
+        this.nome = texto.toUpperCase();
+    }
 }
