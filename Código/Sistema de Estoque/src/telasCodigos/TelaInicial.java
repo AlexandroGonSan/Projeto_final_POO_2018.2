@@ -248,6 +248,9 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_btListarFornActionPerformed
 
     private void btExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExitActionPerformed
+        Dados.serializarFornecedor();
+        Dados.serializarProduto();
+        Dados.serializarRelatorio();
         System.exit(0);
     }//GEN-LAST:event_btExitActionPerformed
 

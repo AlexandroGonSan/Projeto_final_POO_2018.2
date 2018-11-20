@@ -53,6 +53,7 @@ public class Dados implements Serializable {
         catch(Exception e) {
             System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
         }
+        Dados.IDdado += Dados.dados.size();
     }
     public static void serializarProduto(){
         try {
@@ -95,6 +96,7 @@ public class Dados implements Serializable {
         catch(Exception e) {
             System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
         }
+        Dados.IDForn += Dados.Forn.size();
     }
     
     public static void deserializarRelatorio(){
@@ -108,6 +110,7 @@ public class Dados implements Serializable {
         catch(Exception e) {
             System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
         }
+        Dados.IDRela += Dados.relatorios.size();
     }
     
     public static void serializarRelatorio(){
