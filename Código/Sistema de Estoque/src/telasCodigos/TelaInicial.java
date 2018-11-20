@@ -9,13 +9,13 @@ import javax.swing.JOptionPane;
 import sistemaDeEstoque.Dados;
 
 /**
- *
+ * Classe que representa a tela inicial com as informações.
  * @author LuluTeam
  */
 public class TelaInicial extends javax.swing.JFrame {
 
     /**
-     * Creates new form TelaInicial
+     * Esse construtor gera a janela.
      */
     public TelaInicial() {
         initComponents();

@@ -9,13 +9,13 @@ import sistemaDeEstoque.Produto;
 import sistemaDeEstoque.Dados;
 
 /**
- *
+ * Classe que representa a janela de listar os produtos, alterar as informações do produto e repor estoque.
  * @author Kook Ho
  */
 public class TelaAlterarProduto extends javax.swing.JFrame {
 
     /**
-     * Creates new form TelaAlterarProduto
+     * Construtor que gera a janela.
      * @param sel - nome para selecionar o produto a ser alterado.
      */
     public TelaAlterarProduto(String sel) {

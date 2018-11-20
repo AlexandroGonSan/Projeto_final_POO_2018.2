@@ -6,7 +6,7 @@
 package telasCodigos;
 
 /**
- *
+ * Classe que representa a tela com as informações do grupo.
  * @author Kook Ho
  */
 public class Sobre extends javax.swing.JFrame {

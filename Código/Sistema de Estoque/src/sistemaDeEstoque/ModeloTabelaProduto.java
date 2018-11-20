@@ -6,7 +6,7 @@ package sistemaDeEstoque;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 /**
- * Classe para controlar as tabelas da interface.
+ * Classe para controlar as tabelas da interface relacionado a produtos.
  * - linhas (ArrayList): guarda a lista dos produtos;
  * - colunas (String[]): array com o nome das colunas que há na tabela.
  * @author LuluTeam

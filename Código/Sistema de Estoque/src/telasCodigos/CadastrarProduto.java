@@ -13,7 +13,7 @@ import sistemaDeEstoque.Produto;
 import sistemaDeEstoque.Relatorio;
 
 /**
- * essa classe representa a tela de cadastrar um novo produto.
+ * Classe que representa a tela de cadastrar um novo produto.
  * Ele possui os seguintes atributos:
  *      - botaoCadastrarProd (JButton): botão 'Cadastrar';
     private javax.swing.JButton botaoCancelar;

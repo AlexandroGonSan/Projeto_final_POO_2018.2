@@ -7,7 +7,8 @@ import java.io.Serializable;
 import java.util.Scanner;
 
 /**
- * A classe representa um fornecedor e possui os atributos:
+ * A classe representa um fornecedor. 
+ * Ela possui os atributos:
  *  - nome (String): nome do fornecedor;
  *  - CNPJ (String): CNPJ do fornecedor devendo conter 14 dígitos;
  *  - produtoFornecido (String): nome do produto fornecido;
