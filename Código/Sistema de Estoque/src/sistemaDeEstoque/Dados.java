@@ -49,6 +49,7 @@ public class Dados implements Serializable {
      * e carrega para o programa, caso o arquivo não exista, ele exibe um aviso de erro no terminal.
      */
     public static void deserializarProdutos(){
+        Dados.IDdado = 1;
         try
         {
             FileInputStream arquivoLeitura = new FileInputStream ("TesteProduto.txt");
@@ -56,11 +57,11 @@ public class Dados implements Serializable {
             Dados.dados = (ArrayList<Produto>) objLeitura.readObject();
             objLeitura.close();
             arquivoLeitura.close();
-            Dados.IDdado += Dados.dados.size();
         }
         catch(Exception e) {
             System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
         }
+        Dados.IDdado += Dados.dados.size();
     }
 
     /**
@@ -86,17 +87,18 @@ public class Dados implements Serializable {
      * e carrega para o programa, caso o arquivo não exista, ele exibe um aviso de erro no terminal.
      */
     public static void deserializarFornecedor(){
+        Dados.IDForn = 1;
         try {
             FileInputStream arquivoLeitura = new FileInputStream ("TesteFornecedor.txt");
             ObjectInputStream objLeitura =  new ObjectInputStream(arquivoLeitura);
             Dados.Forn = (ArrayList<Fornecedor>) objLeitura.readObject();
             objLeitura.close();
-            arquivoLeitura.close();
-            Dados.IDForn += Dados.Forn.size();
+            arquivoLeitura.close();  
         }
         catch(Exception e) {
             System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
         }
+        Dados.IDForn += Dados.Forn.size();
     }
     
     /**
@@ -122,17 +124,18 @@ public class Dados implements Serializable {
      * e carrega para o programa, caso o arquivo não exista, ele exibe um aviso de erro no terminal.
      */
     public static void deserializarRelatorio(){
+        Dados.IDRela = 1;
         try {
             FileInputStream arquivoLeitura = new FileInputStream ("Relatorios.txt");
             ObjectInputStream objLeitura =  new ObjectInputStream(arquivoLeitura);
             Dados.relatorios = (ArrayList<Relatorio>) objLeitura.readObject();
             objLeitura.close();
             arquivoLeitura.close();
-            Dados.IDRela += Dados.relatorios.size();
         }
         catch(Exception e) {
             System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
         }
+        Dados.IDRela += Dados.relatorios.size();
     }
     
     /**

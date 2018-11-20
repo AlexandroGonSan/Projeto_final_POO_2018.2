@@ -90,9 +90,6 @@ public class CadastrarProduto extends javax.swing.JFrame {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
             }
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
-            }
         });
 
         botaoCadastrarProd.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
@@ -317,23 +314,9 @@ public class CadastrarProduto extends javax.swing.JFrame {
             
             return true;
         }catch(NumberFormatException e){
-            try{
-                double preco = Double.parseDouble(this.tfPreco.getText());
-            }catch(NumberFormatException a){
-                jlPreco.setForeground(Color.red);
-            }
-            
-            try{
-                int quant = Integer.parseInt(this.tfQnt.getText());
-            }catch(NumberFormatException a){
                 jlQnt.setForeground(Color.red);
-            }
-            
-            try{
-                int quantmin = Integer.parseInt(this.tfQntMin.getText());
-            }catch(NumberFormatException a){
                 jlQntMin.setForeground(Color.red);
-            }
+            jlPreco.setForeground(Color.red);
             
             return false;
         }
@@ -423,7 +406,6 @@ public class CadastrarProduto extends javax.swing.JFrame {
      */
     private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
         CadastrarProduto.this.dispose();
-        new TelaInicial().setVisible(true);
     }//GEN-LAST:event_botaoCancelarActionPerformed
 
     /**
@@ -465,9 +447,9 @@ public class CadastrarProduto extends javax.swing.JFrame {
                   to com peguiça então faço depois*/
                 //System.out.println(Dados.dados);
                 Relatorio relatorioNovo = new Entrada(Dados.dados.get(Dados.dados.size()-1), "Entrada", Integer.parseInt(tfQnt.getText()), "Cadastro de produto novo");
-                //System.out.println(relatorioNovo.getDataES());
-                //System.out.println(relatorioNovo.getTipo());
-                //System.out.println(relatorioNovo.getProtocolo());
+                System.out.println(relatorioNovo.getDataES());
+                System.out.println(relatorioNovo.getTipo());
+                System.out.println(relatorioNovo.getProtocolo());
                 Dados.relatorios.add(relatorioNovo);
                 
                 
@@ -486,7 +468,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
      * @param evt - Variável de evento.
      */
     private void cbAnoValActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAnoValActionPerformed
-       
+        // TODO add your handling code here:
     }//GEN-LAST:event_cbAnoValActionPerformed
 
     /**
@@ -495,22 +477,8 @@ public class CadastrarProduto extends javax.swing.JFrame {
      * @param evt - Variável de evento.
      */
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-           
+        new TelaInicial(0).setVisible(true);
     }//GEN-LAST:event_formWindowClosed
-
-    /**
-     * Evento que ocorre ao tentar fechar a tela.
-     * É exibida uma mensagem de aviso caso o usuário tente fechar a tela. Caso ele confirme o
-     * fechamento, o sistema será encerrado e as alterações perdidas. Caso contrário a tela não
-     * será fechada e o sistema continuará a funcionar.
-     * @param evt - Variável de evento.
-     */
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        int a = JOptionPane.showConfirmDialog(null, "Se fechar agora perderá todas as alterações. Deseja continuar?", "Aviso!", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-        if(a == 0){
-            System.exit(0);
-        }
-    }//GEN-LAST:event_formWindowClosing
 
     /**
      * Método principal da janela que inicializa a tela.

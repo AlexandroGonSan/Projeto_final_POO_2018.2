@@ -82,9 +82,6 @@ public class TelaListarProdutos extends javax.swing.JFrame {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
             }
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
-            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
@@ -487,7 +484,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
      * Método que checa se os campos estão corretamente preenchidos.
      * @return - true caso estejam todos corretos, false caso contrário.
      */
-    private boolean checaCamposAlterar(){
+    private Boolean checaCamposAlterar(){
         lbQntMin.setForeground(Color.black);
         labelPreco.setForeground(Color.black);
         lbNome.setForeground(Color.black);
@@ -541,7 +538,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
      * @param evt - Variável de evento.
      */
     private void btCadNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadNewActionPerformed
-        TelaListarProdutos.this.dispose();
+        TelaListarProdutos.this.setVisible(false);
         new CadastrarProduto().setVisible(true);
     }//GEN-LAST:event_btCadNewActionPerformed
 
@@ -552,7 +549,6 @@ public class TelaListarProdutos extends javax.swing.JFrame {
      */
     private void btVoltarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarListaActionPerformed
         TelaListarProdutos.this.dispose();  
-        new TelaInicial().setVisible(true);
     }//GEN-LAST:event_btVoltarListaActionPerformed
 
     /**
@@ -587,7 +583,9 @@ public class TelaListarProdutos extends javax.swing.JFrame {
      * @param evt - Variável de evento.
      */
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-
+        if (evt.getClickCount() >= 2){
+            System.out.println(jTable1.getModel().getValueAt(jTable1.getSelectedRow(), -1));
+        }
     }//GEN-LAST:event_jTable1MouseClicked
 
     /**
@@ -684,8 +682,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
             }else{
                 try{
                     int testRepor = Integer.parseInt(tfRetirar.getText());
-                    boolean resposta = selecionado.retirarQuantia(Integer.parseInt(tfRetirar.getText()));
-                    if(resposta){
+                    selecionado.retirarQuantia(Integer.parseInt(tfRetirar.getText()));
                         Dados.relatorios.add(
                             new Saida(
                                 selecionado,
@@ -695,9 +692,6 @@ public class TelaListarProdutos extends javax.swing.JFrame {
                             )
                         );
                         JOptionPane.showMessageDialog(null, "Quantia retirada com sucesso!");
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Quantia não retirada");
-                    }
                 }catch(NumberFormatException e){
                     JOptionPane.showMessageDialog(null, "Valor inválido!");
                 }
@@ -715,7 +709,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
      * @param evt - Variável de evento.
      */
     private void btAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizarActionPerformed
-        TelaListarProdutos.this.dispose();
+        TelaListarProdutos.this.setVisible(false);
         new TelaListarProdutos().setVisible(true);
     }//GEN-LAST:event_btAtualizarActionPerformed
 
@@ -784,28 +778,9 @@ public class TelaListarProdutos extends javax.swing.JFrame {
       } 
     }//GEN-LAST:event_btReporRetirarActionPerformed
 
-    /**
-     * @deprecated Evento anteriormente usado para quando a janela fosse fechada.
-     * Substuido pelo evento formWindowClosing(java.awt.event.WindowEvent evt).
-     * @param evt - Variável de evento.
-     */
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-
+        new TelaInicial(0).setVisible(true);
     }//GEN-LAST:event_formWindowClosed
-
-    /**
-     * Evento que ocorre quando o usuário tenta fechar a janela.
-     * Exibe uma janela de aviso que pede confirmação para fechar a tela.
-     * Caso seja confirmada, o sistema é encerrado e perde todas as alterações.
-     * Caso não seja confirmada, a janela não é fechada e o sistema continua funcionando.
-     * @param evt - Variável de evento.
-     */
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        int a = JOptionPane.showConfirmDialog(null, "Se fechar agora perderá todas as alterações. Deseja continuar?", "Aviso!", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-        if(a == 0){
-            System.exit(0);
-        }
-    }//GEN-LAST:event_formWindowClosing
 
     /**
      * Método principal da classe que executa e inicializa a tela.
