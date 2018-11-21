@@ -162,6 +162,9 @@ public class TelaListarRelat extends javax.swing.JFrame {
      * @param evt - Variável de evento.
      */
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
+        Dados.serializarProduto();
+        Dados.serializarRelatorio();
+        Dados.serializarFornecedor();
         TelaListarRelat.this.dispose();
         new TelaInicial().setVisible(true);
     }//GEN-LAST:event_btVoltarActionPerformed

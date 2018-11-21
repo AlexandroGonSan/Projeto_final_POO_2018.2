@@ -6,6 +6,7 @@
 package telasCodigos;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
 import sistemaDeEstoque.Dados;
@@ -27,6 +28,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
         initComponents();
         jSplitPane1.resetToPreferredSizes();
         jSplitPane1.setEnabled(false);
+        checaEstoque();
     }
     
     /**
@@ -461,6 +463,23 @@ public class TelaListarProdutos extends javax.swing.JFrame {
     
     private Produto selecionado = new Produto(0);
     
+    private void checaEstoque(){
+       ArrayList<Produto> temp = new ArrayList<Produto>();
+        for(Produto prod : Dados.dados){
+            if(prod.getQuantidade() < prod.getQuantidadeMinima()){
+                temp.add(prod);
+            }
+        }
+       if(temp.size() > 0){
+        String concat = "Produtos abaixo da quantidade mínima:\n";
+        for(Produto prod : temp){
+            concat = concat.concat(prod.getNome() + "\n");
+        }
+        
+        JOptionPane.showMessageDialog(null, concat);
+       }
+    }
+    
     /**
      * Método que reseta os campos para seu estado padrão.
      */
@@ -538,6 +557,9 @@ public class TelaListarProdutos extends javax.swing.JFrame {
      * @param evt - Variável de evento.
      */
     private void btCadNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadNewActionPerformed
+        Dados.serializarProduto();
+        Dados.serializarRelatorio();
+        Dados.serializarFornecedor();
         TelaListarProdutos.this.setVisible(false);
         new CadastrarProduto().setVisible(true);
     }//GEN-LAST:event_btCadNewActionPerformed
@@ -548,6 +570,9 @@ public class TelaListarProdutos extends javax.swing.JFrame {
      * @param evt - Variável de evento.
      */
     private void btVoltarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarListaActionPerformed
+        Dados.serializarProduto();
+        Dados.serializarRelatorio();
+        Dados.serializarFornecedor();
         TelaListarProdutos.this.dispose();  
     }//GEN-LAST:event_btVoltarListaActionPerformed
 
@@ -710,6 +735,9 @@ public class TelaListarProdutos extends javax.swing.JFrame {
      * @param evt - Variável de evento.
      */
     private void btAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizarActionPerformed
+        Dados.serializarProduto();
+        Dados.serializarRelatorio();
+        Dados.serializarFornecedor();
         TelaListarProdutos.this.setVisible(false);
         new TelaListarProdutos().setVisible(true);
     }//GEN-LAST:event_btAtualizarActionPerformed

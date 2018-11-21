@@ -158,6 +158,9 @@ public class TelaListarFornecedores extends javax.swing.JFrame {
      * @param evt - Variável de evento.
      */
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
+        Dados.serializarProduto();
+        Dados.serializarRelatorio();
+        Dados.serializarFornecedor();
         TelaListarFornecedores.this.dispose();
         new TelaInicial().setVisible(true);
     }//GEN-LAST:event_btVoltarActionPerformed

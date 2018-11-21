@@ -458,6 +458,9 @@ public class CadastrarProduto extends javax.swing.JFrame {
      * @param evt - Variável de evento.
      */
     private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
+        Dados.serializarProduto();
+        Dados.serializarRelatorio();
+        Dados.serializarFornecedor();
         CadastrarProduto.this.dispose();
     }//GEN-LAST:event_botaoCancelarActionPerformed
 
@@ -510,10 +513,13 @@ public class CadastrarProduto extends javax.swing.JFrame {
                 
                 
                 limpaCampos();
+                Dados.serializarProduto();
+                Dados.serializarRelatorio();
+                Dados.serializarFornecedor();
               }else{
                 Produto produ = new Produto(0);
                 for(Produto prod : Dados.dados){
-                    if(prod.getNome().equals(this.tfNome.getText())){
+                    if(prod.getNome().toUpperCase().equals(this.tfNome.getText().toUpperCase())){
                         produ = prod;
                         produ.reporQuantia(Integer.parseInt(this.tfQnt.getText()));
                         break;
@@ -522,6 +528,9 @@ public class CadastrarProduto extends javax.swing.JFrame {
                 Relatorio relatorioNovo = new Entrada(produ, "Entrada", Integer.parseInt(tfQnt.getText()), "Adição ao estoque novo");
                 Dados.relatorios.add(relatorioNovo);
                 limpaCampos();
+                Dados.serializarProduto();
+                Dados.serializarRelatorio();
+                Dados.serializarFornecedor();
                 JOptionPane.showMessageDialog(null, "Produta já cadastrado, a quantia será adicionada ao estoque.");
               }
             }else{

@@ -240,6 +240,8 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
                         tfProdForn.getText(),
                         tfCNPJ.getText()  
                  ));
+                Dados.serializarProduto();
+                Dados.serializarRelatorio();
                 Dados.serializarFornecedor();
                 JOptionPane.showMessageDialog(null, "Fornecedor Cadastrado com Sucesso!");
                 limpaCampos();
@@ -263,6 +265,9 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
      * @param evt ActionEvent - variável do evento.
      */
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
+        Dados.serializarProduto();
+        Dados.serializarRelatorio();
+        Dados.serializarFornecedor();
         CadastrarFornecedor.this.dispose();
         new TelaInicial().setVisible(true);
     }//GEN-LAST:event_btCancelarActionPerformed
