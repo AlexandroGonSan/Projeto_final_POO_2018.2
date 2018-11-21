@@ -314,7 +314,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
      */
     private boolean naoCad(){
         for(Produto prod: Dados.dados){
-            if(prod.getNome().equals(this.tfNome.getText())){
+            if(prod.getNome().toUpperCase().equals(this.tfNome.getText().toUpperCase())){
                 return false;
             }
         }
@@ -333,14 +333,14 @@ public class CadastrarProduto extends javax.swing.JFrame {
         
       if(jComboBox1.getSelectedIndex() != 0){
         for(Fornecedor forn : Dados.Forn){
-            if(forn.getNome().equals(prodforn)){
+            if(forn.getNome().toUpperCase().equals(prodforn.toUpperCase())){
                 forne = forn;
                 break;
             }
         }
         
         System.out.println("A: " + forne.getProdutoFornecido() + " B: " + this.tfNome.getText());
-        if(forne != null && forne.getProdutoFornecido().equals(this.tfNome.getText())){
+        if(forne != null && forne.getProdutoFornecido().toUpperCase().equals(this.tfNome.getText().toUpperCase())){
             return true;
         }else{
             return false;
