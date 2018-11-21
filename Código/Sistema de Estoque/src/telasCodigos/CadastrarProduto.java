@@ -297,6 +297,15 @@ public class CadastrarProduto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
+    private boolean naoCad(){
+        for(Produto prod: Dados.dados){
+            if(prod.getNome().equals(this.tfNome.getText())){
+                return false;
+            }
+        }
+        return true;
+    }
+    
     /**
      * Método que checa se os campos de [Quantidade], [Quantidade mínima]
      * e de [Preço] estão preenchidos corretamente com números.
@@ -429,6 +438,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
     private void botaoCadastrarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarProdActionPerformed
         if(checaCamposVazios()){
             if(checaNumero()){
+              if(naoCad()){
                 Dados.dados.add(
                 new Produto(
                         Dados.IDdado++,
@@ -455,10 +465,24 @@ public class CadastrarProduto extends javax.swing.JFrame {
                 
                 limpaCampos();
             }else{
-                JOptionPane.showMessageDialog(null, "Um dos campos: [Qnt], [Qnt Mínima] ou [Preço]\n não está preenchido com números!");
+                Produto produ = new Produto(0);
+                for(Produto prod : Dados.dados){
+                    if(prod.getNome().equals(this.tfNome.getText())){
+                        produ = prod;
+                        produ.reporQuantia(Integer.parseInt(this.tfQnt.getText()));
+                        break;
+                    }
+                }
+                Relatorio relatorioNovo = new Entrada(produ, "Entrada", Integer.parseInt(tfQnt.getText()), "Adição ao estoque novo");
+                Dados.relatorios.add(relatorioNovo);
+                limpaCampos();
+                JOptionPane.showMessageDialog(null, "Produta já cadastrado, a quantia será adicionada ao estoque.");
             }
         }else{
-            JOptionPane.showMessageDialog(null, "Algum dos campos está vazio!");
+            JOptionPane.showMessageDialog(null, "Um dos campos: [Qnt], [Qnt Mínima] ou [Preço]\n não está preenchido com números!");
+        }
+    }else{
+        JOptionPane.showMessageDialog(null, "Algum dos campos está vazio!");
         }
         
     }//GEN-LAST:event_botaoCadastrarProdActionPerformed
