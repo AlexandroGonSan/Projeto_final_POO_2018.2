@@ -579,12 +579,13 @@ public class TelaListarProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     /**
-     * @deprecated Evento anteriormente usado para quando o usuário clicasse duas vezes na tabela.
+     * Evento usado para quando o usuário clicasse duas vezes na tabela.
+     * Exibe as informações do produto.
      * @param evt - Variável de evento.
      */
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         if (evt.getClickCount() >= 2){
-            System.out.println(jTable1.getModel().getValueAt(jTable1.getSelectedRow(), -1));
+            JOptionPane.showMessageDialog(null, jTable1.getModel().getValueAt(jTable1.getSelectedRow(), -1));
         }
     }//GEN-LAST:event_jTable1MouseClicked
 

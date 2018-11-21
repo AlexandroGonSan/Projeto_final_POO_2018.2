@@ -24,10 +24,12 @@ public class Produto implements Serializable{
     private String nome; 
     private double preco; 
     private String categoria;
+    private String fornecedor;
     
     /**
      * Construtor que recebe nos argumentos as informações a serem inseridas nos atributos do objeto.
      * @param ID Integer - ID do produto;
+     * @param forn String - fornecedor deste produto;
      * @param lote String - lote do produto;
      * @param quantidade int - quantidade do produto;
      * @param quantidadeMinima int - quatidade mínima aceitável do produto no estoque;
@@ -38,7 +40,7 @@ public class Produto implements Serializable{
      * @param month String - mês de validade do produto que será subtraído por 1;
      * @param year String - ano de validade do produto que será subtraído por 1900;
      */
-    public Produto(Integer ID, String lote, int quantidade, int quantidadeMinima, String nome, double preco, String categoria, String day, String month, String year) {
+    public Produto(Integer ID, String forn, String lote, int quantidade, int quantidadeMinima, String nome, double preco, String categoria, String day, String month, String year) {
         
         this.ID = ID;
         this.lote = lote;
@@ -50,6 +52,7 @@ public class Produto implements Serializable{
         this.validade.setDate(Integer.parseInt(day));
         this.validade.setMonth(Integer.parseInt(month)-1);
         this.validade.setYear(Integer.parseInt(year)-1900);
+        this.fornecedor = forn;
         
     }
     
@@ -244,8 +247,8 @@ public class Produto implements Serializable{
      */
     @Override
     public String toString() {
-        return "\nProduto {" + " ID =  " + ID + ", validade =  " + validade + ", lote =  " + lote + ",\n quantidade =  " + quantidade + 
-                ", quantidade Minima =  " + quantidadeMinima + ", nome =  " + nome + ", preco =  " + preco + ", categoria = " + this.getCategoria() + " \n";
+        return " ID =  " + ID + ", validade =  " + validade + ", lote =  " + lote + ",\n quantidade =  " + quantidade + 
+                ", quantidade Minima =  " + quantidadeMinima + ", nome =  " + nome + ", preco =  " + preco + ", categoria = " + this.getCategoria() + "Fornecedor: " + this.getFornecedor();
     }
         
     /**
@@ -321,6 +324,16 @@ public class Produto implements Serializable{
     public String getNome() {
         return nome;
     }
+
+    /**
+     * Método de retorno do fornecedor do produto.
+     * @return String - fornecedor do produto.
+     */
+    public String getFornecedor() {
+        return fornecedor;
+    }
+    
+    
     
     /**
      * O método configura o nome para todas as letras maiúsculas.

@@ -6,9 +6,11 @@
 package telasCodigos;
 
 import java.awt.Color;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import sistemaDeEstoque.Dados;
 import sistemaDeEstoque.Entrada;
+import sistemaDeEstoque.Fornecedor;
 import sistemaDeEstoque.Produto;
 import sistemaDeEstoque.Relatorio;
 
@@ -48,6 +50,10 @@ public class CadastrarProduto extends javax.swing.JFrame {
      */
     public CadastrarProduto() {
         initComponents();
+        jComboBox1.setModel(new DefaultComboBoxModel(new String[] {"-Fornecedor-"}));
+        for(Fornecedor forn : Dados.Forn){
+            jComboBox1.addItem(forn.getNome());
+        }
     }
 
     /**
@@ -84,6 +90,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
         botaoCancelar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -172,6 +179,8 @@ public class CadastrarProduto extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Bahnschrift", 1, 10)); // NOI18N
         jLabel3.setText("* Utilize [ . ](ponto) e não utilize [  , ](vírgula).");
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -229,18 +238,20 @@ public class CadastrarProduto extends javax.swing.JFrame {
                                         .addGap(33, 33, 33)))))
                         .addGap(67, 67, 67))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(taDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jlDescricao)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jlNome)
-                                    .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jlQnt)
-                                    .addComponent(tfQnt, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tfQnt, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jlNome)
+                                .addGap(154, 154, 154)
+                                .addComponent(jlQnt)))
+                        .addContainerGap(65, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel3)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -257,7 +268,8 @@ public class CadastrarProduto extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfQnt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfQnt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jlDescricao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -296,7 +308,10 @@ public class CadastrarProduto extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    /**
+     * Método para checar se o produto a ser cadastrado não existe no estoque.
+     * @return - false caso esteja, true caso não esteja.
+     */
     private boolean naoCad(){
         for(Produto prod: Dados.dados){
             if(prod.getNome().equals(this.tfNome.getText())){
@@ -304,6 +319,35 @@ public class CadastrarProduto extends javax.swing.JFrame {
             }
         }
         return true;
+    }
+    
+    /**
+     * Método que checa o fornecedor.
+     * Checa se o produto a ser cadastrado é o mesmo o qual o fornecedor selecionado fornece.
+     * @param a - índice do fornecedor selecionado.
+     * @return - true caso o produto seja igual ao produto do fornecedor, false caso contrário.
+     */
+    private boolean checaForn(int a){
+        String prodforn = jComboBox1.getItemAt(a);
+        Fornecedor forne = new Fornecedor(0);
+        
+      if(jComboBox1.getSelectedIndex() != 0){
+        for(Fornecedor forn : Dados.Forn){
+            if(forn.getNome().equals(prodforn)){
+                forne = forn;
+                break;
+            }
+        }
+        
+        System.out.println("A: " + forne.getProdutoFornecido() + " B: " + this.tfNome.getText());
+        if(forne != null && forne.getProdutoFornecido().equals(this.tfNome.getText())){
+            return true;
+        }else{
+            return false;
+        }
+      }else{
+          return false;
+      }
     }
     
     /**
@@ -437,11 +481,13 @@ public class CadastrarProduto extends javax.swing.JFrame {
      */
     private void botaoCadastrarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarProdActionPerformed
         if(checaCamposVazios()){
+          if(checaForn(this.jComboBox1.getSelectedIndex())){
             if(checaNumero()){
               if(naoCad()){
                 Dados.dados.add(
                 new Produto(
                         Dados.IDdado++,
+                        jComboBox1.getItemAt(jComboBox1.getSelectedIndex()),
                         tfLote.getText(),
                         Integer.parseInt(tfQnt.getText()),
                         Integer.parseInt(tfQntMin.getText()),
@@ -464,7 +510,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
                 
                 
                 limpaCampos();
-            }else{
+              }else{
                 Produto produ = new Produto(0);
                 for(Produto prod : Dados.dados){
                     if(prod.getNome().equals(this.tfNome.getText())){
@@ -477,12 +523,15 @@ public class CadastrarProduto extends javax.swing.JFrame {
                 Dados.relatorios.add(relatorioNovo);
                 limpaCampos();
                 JOptionPane.showMessageDialog(null, "Produta já cadastrado, a quantia será adicionada ao estoque.");
+              }
+            }else{
+                JOptionPane.showMessageDialog(null, "Um dos campos: [Qnt], [Qnt Mínima] ou [Preço]\n não está preenchido com números!");
             }
+          }else{
+                JOptionPane.showMessageDialog(null, "Fornecedor inválido: nenhum fornecedor selecionado ou o fornecedor não fornece este produto.");
+          }
         }else{
-            JOptionPane.showMessageDialog(null, "Um dos campos: [Qnt], [Qnt Mínima] ou [Preço]\n não está preenchido com números!");
-        }
-    }else{
-        JOptionPane.showMessageDialog(null, "Algum dos campos está vazio!");
+            JOptionPane.showMessageDialog(null, "Algum dos campos está vazio!");    
         }
         
     }//GEN-LAST:event_botaoCadastrarProdActionPerformed
@@ -548,6 +597,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbCategoria;
     private javax.swing.JComboBox<String> cbDiaVal;
     private javax.swing.JComboBox<String> cbMesVal;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
