@@ -38,6 +38,10 @@ public class SistemaDeEstoque implements Serializable{
         
         Scanner scanf = new Scanner(System.in);
         
+        /**
+         * Estrutura do while para opcao da entrada da tela.  
+         */
+        
         while(opcao != 10){
             System.out.println("O que deseja fazer ?\nDigite o número da opção desejada:");
             System.out.println("1 - Cadastrar novo Produtos ao estoque");
@@ -49,6 +53,9 @@ public class SistemaDeEstoque implements Serializable{
             System.out.println("10 - Sair do programa");
             System.out.print("Digite a opção: ");
        
+            /**
+             * Tratação de error try catch para pegar error da digitação da opcao 
+             */
             try{
                 opcao = scanf.nextInt();
                 scanf.nextLine();
@@ -58,9 +65,16 @@ public class SistemaDeEstoque implements Serializable{
                 break;
                 }
            
+          /**
+           * Switch case para opcao de instrução  
+           */
           
             switch (opcao){
                 case 1:
+                    /**
+                     * Deserialização dos objetos na classe produto
+                     * Metódo try catch pra tratar error em caso arquivo não abrir
+                     */
                     try {
                  
                      FileInputStream arquivoLeitura = new FileInputStream ("TesteProduto.txt");
@@ -73,6 +87,11 @@ public class SistemaDeEstoque implements Serializable{
                     catch(Exception e) {
                             System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
                     }
+                    
+                    /**
+                     * Deserialização dos objetos na classe relatorio 
+                     * Metódo try catch pra tratar error em caso arquivo não abrir
+                     */
                     try {
                      FileInputStream arquivoLeitura = new FileInputStream ("Relatorios.txt");
                      ObjectInputStream objLeitura =  new ObjectInputStream(arquivoLeitura);
@@ -85,12 +104,16 @@ public class SistemaDeEstoque implements Serializable{
                             System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
                     }
                     
+                    
                     System.out.println("ADICIONAR PRODUTO:");
                     Dados.dados.add(new Produto());
                     Relatorio relatorioNovo = new Entrada(Dados.dados.get(Dados.dados.size()-1), "Entrada", 10, "Cadastro");
                     Dados.relatorios.add(relatorioNovo);
                     
-                    
+                     /**
+                     * serialização dos objetos na classe produto 
+                     * Metódo try catch pra tratar error em caso arquivo não abrir
+                     */
                     try {
                         FileOutputStream arquivoGrav = new FileOutputStream("TesteProduto.txt"); 
                         ObjectOutputStream objGravar = new ObjectOutputStream(arquivoGrav);
@@ -104,6 +127,11 @@ public class SistemaDeEstoque implements Serializable{
                     catch(IOException e) {
                         System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
                     }
+                    
+                    /**
+                     * serialização dos objetos na classe relatorio 
+                     * Metódo try catch pra tratar error em caso arquivo não abrir
+                     */
                     try {
                         FileOutputStream arquivoGrav = new FileOutputStream("Relatorios.txt"); 
                         ObjectOutputStream objGravar = new ObjectOutputStream(arquivoGrav);
@@ -120,6 +148,10 @@ public class SistemaDeEstoque implements Serializable{
                     
                     
                 case 2:
+                    /**
+                     * Deserialização dos objetos na classe produto
+                     * Metódo try catch pra tratar error em caso arquivo não abrir
+                     */
                     try {
                  
                      FileInputStream arquivoLeitura = new FileInputStream ("TesteProduto.txt");
@@ -132,6 +164,10 @@ public class SistemaDeEstoque implements Serializable{
                     catch(Exception e) {
                             System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
                     }
+                    /**
+                     * Deserialização dos objetos na classe relatorio
+                     * Metódo try catch pra tratar error em caso arquivo não abrir
+                     */
                     try {
                  
                      FileInputStream arquivoLeitura = new FileInputStream ("Relatorios.txt");
@@ -144,7 +180,10 @@ public class SistemaDeEstoque implements Serializable{
                     catch(Exception e) {
                             System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
                     }
-                 
+                 /**
+                  * Alteração de estoque do produto. 
+                  * 
+                  */
                     System.out.println("Insira o nome ou parte dele: ");
                     strAux = scanf.nextLine();
                     strAux = strAux.toUpperCase();
@@ -187,7 +226,10 @@ public class SistemaDeEstoque implements Serializable{
                         System.out.println("Relatório da operação efetuada:");
                         Dados.relatorios.get(Dados.relatorios.size()-1).gerarRelatorio(listAux.get(intAux));                                                
                     }
-                    
+                    /**
+                     * serialização dos objetos na classe produto 
+                     * Metódo try catch pra tratar error em caso arquivo não abrir
+                     */
                     try {
                         FileOutputStream arquivoGrav = new FileOutputStream("TesteProduto.txt"); 
                         ObjectOutputStream objGravar = new ObjectOutputStream(arquivoGrav);
@@ -200,6 +242,10 @@ public class SistemaDeEstoque implements Serializable{
                     catch(IOException e) {
                         System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
                     }
+                    /**
+                     * serialização dos objetos na classe relatorio 
+                     * Metódo try catch pra tratar error em caso arquivo não abrir
+                     */
                     try {
                         FileOutputStream arquivoGrav = new FileOutputStream("Relatorios.txt"); 
                         ObjectOutputStream objGravar = new ObjectOutputStream(arquivoGrav);
@@ -216,6 +262,10 @@ public class SistemaDeEstoque implements Serializable{
                     System.out.println("Retornando ao menu principal");
                     break;
                 case 3:
+                    /**
+                     * Deserialização dos objetos na classe produto
+                     * Metódo try catch pra tratar error em caso arquivo não abrir
+                     */
                     try {
                  
                      FileInputStream arquivoLeitura = new FileInputStream ("TesteProduto.txt");
@@ -228,7 +278,10 @@ public class SistemaDeEstoque implements Serializable{
                     catch(Exception e) {
                             System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
                     }
-                    
+                    /**
+                     * Deserialização dos objetos na classe relatorio
+                     * Metódo try catch pra tratar error em caso arquivo não abrir
+                     */
                     try {
                  
                      FileInputStream arquivoLeitura = new FileInputStream ("Relatorios.txt");
@@ -287,6 +340,10 @@ public class SistemaDeEstoque implements Serializable{
                         Dados.relatorios.get(Dados.relatorios.size()-1).gerarRelatorio(listAux.get(intAux));
                         System.out.println(""); 
                     }
+                    /**
+                     * serialização dos objetos na classe produto
+                     * Metódo try catch pra tratar error em caso arquivo não abrir
+                     */
                     try {
                         FileOutputStream arquivoGrav = new FileOutputStream("TesteProduto.txt"); 
                         ObjectOutputStream objGravar = new ObjectOutputStream(arquivoGrav);
@@ -300,6 +357,10 @@ public class SistemaDeEstoque implements Serializable{
                     catch(IOException e) {
                         System.out.println("ERROR! não foi possível abrir o arquivo! " + e.getMessage());
                     }
+                    /**
+                     * serialização dos objetos na classe relatorio
+                     * Metódo try catch pra tratar error em caso arquivo não abrir
+                     */
                     try {
                         FileOutputStream arquivoGrav = new FileOutputStream("Relatorios.txt"); 
                         ObjectOutputStream objGravar = new ObjectOutputStream(arquivoGrav);
@@ -316,7 +377,10 @@ public class SistemaDeEstoque implements Serializable{
                     System.out.println("Retornando ao menu principal");
                     break;
                 case 4:
-                    
+                    /**
+                     * Deserialização dos objetos na classe relatorio
+                     * Metódo try catch pra tratar error em caso arquivo não abrir
+                     */
                     try {
                  
                      FileInputStream arquivoLeitura = new FileInputStream ("Relatorios.txt");
@@ -352,6 +416,10 @@ public class SistemaDeEstoque implements Serializable{
 
                     break;
                 case 5:
+                    /**
+                     * Deserialização dos objetos na classe Fornecedor
+                     * Metódo try catch pra tratar error em caso arquivo não abrir
+                     */
                     try {
                  
                      FileInputStream arquivoLeitura = new FileInputStream ("TesteFornecedor.txt");
@@ -367,6 +435,10 @@ public class SistemaDeEstoque implements Serializable{
                     System.out.println("ADICIONAR FORNECEDOR");
                     Dados.Forn.add(new Fornecedor());
                     
+                    /**
+                     * serialização dos objetos na classe Fronecedores
+                     * Metódo try catch pra tratar error em caso arquivo não abrir
+                     */
                     try {
  
                         FileOutputStream arquivoGrav = new FileOutputStream("TesteFornecedor.txt");
@@ -387,7 +459,11 @@ public class SistemaDeEstoque implements Serializable{
                     break;
                     
                 case 6:
-      
+                     /**
+                     * Deserialização dos objetos na classe Produto
+                     * Metódo try catch pra tratar error em caso arquivo não abrir
+                     * Abrir informação sobre produto serializado
+                     */
                     try {
              
                      FileInputStream arquivoLeitura = new FileInputStream ("TesteProduto.txt");
