@@ -6,13 +6,14 @@
 package telasCodigos;
 
 /**
- *
+ * Classe que representa a tela de registrar uma movimentação de entrada.
  * @author Kook Ho
  */
 public class TelaRelatorioEntrada extends javax.swing.JFrame {
 
     /**
-     * Creates new form TelaRelatorioEntrada
+     * Creates new form TelaRelatorioEntrada.
+     * 
      */
     public TelaRelatorioEntrada() {
         initComponents();

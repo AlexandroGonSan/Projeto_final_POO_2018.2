@@ -10,10 +10,10 @@ public class Saida extends Relatorio implements Serializable{
     /**
      * Construtor da classe. Ele recebe os dados do objeto Produto para para preencher os dados do objeto Saida.
      * Ele usa o construtor da superclasse Relatorio para inserir os dados.
-     * @param novo Saida - objeto usado para receberos dados.
-     * @param tipo String do nome
-     * @param qnt Quantidade do produto
-     * @param descricao do produto
+     * @param novo Produto - objeto usado para receberos dados;
+     * @param tipo String - tipo de movimentação;
+     * @param qnt Integer - quantidade do produto;
+     * @param descricao String - descrição do produto.
      */
     public Saida(Produto novo, String tipo, Integer qnt, String descricao){
         super(novo, tipo, qnt, descricao);

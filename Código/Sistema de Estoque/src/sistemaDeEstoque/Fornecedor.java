@@ -8,9 +8,9 @@ import java.util.Scanner;
 
 /**
  * A classe representa um fornecedor. 
- * Ela possui os atributos:
- *  - nome (String): nome do fornecedor;
- *  - CNPJ (String): CNPJ do fornecedor devendo conter 14 dígitos;
+ * Ela possui os atributos:\n
+ *  - nome (String): nome do fornecedor;\n
+ *  - CNPJ (String): CNPJ do fornecedor devendo conter 14 dígitos;\n
  *  - produtoFornecido (String): nome do produto fornecido;
  * @author LuluTeam
  */
@@ -18,10 +18,17 @@ public class Fornecedor implements Serializable{
     private String nome;
     private String CNPJ;
     private String produtoFornecido;
-    
+    /**
+     * Construtor para intanciar um fornecedor.
+     * @param a int - inteiro qualquer.
+     */
     public Fornecedor(int a){
     }
     
+    /**
+     * Construtor para intanciar um fornecedor e cadastrá-lo pelo terminal.
+     * 
+     */
     Fornecedor(){
         this.cadastrarFornecedor();
     }
@@ -37,19 +44,32 @@ public class Fornecedor implements Serializable{
         this.setProdutoFornecido(prodForn);
         this.setCNPJ(CNPJ);
     }
-    
+    /**
+     * Método que retorna o nome do fornecedor.
+     * @return String - nome do fornecedor.
+     */
     public String getNome() {
         return nome;
     }
-    
+    /**
+     * Método que muda o nome do fornecedor.
+     * @param entrada String - novo nome do fornecedor.
+     */
     public void setNome(String entrada) {
         this.nome = entrada.toUpperCase();
     }
-
+    /**
+     * Esse método retorna o nome do produto fornecido.
+     * @return String - nome do produto fornecido.
+     */
     public String getProdutoFornecido() {
         return produtoFornecido;
     }
     
+    /**
+     * Esse método muda o nome produto fornecido.
+     * @param entrada String - novo nome do produto fornecido.
+     */
     public void setProdutoFornecido(String entrada) {
         this.produtoFornecido = entrada.toUpperCase();
     }
@@ -83,6 +103,7 @@ public class Fornecedor implements Serializable{
     }
     /**
      * O método é usado para o usuário cadastar os dados do fornecedor.
+     * 
      */
     public void cadastrarFornecedor(){
         Scanner scanf = new Scanner(System.in);
@@ -97,6 +118,7 @@ public class Fornecedor implements Serializable{
 
     /**
      * Esse método é usado para alterar o nome ou CNPJ do fornecedor.
+     * 
      */
     public void alterarFornecedor(){
         String alterar;

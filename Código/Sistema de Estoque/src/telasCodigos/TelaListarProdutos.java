@@ -16,13 +16,14 @@ import sistemaDeEstoque.Produto;
 import sistemaDeEstoque.Saida;
 
 /**
- *
+ * Classe que representa a tela de exibir os produtos listados e a de editar as informações.
  * @author Kook Ho
  */
 public class TelaListarProdutos extends javax.swing.JFrame {
 
     /**
      * Cria uma nova tela de Listar Produtos.
+     * 
      */
     public TelaListarProdutos() {
         initComponents();
@@ -34,6 +35,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
     /**
      * Método chamado internamente pelo construtor para incializar a tela.
      * Os conteúdos são sempre gerados pelo editor.
+     * 
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -482,6 +484,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
     
     /**
      * Método que reseta os campos para seu estado padrão.
+     * 
      */
     private void resetaCampos(){
         this.tfNomeAlt.setText("");
@@ -501,7 +504,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
     
     /**
      * Método que checa se os campos estão corretamente preenchidos.
-     * @return - true caso estejam todos corretos, false caso contrário.
+     * @return Boolean - true caso estejam todos corretos, false caso contrário.
      */
     private Boolean checaCamposAlterar(){
         lbQntMin.setForeground(Color.black);

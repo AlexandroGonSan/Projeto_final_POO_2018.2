@@ -6,8 +6,8 @@ package sistemaDeEstoque;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 /**
- * Classe para controlar as tabelas da interface relacionado a produtos.
- * - linhas (ArrayList): guarda a lista dos produtos;
+ * Classe para controlar as tabelas da interface relacionado a produtos.\n
+ * - linhas (ArrayList): guarda a lista dos produtos;\n
  * - colunas (String[]): array com o nome das colunas que há na tabela.
  * @author LuluTeam
  */
@@ -18,7 +18,7 @@ public class ModeloTabelaProduto extends AbstractTableModel {
 
     /**
      * O método é usado para definir as informações da tabela na interface.
-     * @param dados - é os dados com as informações necessárias sobre o produto(ID, Nome, Quantidade).
+     * @param dados ArrayList - é os dados com as informações necessárias sobre o produto(ID, Nome, Quantidade).
      */
     public ModeloTabelaProduto(ArrayList dados) {
         setLinhas(dados);
@@ -42,7 +42,7 @@ public class ModeloTabelaProduto extends AbstractTableModel {
 
     /**
      * O método configura as colunas da lista dos produtos.
-     * @param strings - valor recebido para colocar nas colunas.
+     * @param strings ArrayList - valor recebido para colocar nas colunas.
      */
     public void setColunas(String[] strings) {
         colunas = strings;
@@ -50,7 +50,7 @@ public class ModeloTabelaProduto extends AbstractTableModel {
 
     /**
      * O método configura as linhas da lista dos produtos.
-     * @param list - valor recebido para colocar nas linhas.
+     * @param list ArrayList - valor recebido para colocar nas linhas.
      */
     private void setLinhas(ArrayList list) {
         linhas = list;
@@ -89,9 +89,9 @@ public class ModeloTabelaProduto extends AbstractTableModel {
     
     /**
      * O método obtem o valor na linha e coluna.
-     * @param rowIndex - linha onde está o produto;
-     * @param columnIndex -  coluna onde está o produto;
-     * @return o produto já que não foi selecionado nada na interface.
+     * @param rowIndex int - linha onde está o produto;
+     * @param columnIndex int - coluna onde está o produto;
+     * @return Object - produto já que não foi selecionado nada na interface.
      * //@see javax.swing.table.TableModel#getValueAt(int, int).
     */
     

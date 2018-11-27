@@ -4,13 +4,13 @@ import java.util.Date;
 
 /**
  * Classe abstrata dos Relatorios, de Entrada e Saida.
- * Ele possui o seguintes atributos:
- *      - qntID (Integer): variável que guarda a quantidade de Produtos.
- *      - quantidade (int): quantidade de produtos que aconteceram nessa movimentação;
- *      - dataES (Date): data que aconteceu aquela movimentação;
- *      - produto (String): nome do produto;
- *      - protocolo (Integer): identificador único daquele protocolo;
- *      - tipo (String): tipo do produto;
+ * Ele possui o seguintes atributos:\n
+ *      - qntID (Integer): variável que guarda a quantidade de Produtos;\n
+ *      - quantidade (int): quantidade de produtos que aconteceram nessa movimentação;\n
+ *      - dataES (Date): data que aconteceu aquela movimentação;\n
+ *      - produto (String): nome do produto;\n
+ *      - protocolo (Integer): identificador único daquele protocolo;\n
+ *      - tipo (String): tipo do produto;\n
  *      - descricao (String): descrição da movimentação;
  */
 

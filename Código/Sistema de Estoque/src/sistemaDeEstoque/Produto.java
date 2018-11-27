@@ -4,14 +4,14 @@ import java.util.*;
         
 /**
  * Classe usada para representar o produto armazenado no estoque.
- * Ele possui o seguintes atributos:
- *      - ID (Integer): identificador daquele produto;
- *      - validade (Date): data de validade do produto;
- *      - lote (String): lote daquele produto;
- *      - quantidade (int): quantidade do produto;
- *      - quantidadeMinima (int); quantidade mínima recomendada para o estoque;
- *      - nome (String): nome do produto;
- *      - preco (double): preço do produto;
+ * Ele possui o seguintes atributos:\n
+ *      - ID (Integer): identificador daquele produto;\n
+ *      - validade (Date): data de validade do produto;\n
+ *      - lote (String): lote daquele produto;\n
+ *      - quantidade (int): quantidade do produto;\n
+ *      - quantidadeMinima (int); quantidade mínima recomendada para o estoque;\n
+ *      - nome (String): nome do produto;\n
+ *      - preco (double): preço do produto;\n
  *      - categoria (String): categoria do produto (alimento, higiene e medicamento);
  */
 
@@ -65,6 +65,7 @@ public class Produto implements Serializable{
 
     /**
      * Esse construtor cadastra através do método cadastrarProduto().
+     * 
      */
     public Produto() {
         this.cadastrarProduto();
@@ -72,6 +73,7 @@ public class Produto implements Serializable{
 
     /**
      * Método para o usuário cadastrar as informações do produto.
+     * 
      */
     
     public void cadastrarProduto() {
@@ -149,6 +151,7 @@ public class Produto implements Serializable{
     
     /**
      * Método usado para o usuário alterar uma informação do produto.
+     * 
      */
     public void alterarProduto(){
 
@@ -239,7 +242,7 @@ public class Produto implements Serializable{
         return false;
     }
     /**
-     * Método de retorno de informações do produto, retornando o seguinte texto:
+     * Método de retorno de informações do produto, retornando o seguinte texto:\n
      * Produto {ID = 'ID do produto', validade =  'validade do produto', lote =  'lote do produto' 
      * quantidade =  'quantidade do produto', quantidade Minima =  'quantidadeMinima do produto', nome =  'nome do produto', 
      * preco =  'preco do produto', categoria = 'categoria do produto'
@@ -285,7 +288,7 @@ public class Produto implements Serializable{
     
     /**
      * Esse valor altera a quantidade mínima se for válido.
-     * @param valor - novo valor para a quantidade mínima.
+     * @param valor int - novo valor para a quantidade mínima.
      * @return boolean - true caso a quantidade mínima tenha sido mudado e false caso seja não tenha ocorrido a mudança.
      */
     public boolean setQuantidadeMinima(int valor) {
@@ -337,7 +340,7 @@ public class Produto implements Serializable{
     
     /**
      * O método configura o nome para todas as letras maiúsculas.
-     * @param texto - nome a ser configurado para maiúsculo.
+     * @param texto String - nome a ser configurado para maiúsculo.
      */
     public void setNome(String texto){
         this.nome = texto.toUpperCase();

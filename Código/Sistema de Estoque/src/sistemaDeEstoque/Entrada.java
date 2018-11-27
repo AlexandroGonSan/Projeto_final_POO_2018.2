@@ -10,7 +10,6 @@ import java.io.Serializable;
  *      Essa classe extende a classe abstrata Relatorio.
  *      Ele possui o seguintes atributos:
  *      - fornecedor (String): nome do fornecedor daquela movimentação.
- *      fornecedor - nome do fornecedor daquele produto.
  * @author LuluTeam
  */
 public class Entrada extends Relatorio implements Serializable{
@@ -28,7 +27,6 @@ public class Entrada extends Relatorio implements Serializable{
     public Entrada(Produto novo, String tipo, Integer qnt, String descricao) {
         super(novo, tipo, qnt, descricao);
     }
-
     
     /**
      * O método imprime na tela as informações do objeto relatório, 

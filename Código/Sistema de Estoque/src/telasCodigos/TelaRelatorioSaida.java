@@ -6,7 +6,7 @@
 package telasCodigos;
 
 /**
- *
+ * Classe que representa a tela de registrar uma movimentação de saída.
  * @author Kook Ho
  */
 public class TelaRelatorioSaida extends javax.swing.JFrame {
